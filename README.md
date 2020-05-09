@@ -15,4 +15,4 @@ Features:
 - Dynamic Ambiance
 - Share Score on Social Networks
 
-### [Twitter @doodle_cricket](https://twitter.com/doodle_cricket)
+### [Twitter @doodlecricket](https://twitter.com/doodlecricket)
