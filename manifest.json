@@ -1,0 +1,22 @@
+{
+    "name": "Doodle Cricket",
+    "short_name": "Cricket",
+    "description": "Welcome to the Doodle Cricket Game! Powered By Advance AI Algorithms. This is a game built for you the cricket fan! Every cricket lover can now have the most lightweight mobile cricket game at the palm of their hands! You can play the maximum number of cricket shots without having over limits. Be prepared for awesome fun!",
+    "display": "standalone",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "statics/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "statics/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#09a3d1"
+}
