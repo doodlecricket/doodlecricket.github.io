@@ -14,16 +14,12 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.881f89ac5cd37ceea621673ccc8217ea.js"
+  "precache-manifest.3c392ca411344131a1ebdd96e10e7606.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "doodlecricket"});
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+workbox.core.skipWaiting();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
