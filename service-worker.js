@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.4cabe7d098ba7c2888cd2316d91f31af.js"
+  "precache-manifest.1fafde63f4ce380630b2be511950e189.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "doodlecricket"});
