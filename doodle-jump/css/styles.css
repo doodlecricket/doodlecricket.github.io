@@ -1,0 +1,117 @@
+:root {
+  --ad-top-height: 50px;
+  --ad-bottom-height: 100px;
+  --ad-left-width: 300px;
+  --ad-right-width: 300px;
+
+  --ad-top-bg-color: #000;
+  --ad-bottom-bg-color: #000;
+  --ad-left-bg-color: #000;
+  --ad-right-bg-color: #000;
+
+  --content-height: calc(
+    100vh - var(--ad-top-height) - var(--ad-bottom-height)
+  );
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #0e0e0e;
+}
+
+.container {
+  color: white;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.row .col {
+  flex: 10000 1 0%;
+  width: auto;
+  max-width: 100%;
+}
+
+.row .col-auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.content {
+  max-height: var(--content-height);
+}
+.ad-top {
+  min-height: var(--ad-top-height);
+  background-color: var(--ad-top-bg-color);
+}
+.ad-left {
+  min-width: var(--ad-left-width);
+  min-height: var(--content-height);
+  background-color: var(--ad-left-bg-color);
+}
+.ad-right {
+  min-width: var(--ad-right-width);
+  min-height: var(--content-height);
+  background-color: var(--ad-right-bg-color);
+}
+.ad-bottom {
+  min-height: var(--ad-bottom-height);
+  background-color: var(--ad-bottom-bg-color);
+}
+
+@media (max-width: 1200px) {
+  .ad-left,
+  .ad-right {
+    display: none;
+  }
+}
+
+/* Game specific styles */
+
+canvas {
+  margin: 0px !important;
+  display: inline-block !important;
+}
+
+.keyboard {
+  text-align: center;
+  bottom: var(--ad-bottom-height);
+  position: fixed;
+  display: none;
+  margin: auto;
+  width: 100%;
+}
+
+.keyboard button {
+  margin-left: 5px;
+  font-size: 1rem;
+  padding: 10px;
+  background: #f4e7d1;
+  border: 3px solid #231f20;
+  opacity: 0.4;
+}
+
+#left-btn {
+  margin-right: 10px;
+}
+
+#right-btn {
+  margin-left: 10px;
+}
+
+.keyboard button:active {
+  opacity: 1;
+}
