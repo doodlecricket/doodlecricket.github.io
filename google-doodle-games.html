@@ -45,13 +45,16 @@
     googletag.cmd = googletag.cmd || [];
     googletag.cmd.push(function () {
       if (window.innerWidth >= 1200) {
-        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right', [[300,600],[160,600],[300,250],[300,300]], 'doodlecricket_github_io_sidebar_right_desktop').addService(googletag.pubads());
-        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_left', [[300,600],[160,600],[300,250],[300,300]], 'doodlecricket_github_io_sidebar_left_desktop').addService(googletag.pubads());
-        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor', [[1000,100],[970,90],[728,90],[990,90],[970,50],[960,90],[950,90],[980,90]], 'doodlecricket_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right', [[300, 600], [160, 600], [300, 250], [300, 300]], 'doodlecricket_github_io_sidebar_right_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_left', [[300, 600], [160, 600], [300, 250], [300, 300]], 'doodlecricket_github_io_sidebar_left_desktop').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'doodlecricket_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'doodlecricket_github_io_top_responsive').addService(googletag.pubads());
       } else if (window.innerWidth >= 1024) {
         googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'doodlecricket_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top', [[1000, 100], [970, 90], [728, 90], [990, 90], [970, 50], [960, 90], [950, 90], [980, 90]], 'doodlecricket_github_io_top_responsive').addService(googletag.pubads());
       } else {
         googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_320x100_mobile_anchor', [[320, 100], [320, 50], [300, 100], [300, 50]], 'doodlecricket_github_io_anchor_ad_responsive').addService(googletag.pubads());
+        googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_320x50_mobile_top', [[320, 50], [300, 50]], 'doodlecricket_github_io_top_responsive').addService(googletag.pubads());
       }
 
       var interstitialSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/doodlecricket.github.io_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
@@ -79,9 +82,11 @@
 
     <h2>Doodle Jump</h2>
     <img class="rounded-lg w-full" src="/doodle-jump.jpeg" alt="Doodle Jump Online">
-    <p>Doodle Jump is an incredibly popular and addictive mobile game first released in 2009. The core gameplay is very simple - you control a cute creature called "The Doodler" who constantly jumps upwards. Your goal is to guide The Doodler up an endless series of platforms without falling off the screen.</p>
+    <p>Doodle Jump is an incredibly popular and addictive mobile game first released in 2009. The core gameplay is very
+      simple - you control a cute creature called "The Doodler" who constantly jumps upwards. Your goal is to guide The
+      Doodler up an endless series of platforms without falling off the screen.</p>
     <a class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
-       href="/doodle-jump">Play Doodle Jump Online here</a>
+      href="/doodle-jump">Play Doodle Jump Online here</a>
 
     <h2 id="pac-man-2010-">PAC-MAN (2010)</h2>
     <img class="rounded-lg" src="/pac-man.jpeg" alt="Doodle PAC-MAN">
