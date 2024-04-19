@@ -6,26 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Doodle Games</title>
   <style>
-    .sticky-sidebar {
-      display: block;
+    body {
+      padding-bottom: 100px;
+    }
+
+    .top-placeholder {
+      height: 70px;
+      z-index: 100;
       position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 300px;
-      height: 600px;
-      z-index: 10;
-    }
-
-    .left-sidebar {
+      top: 0;
       left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .right-sidebar {
+    .bottom-placeholder {
+      height: 100px !important;
+      background: #679F1F;
+      z-index: 100;
+      position: fixed;
+      bottom: 0;
+      left: 0;
       right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sticky-sidebar {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .top-placeholder {
+        height: 90px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .sticky-sidebar {
+        display: block;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 600px;
+        z-index: 10;
+      }
+
+      .left-sidebar {
+        left: 0;
+      }
+
+      .right-sidebar {
+        right: 0;
+      }
     }
   </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
-    crossorigin="anonymous"></script>
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398"
+    crossorigin="anonymous"></script> -->
   <script defer data-domain="doodlecricket.github.io" src="https://stats.senty.com.au/js/script.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105728110-1"></script>
   <script>window.dataLayer = window.dataLayer || [];
@@ -74,7 +115,19 @@
 </head>
 
 <body>
-  <div class="prose prose-md mx-auto max-w-2xl py-16 px-4">
+  <div id="doodlecricket_github_io_sidebar_left_desktop" class="sticky-sidebar left-sidebar" style="">
+    <script>
+      googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_left_desktop'); });
+    </script>
+  </div>
+
+
+  <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar" style="">
+    <script>
+      googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
+    </script>
+  </div>
+  <div class="prose prose-md mx-auto max-w-2xl py-16 px-4 mt-[50px] sm:mt-[90px]">
     <h1>Google Doodle Games</h1>
     <p>Google has created many interactive games and puzzles as part of their Google Doodles over the years to celebrate
       various events, anniversaries, and holidays. Here are some of the most popular and notable Google Doodle games:
@@ -123,6 +176,14 @@
     <p>Many of these games, along with hundreds of others, can still be played through the Google Doodle archive. Google
       has created Doodle games for various occasions like holidays, sporting events, and notable anniversaries.</p>
 
+  </div>
+
+  <div class="top-placeholder">
+    <div id="doodlecricket_github_io_top_responsive">
+      <script>
+        googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_top_responsive'); });
+      </script>
+    </div>
   </div>
 
   <div id="doodlecricket_github_io_anchor_ad_responsive">
