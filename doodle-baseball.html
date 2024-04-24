@@ -74,6 +74,7 @@
       justify-content: flex-end;
       text-align: center;
       line-height: 12px;
+      font-weight: bold;
     }
 
     .doodle-games a {
@@ -94,7 +95,7 @@
       color: black;
     }
 
-    .doodle-baseball {
+    .doodle-cricket {
       position: fixed;
       top: 90px;
       left: 80px;
@@ -102,9 +103,46 @@
       justify-content: flex-end;
       text-align: center;
       line-height: 12px;
+      font-weight: bold;
     }
 
-    .doodle-baseball a {
+    .doodle-cricket a {
+      padding: 2px 4px;
+      font-size: smaller;
+      text-decoration: none;
+      color: black;
+    }
+
+    .doodle-jump {
+      position: fixed;
+      top: 170px;
+      left: 10px;
+      display: flex;
+      justify-content: flex-end;
+      text-align: center;
+      line-height: 12px;
+      font-weight: bold;
+    }
+
+    .doodle-jump a {
+      padding: 2px 4px;
+      font-size: smaller;
+      text-decoration: none;
+      color: black;
+    }
+
+    .doodle-halloween {
+      position: fixed;
+      top: 170px;
+      left: 80px;
+      display: flex;
+      justify-content: flex-end;
+      text-align: center;
+      line-height: 12px;
+      font-weight: bold;
+    }
+
+    .doodle-halloween a {
       padding: 2px 4px;
       font-size: smaller;
       text-decoration: none;
@@ -128,8 +166,18 @@
         left: 304px;
       }
 
-      .doodle-baseball {
+      .doodle-cricket {
         top: 110px;
+        left: 384px;
+      }
+
+      .doodle-jump {
+        top: 194px;
+        left: 304px;
+      }
+
+      .doodle-halloween {
+        top: 194px;
         left: 384px;
       }
     }
@@ -237,7 +285,7 @@
       </span>
     </a></div>
 
-  <div class="doodle-baseball"><a title="Cricket" href="/" target="_blank">
+  <div class="doodle-cricket"><a title="Cricket" href="/" target="_blank">
       <div class="doodle-games-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
           <path fill="currentColor"
@@ -246,10 +294,42 @@
       </div>
 
       <span style="max-width: 44px; display:block">
-        Cricket
+        Doodle Cricket
       </span>
 
-    </a></div>
+    </a>
+  </div>
+  <div class="doodle-jump"><a href="/doodle-jump" target="_blank">
+      <div class="doodle-games-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+          <circle cx="25.373" cy="15.383" r=".75" fill="currentColor" />
+          <circle cx="21.997" cy="15.842" r=".75" fill="currentColor" />
+          <path fill="none" stroke="currentColor" stroke-linejoin="round"
+            d="M29.898 24.434c-.506-2.16-.092-3.192 1.63-4.364s5.605-1.378 9.746.43c2.541-1.441.632-5.576-1.221-7.775c-4.482 2.845-8.18 3.602-11.029 1.628c-3.601-5.643-8.053-9.108-13.93-8.47c-4.583.498-8.673 5.75-9.42 10.135c-.779 4.483 1.236 8.867 2.307 12.245c1.105 3.866 1.885 6.886 2.08 9.355c5.392-.098 15.753-3.443 21.503-4.808c.065-1.429-.342-3.4-1.665-8.375z" />
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            d="M8.761 32.582c5.652-1.884 10.297-2.567 13.448-3.086s7.244-1.3 8.543-1.624m-23.648.714c1.767-.78 17.313-3.118 22.64-4.352m-19.62 12.051c.65-.617.423-.974 2.405-1.267s6.139-1.104 10.33-2.11s7.308-1.528 8.64-1.04m6.506-17.93c-.114 1.332.942 5.007 2.894 6.293M28.574 33.72l1.04 4.353a21 21 0 0 0 2.988-.488m-9.03-2.306c.054 1.632.403 3.056.716 4.515a3.4 3.4 0 0 0 1.85-.032m-7.86-3.022c.022 1.782.184 3.35.552 4.613c.975.21 1.657.099 2.24-.13m-7.86-3.768c.183 1.703.35 3.298.196 4.58c.93.23 1.951.19 2.5 0" />
+        </svg>
+      </div>
+
+      <span style="max-width: 44px; display:block">
+        Doodle Jump
+      </span>
+    </a>
+  </div>
+
+  <div class="doodle-halloween"><a href="/doodle-halloween" target="_blank">
+      <div class="doodle-games-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M6.5 6c.97 0 1.87.5 2.61 1.38c.55-.59 1.2-1.02 1.89-1.23V4a2 2 0 0 1 2-2h2v2h-2v2.15c.69.21 1.34.64 1.89 1.23C15.63 6.5 16.53 6 17.5 6C20 6 22 9.36 22 13.5S20 21 17.5 21c-.97 0-1.87-.5-2.61-1.38C14.08 20.5 13.08 21 12 21s-2.08-.5-2.89-1.38C8.37 20.5 7.47 21 6.5 21C4 21 2 17.64 2 13.5S4 6 6.5 6M9 10l-1.25 2.25h2.5zm6 0l-1.25 2.25h2.5zm-7 7h2l1-1l1 1h2l1-1l1 1l1.5-3l-3.58.62L13 16l-1-1h-2l-1 1l-1-1l-2-1z" />
+        </svg>
+      </div>
+
+      <span style="max-width: 44px; display:block">
+        Doodle Halloween
+      </span>
+    </a>
+  </div>
 
   <div id="doodlecricket_github_io_anchor_ad_responsive">
     <script>
