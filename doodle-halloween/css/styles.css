@@ -101,9 +101,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
-  justify-items: center;
-  align-content: center;
 }
 
 @media (max-width: 1200px) {
