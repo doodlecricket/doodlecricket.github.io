@@ -259,7 +259,7 @@
         class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[1000]"
         @toggle-games.window="$el.classList.toggle('hidden');show=true">
 
-        <div x-show="show" class=" bg-white p-4 rounded-lg shadow-lg max-w-md w-full mx-auto">
+        <div x-show="show" class=" bg-white p-4 rounded-lg text-black shadow-lg max-w-md w-full mx-auto">
           <h2 class="text-lg text-center mb-4 font-black">Choose your next game</h2>
 
           <ul @click.away="$dispatch('toggle-games'); show=false"
