@@ -116,7 +116,7 @@
   </script>
 </head>
 
-<body>
+<body x-data="{show:false}">
   <div class="container">
     <div class="row ad-top">
       <div class="col">
@@ -170,21 +170,20 @@
   <script src="/doodle-jump/js/main.js"></script>
   <script src="/doodle-jump/js/scripts.js"></script>
 
-  <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
+  <div class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
     <button
       class="animate-bounce bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
-      @click="$dispatch('toggle-games')">Doodle<br>
+      @click="show=true">Doodle<br>
       Games</button>
   </div>
 
-  <div x-data="{show:false}"
-    class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[1000]"
-    @toggle-games.window="$el.classList.toggle('hidden');show=true">
+  <div class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[1000]"
+    :class="{'hidden':!show}">
 
     <div x-show="show" class=" bg-white p-4 rounded-lg shadow-lg max-w-md w-full mx-auto">
       <h2 class="text-lg text-center mb-4 font-black">Choose your next game</h2>
 
-      <ul @click.away="$dispatch('toggle-games'); show=false" class="grid gap-4 grid-flow-col mx-auto auto-cols-max">
+      <ul @click.away="show=false" class="grid gap-4 grid-flow-col mx-auto auto-cols-max">
         <li class="relative group w-full gap-1 flex flex-col items-center">
           <div
             class="bg-green-100 group-hover:bg-green-200 rounded-full w-14 h-14 ring ring-green-500 flex justify-center items-center">
