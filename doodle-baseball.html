@@ -20,6 +20,9 @@
     content="Doodle Baseball brings the classic game of baseball to life with charming hand-drawn graphics and simple yet addictive gameplay. Step up to the plate and swing for the fences as you aim to hit home runs and score runs against your opponent. With easy-to-learn controls and a nostalgic doodle style, this game offers hours of fun for baseball fans of all ages." />
   <meta property="og:site_name" content="Doodle Cricket Game" />
 
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <meta name="description"
     content="Doodle Baseball brings the classic game of baseball to life with charming hand-drawn graphics and simple yet addictive gameplay. Step up to the plate and swing for the fences as you aim to hit home runs and score runs against your opponent. With easy-to-learn controls and a nostalgic doodle style, this game offers hours of fun for baseball fans of all ages." />
 
@@ -273,62 +276,92 @@
     </div>
   </div>
 
-  <div class="doodle-games"><a href="/google-doodle-games" target="_blank">
-      <div class="doodle-games-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
-          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-            d="M28.8 4.5h8.1v39h-8.1v-1.8c-5.4 3.4-12.5 1.8-15.9-3.6s-1.8-12.5 3.6-15.9c3.7-2.4 8.5-2.4 12.2 0V4.5zm-6.1 22.7c-2.6 0-4.8 2.1-4.8 4.8s2.1 4.8 4.8 4.8s4.8-2.1 4.8-4.8c0-2.6-2.2-4.8-4.8-4.8q0 0 0 0" />
-        </svg>
-      </div>
-      <span style="max-width: 44px; display:block">
-        Doodle Games
-      </span>
-    </a></div>
-
-  <div class="doodle-cricket"><a title="Cricket" href="/" target="_blank">
-      <div class="doodle-games-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M15 14.2L12.2 17q-.3.3-.7.3t-.7-.3L2.3 8.5Q2 8.2 2 7.825t.3-.675l2.8-2.8q.3-.3.725-.3t.725.3L15 12.8q.3.3.3.7t-.3.7m3.6 7.8l-4.25-4.25l1.4-1.4L20 20.6zm-.1-13q-1.45 0-2.475-1.025T15 5.5t1.025-2.475T18.5 2t2.475 1.025T22 5.5t-1.025 2.475T18.5 9" />
-        </svg>
-      </div>
-
-      <span style="max-width: 44px; display:block">
-        Doodle Cricket
-      </span>
-
-    </a>
-  </div>
-  <div class="doodle-jump"><a href="/doodle-jump" target="_blank">
-      <div class="doodle-games-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
-          <circle cx="25.373" cy="15.383" r=".75" fill="currentColor" />
-          <circle cx="21.997" cy="15.842" r=".75" fill="currentColor" />
-          <path fill="none" stroke="currentColor" stroke-linejoin="round"
-            d="M29.898 24.434c-.506-2.16-.092-3.192 1.63-4.364s5.605-1.378 9.746.43c2.541-1.441.632-5.576-1.221-7.775c-4.482 2.845-8.18 3.602-11.029 1.628c-3.601-5.643-8.053-9.108-13.93-8.47c-4.583.498-8.673 5.75-9.42 10.135c-.779 4.483 1.236 8.867 2.307 12.245c1.105 3.866 1.885 6.886 2.08 9.355c5.392-.098 15.753-3.443 21.503-4.808c.065-1.429-.342-3.4-1.665-8.375z" />
-          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-            d="M8.761 32.582c5.652-1.884 10.297-2.567 13.448-3.086s7.244-1.3 8.543-1.624m-23.648.714c1.767-.78 17.313-3.118 22.64-4.352m-19.62 12.051c.65-.617.423-.974 2.405-1.267s6.139-1.104 10.33-2.11s7.308-1.528 8.64-1.04m6.506-17.93c-.114 1.332.942 5.007 2.894 6.293M28.574 33.72l1.04 4.353a21 21 0 0 0 2.988-.488m-9.03-2.306c.054 1.632.403 3.056.716 4.515a3.4 3.4 0 0 0 1.85-.032m-7.86-3.022c.022 1.782.184 3.35.552 4.613c.975.21 1.657.099 2.24-.13m-7.86-3.768c.183 1.703.35 3.298.196 4.58c.93.23 1.951.19 2.5 0" />
-        </svg>
-      </div>
-
-      <span style="max-width: 44px; display:block">
-        Doodle Jump
-      </span>
-    </a>
+  <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[10]">
+    <button
+      class="animate-bounce bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
+      @click="$dispatch('toggle-games')">Doodle<br>
+      Games</button>
   </div>
 
-  <div class="doodle-halloween"><a href="/doodle-halloween" target="_blank">
-      <div class="doodle-games-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M6.5 6c.97 0 1.87.5 2.61 1.38c.55-.59 1.2-1.02 1.89-1.23V4a2 2 0 0 1 2-2h2v2h-2v2.15c.69.21 1.34.64 1.89 1.23C15.63 6.5 16.53 6 17.5 6C20 6 22 9.36 22 13.5S20 21 17.5 21c-.97 0-1.87-.5-2.61-1.38C14.08 20.5 13.08 21 12 21s-2.08-.5-2.89-1.38C8.37 20.5 7.47 21 6.5 21C4 21 2 17.64 2 13.5S4 6 6.5 6M9 10l-1.25 2.25h2.5zm6 0l-1.25 2.25h2.5zm-7 7h2l1-1l1 1h2l1-1l1 1l1.5-3l-3.58.62L13 16l-1-1h-2l-1 1l-1-1l-2-1z" />
-        </svg>
-      </div>
+  <div x-data="{show:false}"
+    class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[100]"
+    @toggle-games.window="$el.classList.toggle('hidden');show=true">
 
-      <span style="max-width: 44px; display:block">
-        Doodle Halloween
-      </span>
-    </a>
+    <div x-show="show" class=" bg-white p-4 rounded-lg shadow-lg max-w-md w-full mx-auto">
+      <h2 class="text-lg text-center mb-4 font-black">Choose your next game</h2>
+
+      <ul @click.away="$dispatch('toggle-games'); show=false" class="grid gap-4 grid-flow-col mx-auto auto-cols-max">
+        <li class="relative group w-full gap-1 flex flex-col items-center">
+          <div
+            class="bg-green-100 group-hover:bg-green-200 rounded-full w-14 h-14 ring ring-green-500 flex justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M15 14.2L12.2 17q-.3.3-.7.3t-.7-.3L2.3 8.5Q2 8.2 2 7.825t.3-.675l2.8-2.8q.3-.3.725-.3t.725.3L15 12.8q.3.3.3.7t-.3.7m3.6 7.8l-4.25-4.25l1.4-1.4L20 20.6zm-.1-13q-1.45 0-2.475-1.025T15 5.5t1.025-2.475T18.5 2t2.475 1.025T22 5.5t-1.025 2.475T18.5 9" />
+            </svg>
+          </div>
+          <a href="/doodle-cricket" target="_blank" title="Google Doodle Cricket"
+            class="text-center font-bold text-xs w-full before:absolute before:inset-0">
+            Doodle <br>Cricket
+          </a>
+
+        </li>
+        <li class="relative group w-full gap-1 flex flex-col items-center">
+          <div
+            class="bg-gray-100 group-hover:bg-gray-200 rounded-full w-14 h-14 ring ring-gray-500 flex justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+              <circle cx="25.373" cy="15.383" r=".75" fill="currentColor" />
+              <circle cx="21.997" cy="15.842" r=".75" fill="currentColor" />
+              <path fill="none" stroke="currentColor" stroke-linejoin="round"
+                d="M29.898 24.434c-.506-2.16-.092-3.192 1.63-4.364s5.605-1.378 9.746.43c2.541-1.441.632-5.576-1.221-7.775c-4.482 2.845-8.18 3.602-11.029 1.628c-3.601-5.643-8.053-9.108-13.93-8.47c-4.583.498-8.673 5.75-9.42 10.135c-.779 4.483 1.236 8.867 2.307 12.245c1.105 3.866 1.885 6.886 2.08 9.355c5.392-.098 15.753-3.443 21.503-4.808c.065-1.429-.342-3.4-1.665-8.375z" />
+              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                d="M8.761 32.582c5.652-1.884 10.297-2.567 13.448-3.086s7.244-1.3 8.543-1.624m-23.648.714c1.767-.78 17.313-3.118 22.64-4.352m-19.62 12.051c.65-.617.423-.974 2.405-1.267s6.139-1.104 10.33-2.11s7.308-1.528 8.64-1.04m6.506-17.93c-.114 1.332.942 5.007 2.894 6.293M28.574 33.72l1.04 4.353a21 21 0 0 0 2.988-.488m-9.03-2.306c.054 1.632.403 3.056.716 4.515a3.4 3.4 0 0 0 1.85-.032m-7.86-3.022c.022 1.782.184 3.35.552 4.613c.975.21 1.657.099 2.24-.13m-7.86-3.768c.183 1.703.35 3.298.196 4.58c.93.23 1.951.19 2.5 0" />
+            </svg>
+          </div>
+          <a href="/doodle-jump" target="_blank" title="Google Doodle Jump"
+            class="font-bold text-center text-xs w-full before:absolute before:inset-0">
+            Doodle <br>Jump
+          </a>
+
+        </li>
+        <li class="relative group w-full gap-1 flex flex-col items-center">
+          <div
+            class="bg-orange-100 group-hover:bg-orange-200 rounded-full w-14 h-14 ring ring-orange-500 flex justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <path fill="currentColor"
+                d="M6.5 6c.97 0 1.87.5 2.61 1.38c.55-.59 1.2-1.02 1.89-1.23V4a2 2 0 0 1 2-2h2v2h-2v2.15c.69.21 1.34.64 1.89 1.23C15.63 6.5 16.53 6 17.5 6C20 6 22 9.36 22 13.5S20 21 17.5 21c-.97 0-1.87-.5-2.61-1.38C14.08 20.5 13.08 21 12 21s-2.08-.5-2.89-1.38C8.37 20.5 7.47 21 6.5 21C4 21 2 17.64 2 13.5S4 6 6.5 6M9 10l-1.25 2.25h2.5zm6 0l-1.25 2.25h2.5zm-7 7h2l1-1l1 1h2l1-1l1 1l1.5-3l-3.58.62L13 16l-1-1h-2l-1 1l-1-1l-2-1z" />
+            </svg>
+          </div>
+          <a href="/doodle-halloween" target="_blank" title="Google Doodle Halloween"
+            class="font-bold text-center text-xs w-full before:absolute before:inset-0">
+            Doodle <br>Halloween
+          </a>
+
+        </li>
+        <li class="relative group w-full gap-1 flex flex-col items-center">
+          <div
+            class="bg-blue-100 group-hover:bg-blue-200 rounded-full w-14 h-14 ring ring-blue-500 flex justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+              <g fill="none" fill-rule="evenodd">
+                <path
+                  d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036c-.01-.003-.019 0-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                <path fill="currentColor"
+                  d="m10.825 4.835l7.773 10.453l1.867 1.334a1.5 1.5 0 0 1 .189 2.28l-1.994 1.995a1.5 1.5 0 0 1-2.281-.19l-1.334-1.866l-10.453-7.773a4.455 4.455 0 1 1 6.233-6.233m5.143 10.268l-1.108 1.108l1.505 1.119a.999.999 0 0 1 .152.14l.064.08l1.082 1.515l1.16-1.159l-1.515-1.081a1.002 1.002 0 0 1-.155-.138l-.066-.08zM5.515 5.758a2.455 2.455 0 0 0 .27 3.705l7.453 5.542l1.524-1.524L9.22 6.03a2.455 2.455 0 0 0-3.705-.271m10.192-1.122A3 3 0 1 1 19.95 8.88a3 3 0 0 1-4.243-4.243m2.828 1.414a1 1 0 1 0-1.414 1.415a1 1 0 0 0 1.415-1.415" />
+              </g>
+            </svg>
+          </div>
+          <a href="/doodle-baseball" target="_blank" title="Google Doodle Baseball"
+            class="font-bold text-center text-xs w-full before:absolute before:inset-0">
+            Doodle <br>Baseball
+          </a>
+
+        </li>
+      </ul>
+      <div class="mt-4 text-center">
+        Or see <a href="/google-doodle-games" title="Google Doodle Games" target="_blank" class="text-blue-500">All
+          Google Doodle
+          Games</a>
+      </div>
+    </div>
   </div>
 
   <div id="doodlecricket_github_io_anchor_ad_responsive">
