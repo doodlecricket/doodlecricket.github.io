@@ -173,7 +173,7 @@
     </div>
   </div>
 
-  <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[10]">
+  <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
     <button
       class="animate-bounce bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
       @click="$dispatch('toggle-games')">Doodle<br>
@@ -181,7 +181,7 @@
   </div>
 
   <div x-data="{show:false}"
-    class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[100]"
+    class="fixed w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[1000]"
     @toggle-games.window="$el.classList.toggle('hidden');show=true">
 
     <div x-show="show" class=" bg-white p-4 rounded-lg shadow-lg max-w-md w-full mx-auto">
