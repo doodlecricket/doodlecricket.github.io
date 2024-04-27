@@ -11,7 +11,6 @@ body {
 }
 
 body {
-  margin-top: 70px;
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -709,7 +708,7 @@ hr {
   }
 
   body {
-    margin: 20px 0;
+    /* margin: 20px 0; */
     padding: 0 20px;
   }
 
