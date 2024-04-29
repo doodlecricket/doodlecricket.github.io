@@ -196,7 +196,7 @@
   </script>
   <style>
     :root {
-      --ad-top-height: 70px;
+      --ad-top-height: 50px;
       --ad-bottom-height: 100px;
       --ad-left-width: 300px;
       --ad-right-width: 300px;
@@ -207,7 +207,14 @@
       --ad-right-bg-color: black;
     }
 
+    @media (min-width: 1024px) {
+      :root {
+        --ad-top-height: 90px;
+      }
+    }
+
     @media (min-width: 1200px) {
+
       .sticky-sidebar {
         display: block;
         position: fixed;
@@ -422,12 +429,19 @@
     #hpcanvas {
       position: absolute;
       left: 0;
-      top: 90px !important;
+      top: 0;
       bottom: 100px !important;
       width: 100%;
       height: calc(100vh - 90px - 100px);
       max-height: calc(100vh - 90px - 100px);
       aspect-ratio: 96/54;
+    }
+
+    @media (min-width: 1024px) {
+      #hpcanvas {
+        height: calc(100vh - 100px);
+        top: 90px !important;
+      }
     }
 
     #hplogoaria,
