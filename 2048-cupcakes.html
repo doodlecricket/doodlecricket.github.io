@@ -285,7 +285,7 @@
     <div x-show="show" class=" bg-white p-4 text-black rounded-lg shadow-lg max-w-md w-full mx-auto">
       <h2 class="text-lg text-center mb-4 font-black">Choose your next game</h2>
 
-      <ul @click.away="$dispatch('toggle-games'); show=false" class="grid gap-4 grid-flow-col mx-auto auto-cols-max">
+      <ul @click.away="$dispatch('toggle-games'); show=false" class="grid flex-wrap gap-4 grid-cols-4 sm:grid-cols-6">
         <li class="relative group w-full gap-1 flex flex-col items-center">
           <div
             class="bg-green-100 group-hover:bg-green-200 rounded-full w-12 h-12 ring ring-green-500 flex justify-center items-center">
