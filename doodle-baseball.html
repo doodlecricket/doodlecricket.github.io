@@ -242,45 +242,54 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap%7CAsap:bold" media="all" />
 </head>
 
-<body>
-  <div class="container">
-    <div class="row ad-top">
-      <div class="col" style="height: var(--ad-top-height) !important">
-        <div id="doodlecricket_github_io_top_responsive">
-          <script>
-            googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_top_responsive'); });
-          </script>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-auto ad-left" style="height: var(--content-height) !important">
-        <div id="doodlecricket_github_io_sidebar_left_desktop" class="sticky-sidebar left-sidebar"
-          style="display:inline-block;width:300px;height:600px">
-          <script>
-            googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_left_desktop'); });
-          </script>
-        </div>
-      </div>
-      <div id="hplogo" class="col content">
-        <canvas id="hpcanvas" style="
-              width: 100% !important;
-              height: var(--content-height) !important;
-            " tabindex="0"></canvas>
-      </div>
-      <div class="col-auto ad-right" style="height: var(--content-height) !important">
-        <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar"
-          style="display:inline-block;width:300px;height:600px">
-          <script>
-            googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
-          </script>
-        </div>
-      </div>
-    </div>
-    <div class="row ad-bottom" style="height: var(--ad-bottom-height) !important">
-      <div class="col"></div>
+<body class="column">
+  <div class="ad-top" style="height: var(--ad-top-height) !important">
+    <div id="doodlecricket_github_io_top_responsive">
+      <script>
+        googletag.cmd.push(function () {
+          googletag.display("doodlecricket_github_io_top_responsive");
+        });
+      </script>
     </div>
   </div>
+  <div class="row">
+    <div class="col-auto ad-left" style="height: 100% !important">
+      <div
+        id="doodlecricket_github_io_sidebar_left_desktop"
+        class="sticky-sidebar left-sidebar"
+        style="display: inline-block; width: 300px; height: 600px"
+      >
+        <script>
+          googletag.cmd.push(function () {
+            googletag.display("doodlecricket_github_io_sidebar_left_desktop");
+          });
+        </script>
+      </div>
+    </div>
+    <div id="hplogo" class="col content">
+      <canvas id="hpcanvas" style="height: 100%"></canvas>
+    </div>
+    <div class="col-auto ad-right" style="height: 100% !important">
+      <div
+        id="doodlecricket_github_io_sidebar_right_desktop"
+        class="sticky-sidebar right-sidebar"
+        style="display: inline-block; width: 300px; height: 600px"
+      >
+        <script>
+          googletag.cmd.push(function () {
+            googletag.display(
+              "doodlecricket_github_io_sidebar_right_desktop",
+            );
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ad-bottom"
+    style="height: var(--ad-bottom-height) !important"
+  ></div>
+  
 
   <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
     <button class="bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
