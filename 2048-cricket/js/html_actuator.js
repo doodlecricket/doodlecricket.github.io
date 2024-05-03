@@ -68,7 +68,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   inner.classList.add("tile-inner");
   // inner.textContent = tile.value;
   // img.style.width = '100%';
-  img.src = "./2048-cupcakes/style/img/" + tile.value + ".jpg";
+  img.src = "./2048-cricket/style/img/" + tile.value + ".jpg";
   inner.appendChild(img);
 
   if (tile.previousPosition) {
