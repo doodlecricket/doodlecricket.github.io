@@ -84,7 +84,7 @@ h1.title small {
   position: relative;
   display: inline-block;
   background: #f67098;
-  padding: 20px 0 12px;
+  padding: 20px 4px 12px;
   font-size: 14px;
   text-transform: capitalize;
   /* height: 19px; */
@@ -97,6 +97,9 @@ h1.title small {
   text-align: center;
   width: 49%;
   float: left;
+  white-space: nowrap;
+  /* show ... */
+  text-overflow: ellipsis;
 }
 .score-container:after,
 .best-container:after,
@@ -731,7 +734,7 @@ hr {
   .score-points,
   .best-points {
     margin-top: 0;
-    padding: 18px 0px 15px;
+    padding: 18px 4px 15px;
     min-width: 40px;
   }
 
