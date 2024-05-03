@@ -400,7 +400,8 @@
     </div>
   </div>
 
-  <div x-data="{show:false}" class="fixed inset-0 w-full bg-black/50 hidden pt-20 px-8 pb-8 z-[1000] overflow-scroll"
+  <div x-data="{show:false}"
+    class="fixed inset-0 w-full bg-black/50 hidden pt-20 px-8 pb-[100px] z-[1000] overflow-scroll"
     @toggle-legend.window="$el.classList.toggle('hidden');show=true">
 
     <div x-show="show" class="bg-white p-4 text-black rounded-lg shadow-lg max-w-md w-full mx-auto prose">
