@@ -734,13 +734,13 @@ hr {
   .score-points,
   .best-points {
     margin-top: 0;
-    padding: 18px 4px 15px;
+    padding: 18px 4px 4px;
     min-width: 40px;
   }
 
-  .heading {
+  /* .heading {
     margin-bottom: 10px;
-  }
+  } */
 
   .game-intro {
     width: 55%;
