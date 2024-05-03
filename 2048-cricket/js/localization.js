@@ -1,6 +1,6 @@
 String.toLocaleString({
   it: {
-    "%game-intro": "Join the <strong>Cricket Players!</strong>",
+    "%game-intro": "",
     "%restart-button": "Play Again",
     "%keep-playing-button": "Keep going",
     "%retry-button": "Retry",
@@ -44,7 +44,7 @@ String.toLocaleString({
   },
 
   en: {
-    "%game-intro": "Join the <strong>Cricket Players!</strong>",
+    "%game-intro": "",
     "%restart-button": "Play Again",
     "%keep-playing-button": "Keep going",
     "%retry-button": "Retry",
