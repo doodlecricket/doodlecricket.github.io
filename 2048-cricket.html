@@ -36,7 +36,7 @@
   <meta property="og:site_name" content="Doodle Cricket Game" />
 
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
       corePlugins: {
@@ -174,7 +174,7 @@
 
 </head>
 
-<body x-data="{showLegend: false}">
+<body>
 
   <div class="ad-top">
     <div id="doodlecricket_github_io_top_responsive">
@@ -258,9 +258,8 @@
         </div>
       </div>
 
-      <div x-if="showLegend" class="legend">
-        <p class="tile-legend"><strong class="important">Tile Legend:</strong></p>
-      </div>
+      <button x-data @click="$dispatch('toggle-legend')"
+        class="bg-[--main-color] rounded mt-2 text-white px-2 py-1">Show Legend</button>
     </div>
   </div>
 
@@ -401,6 +400,67 @@
     </div>
   </div>
 
+  <div x-data="{show:false}" class="fixed inset-0 w-full bg-black/50 hidden pt-20 px-8 pb-8 z-[1000] overflow-scroll"
+    @toggle-legend.window="$el.classList.toggle('hidden');show=true">
+
+    <div x-show="show" class="bg-white p-4 text-black rounded-lg shadow-lg max-w-md w-full mx-auto prose">
+      <h2 class="text-center mb-4 font-black">Legend</h2>
+
+      <div @click.away="$dispatch('toggle-legend'); show=false">
+        <h3>How To Play: </h3>
+        <ul class="list-disc pl-4">
+          <li>
+            Use your arrow keys ⬆️ ⬇️ ➡️ ⬅️ to slide the tiles across the board.
+          </li>
+          <li>
+            When two tiles showing the same cricket player meet, they merge into one!
+          </li>
+        </ul>
+        <h3>Featured Cricket Players</h3>
+        <p>
+          Get ready to play with some of the legendary cricket players of all time:
+        </p>
+        <ol>
+          <li>Sir Don Bradman (Australia) </li>
+          <li>Sachin Tendulkar (India) </li>
+          <li>Sir Garry Sobers (West Indies) </li>
+          <li>Sir Jack Hobbs (England) </li>
+          <li>Sir Viv Richards (West Indies) </li>
+          <li>Steve Smith (Australia) </li>
+          <li>Jacques Kallis (South Africa) </li>
+          <li>Kumar Sangakkara (Sri Lanka) </li>
+          <li>Ricky Ponting (Australia) </li>
+          <li>Shane Warne (Australia) </li>
+          <li>Virat Kohli (India) </li>
+          <li>Joe Root (England) </li>
+          <li>Kane Williamson (New Zealand)</li>
+
+        </ol>
+        <h3>Image sources respectively:</h3>
+        <ol>
+          <li>Cricket Australia (https://www.cricket.com.au/)</li>
+          <li>Cricket Country (https://www.cricketcountry.com/)</li>
+          <li>CricTracker (https://www.crictracker.com/)</li>
+          <li>The Cricket Society (https://www.cricketsociety.org.uk/)</li>
+          <li>Guyana Chronicle (https://guyanachronicle.com/)</li>
+          <li>News.com.au (https://www.news.com.au/)</li>
+          <li>SportsKeeda (https://www.sportskeeda.com/)</li>
+          <li>ESPNcricinfo (https://www.espncricinfo.com/)</li>
+          <li>The Cricket Couch (https://thecricketcouch.com/)</li>
+          <li>Rediff.com (https://rediff.com/</li>
+          <li>India Today (https://www.indiatoday.in/)</li>
+          <li>ESPNcricinfo (https://www.espncricinfo.com/)</li>
+          <li>Arab News (https://www.arabnews.com/)</li>
+
+        </ol>
+      </div>
+
+      <div class="flex justify-center">
+        <button @click="$dispatch('toggle-legend'); show=false" class="bg-green-600 px-4 py-2 rounded">Close</button>
+      </div>
+
+    </div>
+  </div>
 
   <script src="/2048-cricket/js/bind_polyfill.js"></script>
   <script src="/2048-cricket/js/classlist_polyfill.js"></script>
