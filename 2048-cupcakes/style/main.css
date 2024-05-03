@@ -713,11 +713,12 @@ hr {
   }
 
   h1.title {
-    font-size: 27px;
-    margin-top: 15px;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
   }
   h1.title small {
-    font-size: 27px;
+    font-size: 16px;
   }
 
   .container {
@@ -730,7 +731,7 @@ hr {
   .score-points,
   .best-points {
     margin-top: 0;
-    padding: 15px 0px;
+    padding: 18px 0px 15px;
     min-width: 40px;
   }
 
