@@ -149,7 +149,7 @@ GameManager.prototype.fillLegend = function () {
     p.textContent = Localize(exp) + "  (" + kcal(exp) + " Kcal)";
     row.appendChild(p);
 
-    legend[0].appendChild(row);
+    // legend[0].appendChild(row);
   }
 };
 
