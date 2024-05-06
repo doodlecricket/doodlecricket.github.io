@@ -44,8 +44,10 @@ HTMLActuator.prototype.continueGame = function () {
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
+  if (container) {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
   }
 };
 
@@ -121,7 +123,9 @@ HTMLActuator.prototype.updateScore = function (score, points) {
 
   // this.scoreContainer.textContent = this.score;
   this.scorePoints.textContent = this.points;
-  this.scoreContainer.textContent = Localize("p" + this.score);
+  if (this.scoreContainer) {
+    this.scoreContainer.textContent = Localize("p" + this.score);
+  }
 
   if (difference > 0) {
     var addition = document.createElement("div");
@@ -129,7 +133,9 @@ HTMLActuator.prototype.updateScore = function (score, points) {
     // addition.textContent = "+" + difference;
     addition.textContent = Localize("p" + this.score);
 
-    this.scoreContainer.appendChild(addition);
+    if (this.scoreContainer) {
+      this.scoreContainer.appendChild(addition);
+    }
   }
 
   if (pointDifference > 0) {
@@ -141,7 +147,9 @@ HTMLActuator.prototype.updateScore = function (score, points) {
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore, bestPoints) {
-  this.bestContainer.textContent = Localize("p" + bestScore);
+  if (this.bestContainer) {
+    this.bestContainer.textContent = Localize("p" + bestScore);
+  }
   this.bestPoints.textContent = bestPoints;
 
   // var difference = score - this.score;
