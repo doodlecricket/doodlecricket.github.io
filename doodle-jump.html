@@ -68,9 +68,26 @@
       --ad-right-bg-color: #000;
     }
 
+
+    .sticky-sidebar-video {
+      display: none;
+    }
+
     @media (min-width: 1024px) {
       :root {
         --ad-top-height: 90px;
+      }
+
+      .sticky-sidebar-video {
+        display: block;
+        position: fixed;
+        bottom: 107px;
+        width: 300px !important;
+        height: auto;
+        z-index: 10;
+        left: 300px;
+        transform: scale(0.7);
+        transform-origin: bottom left;
       }
     }
   </style>
@@ -290,6 +307,13 @@
         </div>
       </div>
     </div>
+
+    <div class="sticky-sidebar-video">
+      <script type="text/javascript" language="javascript"
+        src="https://live.primis.tech/live/liveView.php?s=117441&cbuster=%%CACHEBUSTER%%"></script>
+    </div>
+
+
     <div class="row ad-bottom">
       <div class="col"></div>
     </div>
