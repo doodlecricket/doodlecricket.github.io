@@ -102,6 +102,10 @@
       display: none;
     }
 
+    .sticky-sidebar-video {
+      display: none;
+    }
+
     @media (min-width: 1200px) {
       .sticky-sidebar {
         display: block;
@@ -111,6 +115,18 @@
         width: 300px;
         height: 600px;
         z-index: 10;
+      }
+
+      .sticky-sidebar-video {
+        display: block;
+        position: fixed;
+        bottom: 107px;
+        width: 300px !important;
+        height: auto;
+        z-index: 10;
+        left: 300px;
+        transform: scale(0.7);
+        transform-origin: bottom left;
       }
 
       .left-sidebar {
@@ -193,6 +209,11 @@
     <script>
       googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
     </script>
+  </div>
+
+  <div class="sticky-sidebar-video">
+    <script type="text/javascript" language="javascript"
+      src="https://live.primis.tech/live/liveView.php?s=117441&cbuster=%%CACHEBUSTER%%"></script>
   </div>
 
   <div class="wrapper">
