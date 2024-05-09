@@ -178,6 +178,16 @@
       color: black;
     }
 
+    .cricket-games {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 100px;
+      display: flex;
+      justify-content: flex-end;
+      z-index: 10;
+    }
+
     @media (min-width: 1024px) {
 
       .sticky-sidebar-video {
@@ -195,6 +205,10 @@
       .doodle-games {
         top: 110px;
         left: 304px;
+      }
+
+      .cricket-games {
+        top: 90px;
       }
 
       .doodle-cricket {
@@ -264,6 +278,17 @@
 </head>
 
 <body class="column">
+  <div class="cricket-games">
+    <a style="
+          background-color: rgba(255, 255, 255, 0.8);
+          border-bottom-left-radius: 6px;
+          border-bottom-right-radius: 6px;
+          padding: 2px 4px;
+          font-size: smaller;
+          text-decoration: none;
+          color: black;
+        " href="/cricket-games">Cricket Games</a>
+  </div>
   <h1 class="text-center absolute top-0 left-0 right-0 z-10 pt-1 text-white">Play Doodle Baseball</h1>
   <div class="ad-top" style="height: var(--ad-top-height) !important">
     <div id="doodlecricket_github_io_top_responsive" class="flex justify-center">

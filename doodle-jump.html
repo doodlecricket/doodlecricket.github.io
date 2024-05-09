@@ -73,6 +73,16 @@
       display: none;
     }
 
+    .cricket-games {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 100px;
+      display: flex;
+      justify-content: flex-end;
+      z-index: 10;
+    }
+
     @media (min-width: 1024px) {
       :root {
         --ad-top-height: 90px;
@@ -88,6 +98,10 @@
         left: 300px;
         transform: scale(0.7);
         transform-origin: bottom left;
+      }
+
+      .cricket-games {
+        top: 90px;
       }
     }
   </style>
@@ -143,6 +157,19 @@
 
 <body>
   <div class="container">
+
+    <div class="cricket-games">
+      <a style="
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            padding: 2px 4px;
+            font-size: smaller;
+            text-decoration: none;
+            color: black;
+          " href="/cricket-games">Cricket Games</a>
+    </div>
+
     <div class="row ad-top">
       <div class="col">
         <div id="doodlecricket_github_io_top_responsive">
