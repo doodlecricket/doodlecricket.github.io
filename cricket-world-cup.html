@@ -111,6 +111,20 @@
         href="https://www.cricbuzz.com/cricket-news/123456/australia-win-2023-world-cup-beating-india-in-final">Australia
         win 2023 World Cup, beating India in final</a></li>
   </ol>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if the page is loaded inside an iframe
+      if (window.location !== window.parent.location) {
+        // Get all anchor tags that are inside nav tags
+        const links = document.querySelectorAll('nav a');
+        // Loop through each link and set its target attribute to "_blank"
+        links.forEach(function (link) {
+          link.target = "_blank";
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

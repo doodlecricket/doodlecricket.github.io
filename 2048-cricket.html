@@ -512,6 +512,20 @@
   <script src="/2048-cricket/js/local_storage_manager.js"></script>
   <script src="/2048-cricket/js/game_manager.js"></script>
   <script src="/2048-cricket/js/application.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check if the page is loaded inside an iframe
+      if (window.location !== window.parent.location) {
+        // Get all anchor tags that are inside nav tags
+        const links = document.querySelectorAll('nav a');
+        // Loop through each link and set its target attribute to "_blank"
+        links.forEach(function (link) {
+          link.target = "_blank";
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
