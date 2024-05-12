@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8">
-  <title>2048 CUPCAKES - Play Online</title>
+  <title>2048 Baseball Teams</title>
 
-  <link href="/2048-cupcakes/style/main.css" rel="stylesheet" type="text/css">
+  <link href="/2048-baseball/style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="/2048-cupcakes/meta/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/2048-baseball/meta/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -18,25 +18,25 @@
   <meta name="format-detection" content="telephone=no" />
 
   <meta name="description"
-    content="2048 Cupcakes is an addictive puzzle game where players combine cupcakes to reach the 2048 tile. With colorful graphics and simple gameplay, it's a fun and challenging experience for all ages." />
+    content="Join the all-time best baseball teams in this unique twist of the classic 2048 game - Baseball Teams Edition!" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@doodlecricket" />
-  <meta name="twitter:title" content="2048 Cupcakes" />
+  <meta name="twitter:title" content="2048 Baseball Teams" />
   <meta name="twitter:description"
-    content="2048 Cupcakes is an addictive puzzle game where players combine cupcakes to reach the 2048 tile. With colorful graphics and simple gameplay, it's a fun and challenging experience for all ages." />
+    content="Join the all-time best baseball teams in this unique twist of the classic 2048 game - Baseball Teams Edition!" />
   <meta name="twitter:creator" content="@doodlecricket" />
-  <meta name="twitter:image" content="https://doodlecricket.github.io/2048-cupcakes/style/img/bg.jpg" />
+  <meta name="twitter:image" content="https://doodlecricket.github.io/2048-baseball/style/img/bg.jpeg" />
 
-  <meta property="og:title" content="2048 Cupcakes" />
+  <meta property="og:title" content="2048 Baseball Teams" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://doodlecricket.github.io/2048-cupcakes" />
-  <meta property="og:image" content="https://doodlecricket.github.io/2048-cupcakes/style/img/bg.jpg" />
+  <meta property="og:url" content="https://doodlecricket.github.io/2048-baseball" />
+  <meta property="og:image" content="https://doodlecricket.github.io/2048-baseball/style/img/bg.jpeg" />
   <meta property="og:description"
-    content="2048 Cupcakes is an addictive puzzle game where players combine cupcakes to reach the 2048 tile. With colorful graphics and simple gameplay, it's a fun and challenging experience for all ages." />
+    content="Join the all-time best baseball teams in this unique twist of the classic 2048 game - Baseball Teams Edition!" />
   <meta property="og:site_name" content="Doodle Cricket Game" />
 
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
       corePlugins: {
@@ -166,7 +166,7 @@
       googletag.pubads().disableInitialLoad();
       googletag.pubads().enableSingleRequest();
       googletag.pubads().collapseEmptyDivs();
-      googletag.pubads().setTargeting('category', 'online_games').setTargeting('audience_interest', 'online_games');
+      googletag.pubads().setTargeting('category', 'sports_cricket').setTargeting('audience_interest', 'sports_cricket');
       googletag.enableServices();
       googletag.display(interstitialSlot);
     });
@@ -190,7 +190,7 @@
 
 </head>
 
-<body x-data="{showLegend: false}">
+<body>
 
   <div class="ad-top">
     <div id="doodlecricket_github_io_top_responsive">
@@ -220,20 +220,16 @@
     <div class="container">
       <div class="heading">
         <div class="title-container">
-          <h1 class="title">2048 <small>Cupcakes</small></h1>
+          <h1 class="title">2048 <small>Baseball Teams</small></h1>
         </div>
         <div class="scores-container">
           <div class="score-points">0</div>
           <div class="best-points">0</div>
         </div>
-        <div class="scores-container">
-          <div class="score-container">0 Kcal</div>
-          <div class="best-container">0 Kcal</div>
-        </div>
       </div>
 
       <div class="above-game">
-        <p class="game-intro">Join tiles and destroy <strong>EMPIRE!</strong></p>
+        <p class="game-intro">Join tiles and open <strong>Baseball Teams</strong></p>
         <a class="restart-button">New Game</a>
       </div>
 
@@ -279,9 +275,8 @@
         </div>
       </div>
 
-      <div x-if="showLegend" class="legend">
-        <p class="tile-legend"><strong class="important">Tile Legend:</strong></p>
-      </div>
+      <button x-data @click="$dispatch('toggle-legend')"
+        class="bg-[--main-color] rounded mt-2 text-white px-2 py-1">Show Legend</button>
     </div>
   </div>
 
@@ -304,7 +299,7 @@
     @toggle-games.window="$el.classList.toggle('hidden');console.log('fff');show=true">
 
     <nav x-show="show" class=" bg-white p-4 text-black rounded-lg shadow-lg max-w-md w-full mx-auto">
-      <h2 class="text-lg text-center mb-4 font-black">Play Doodle Google Games</h2>
+      <h2 class="text-lg text-center mb-4 font-black">Play Google Doodle Games</h2>
 
       <ul @click.away="$dispatch('toggle-games'); show=false" class="grid flex-wrap gap-4 grid-cols-4 sm:grid-cols-6">
         <li class="relative group w-full gap-1 flex flex-col items-center">
@@ -369,7 +364,6 @@
             class="font-bold text-center text-xs w-full before:absolute before:inset-0">
             Doodle <br>Baseball
           </a>
-
         </li>
         <li class="relative group w-full gap-1 flex flex-col items-center">
           <div
@@ -413,26 +407,6 @@
             2048 <br>Baseball
           </a>
         </li>
-        <li class="relative group w-full gap-1 flex flex-col items-center">
-          <div
-            class="bg-pink-100 group-hover:bg-pink-200 rounded-full w-12 h-12 ring ring-pink-500 flex justify-center items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
-              <rect width="18.5" height="18.5" x="24" y="5.5" fill="none" stroke="currentColor" stroke-linejoin="round"
-                rx="4" />
-              <rect width="18.5" height="18.5" x="5.5" y="24" fill="none" stroke="currentColor" stroke-linejoin="round"
-                rx="4" />
-              <rect width="18.5" height="18.5" x="24" y="24" fill="none" stroke="currentColor" stroke-linejoin="round"
-                rx="4" />
-              <rect width="18.5" height="18.5" x="5.5" y="5.5" fill="none" stroke="currentColor" stroke-linejoin="round"
-                rx="4" />
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                d="m16.805 38.25l-.001-10l-5.366 6.717h6.625m11.875-18.529a3.313 3.313 0 0 0 6.625 0v-3.375a3.313 3.313 0 0 0-6.626 0Zm-18.5-3.375a3.313 3.313 0 0 1 6.624 0a3.1 3.1 0 0 1-.97 2.342c-1.34 1.176-5.654 4.345-5.654 4.345h6.625m14.375 13.5a2.5 2.5 0 0 0-2.5 2.5h0a2.5 2.5 0 0 0 2.5 2.5h1.624a2.5 2.5 0 0 0 2.5-2.5h0a2.5 2.5 0 0 0-2.5-2.5m.001 0a2.5 2.5 0 0 0 2.5-2.5h0a2.5 2.5 0 0 0-2.5-2.5h-1.626a2.5 2.5 0 0 0-2.5 2.5h0a2.5 2.5 0 0 0 2.5 2.5m.001 0h1.625" />
-            </svg>
-          </div>
-          <a href="/2048" title="2048 Game" class="font-bold text-center text-xs w-full before:absolute before:inset-0">
-            2048 <br>Game
-          </a>
-        </li>
       </ul>
       <div class="mt-4 text-center">
         Or see <a href="/google-doodle-games" title="Google Doodle Games" class="text-blue-500">All
@@ -442,19 +416,63 @@
     </nav>
   </div>
 
+  <div x-data="{show:false}"
+    class="fixed inset-0 w-full bg-black/50 hidden pt-20 px-8 pb-[100px] z-[1000] overflow-scroll"
+    @toggle-legend.window="$el.classList.toggle('hidden');show=true">
 
-  <script src="/2048-cupcakes/js/bind_polyfill.js"></script>
-  <script src="/2048-cupcakes/js/classlist_polyfill.js"></script>
-  <script src="/2048-cupcakes/js/animframe_polyfill.js"></script>
-  <script src="/2048-cupcakes/js/l10n.js"></script>
-  <script src="/2048-cupcakes/js/localization.js"></script>
-  <script src="/2048-cupcakes/js/keyboard_input_manager.js"></script>
-  <script src="/2048-cupcakes/js/html_actuator.js"></script>
-  <script src="/2048-cupcakes/js/grid.js"></script>
-  <script src="/2048-cupcakes/js/tile.js"></script>
-  <script src="/2048-cupcakes/js/local_storage_manager.js"></script>
-  <script src="/2048-cupcakes/js/game_manager.js"></script>
-  <script src="/2048-cupcakes/js/application.js"></script>
+    <div x-show="show" class="bg-white p-4 text-black rounded-lg shadow-lg max-w-md w-full mx-auto prose">
+      <h2 class="text-center mb-4 font-black">Legend</h2>
+
+      <div @click.away="$dispatch('toggle-legend'); show=false">
+        <h3>How To Play: </h3>
+        <ul class="list-disc pl-4">
+          <li>
+            Use your arrow keys ⬆️ ⬇️ ➡️ ⬅️ to slide the tiles across the board.
+          </li>
+          <li>
+            When two tiles showing the same cricket player meet, they merge into one!
+          </li>
+        </ul>
+        <h3>Featured Baseball Teams</h3>
+        <p>
+          Our Baseball Edition of the 2048 game features 12 of the greatest baseball teams of all time with the most
+          World Series titles, including:
+        </p>
+        <ol>
+          <li>New York Yankees</li>
+          <li>St. Louis Cardinals</li>
+          <li>Philadelphia Athletics</li>
+          <li>Boston Red Sox</li>
+          <li>San Francisco Giants</li>
+          <li>Los Angeles Dodgers</li>
+          <li>Cincinnati Reds</li>
+          <li>Pittsburgh Pirates</li>
+          <li>Atlanta Braves</li>
+          <li>Detroit Tigers</li>
+          <li>Chicago Cubs</li>
+          <li>Baltimore Orioles</li>
+        </ol>
+      </div>
+
+      <div class="flex justify-center">
+        <button @click="$dispatch('toggle-legend'); show=false" class="bg-green-600 px-4 py-2 rounded">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/2048-baseball/js/bind_polyfill.js"></script>
+  <script src="/2048-baseball/js/classlist_polyfill.js"></script>
+  <script src="/2048-baseball/js/animframe_polyfill.js"></script>
+  <script src="/2048-baseball/js/l10n.js"></script>
+  <script src="/2048-baseball/js/localization.js"></script>
+  <script src="/2048-baseball/js/keyboard_input_manager.js"></script>
+  <script src="/2048-baseball/js/html_actuator.js"></script>
+  <script src="/2048-baseball/js/grid.js"></script>
+  <script src="/2048-baseball/js/tile.js"></script>
+  <script src="/2048-baseball/js/local_storage_manager.js"></script>
+  <script src="/2048-baseball/js/game_manager.js"></script>
+  <script src="/2048-baseball/js/application.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
