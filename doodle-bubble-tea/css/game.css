@@ -1,0 +1,5556 @@
+#game {
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+#hpcanvas {
+  font-family: "Itim", sans-serif;
+}
+.ddl-sceneWrapper_ {
+  position: absolute;
+  width: 100%;
+  pointer-events: all;
+}
+.ddl-cafeScene_ {
+  top: 0;
+  left: 0;
+  height: 340px;
+}
+.ddl-minigameScene_ {
+  top: 335px;
+  left: 0;
+  height: 625px;
+}
+.ddl-loadingScreen_ {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #406b4f;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.ddl-videoWrapper_ {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  pointer-events: all;
+}
+.ddl-loadingScreen_.ddl-hidden_,
+.ddl-videoWrapper_.ddl-hidden_,
+.ddl-tutorialWrapper_.ddl-hidden_,
+.ddl-endScreen_.ddl-hidden_ {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition:
+    visibility 0s 0.2s,
+    opacity 0.2s linear;
+  -o-transition:
+    visibility 0s 0.2s,
+    opacity 0.2s linear;
+  transition:
+    visibility 0s 0.2s,
+    opacity 0.2s linear;
+}
+#badge-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+#drink-finished-badge-wrapper {
+  position: absolute;
+  top: 408px;
+  left: 305px;
+}
+.ddl-badge_ {
+  position: relative;
+}
+.ddl-badge_ div.ddl-hidden_ {
+  visibility: hidden;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  clip-path: polygon(-100% -100%, 100% -100%, -100% 100%);
+  -webkit-transition:
+    clip-path 0ms 250ms,
+    visibility 0ms 250ms,
+    transform 250ms ease-in;
+  -o-transition:
+    clip-path 0ms 250ms,
+    visibility 0ms 250ms,
+    transform 250ms ease-in;
+  transition:
+    clip-path 0ms 250ms,
+    visibility 0ms 250ms,
+    transform 250ms ease-in;
+}
+.ddl-badge_ div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(0% 0%, 200% 0%, 0% 200%);
+  -webkit-transition: clip-path 400ms ease;
+  -o-transition: clip-path 400ms ease;
+  transition: clip-path 400ms ease;
+}
+.ddl-tutorialWrapper_ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  pointer-events: all;
+}
+.ddl-tutorialBg_ {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.4;
+}
+.ddl-tutorialText_ {
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  top: 120px;
+  width: 280px;
+}
+.ddl-tutorialText_.ddl-hidden_ {
+  opacity: 0;
+}
+.ddl-tutorialWrapper_ .ddl-next_ {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 31px;
+  cursor: pointer;
+}
+.ddl-tutorialWrapper_ .ddl-next_:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.ddl-tutorialWrapper_ .ddl-next_:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.ddl-pointer_ {
+  position: absolute;
+  bottom: 97px;
+  left: 230px;
+  -webkit-align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -webkit-animation: pointertap 5s linear infinite;
+  -o-animation: pointertap 5s linear infinite;
+  animation: pointertap 5s linear infinite;
+}
+.ddl-ring_ {
+  position: absolute;
+  -webkit-align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  bottom: 110px;
+  left: 140px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border: 10px solid greenyellow;
+  -webkit-animation: tapnhold 5s ease 0.4s infinite;
+  -o-animation: tapnhold 5s ease 0.4s infinite;
+  animation: tapnhold 5s ease 0.4s infinite;
+}
+.ddl-pointerWrapper_ {
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+.ddl-pointerWrapper_.ddl-hidden_ {
+  opacity: 0;
+}
+@keyframes tapnhold {
+  0% {
+    -webkit-transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.2);
+    transform: scale(0.2);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes pointertap {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  90% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+#game {
+  touch-action: none;
+}
+#game video {
+  background: #000;
+}
+#ddlDomRoot:focus {
+  outline: none;
+}
+.ddl-playButton_ {
+  position: absolute;
+  top: 104px;
+  left: 414px;
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.ddl-ctaAnimated_ {
+  -webkit-animation: playAnimation 1.5s ease-in-out infinite;
+  -o-animation: playAnimation 1.5s ease-in-out infinite;
+  animation: playAnimation 1.5s ease-in-out infinite;
+}
+@keyframes playAnimation {
+  0% {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  50% {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
+.ddl-gone_ {
+  display: none;
+}
+.ddl-muteButton_ {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.ddl-muteButton_.ddl-hidden_,
+.ddl-muteButton_ .ddl-hidden_ {
+  visibility: hidden;
+}
+.ddl-muteButton_.ddl-gone_,
+.ddl-muteButton_ .ddl-gone_ {
+  display: none;
+}
+.ddl-muted_,
+.ddl-soundOn_ {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 27px;
+}
+.ddl-muted_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1711px 0px/1782px 960px no-repeat;
+  width: 34px;
+  height: 27px;
+}
+.ddl-soundOn_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1748px 0px/1782px 960px no-repeat;
+  width: 34px;
+  height: 27px;
+}
+.ddl-skipButton_ {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -663px 0px/1782px 960px no-repeat;
+  width: 117px;
+  height: 74px;
+}
+.ddl-skipButton_:hover,
+.ddl-muteButton_:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.ddl-skipButton_:active,
+.ddl-muteButton_:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.ddl-skipButton_.ddl-hidden_ {
+  visibility: hidden;
+}
+.ddl-endScreen_ {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+.ddl-endScreenText_,
+.ddl-endScreenButtons_,
+.ddl-endScreenSocialButtons_ {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 20px;
+}
+.ddl-endScreenSocialButtons_.ddl-gone_ {
+  display: none;
+}
+.ddl-endScreenButtons_.ddl-shrink_ {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
+}
+.ddl-copyLinkWrapper_ {
+  position: relative;
+}
+.ddl-copylink_.ddl-linkCopied_ {
+  filter: hue-rotate(90deg);
+}
+.ddl-linkCopiedText_ {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  top: 5px;
+  font-size: 24px;
+  width: 115px;
+  height: 100%;
+  color: black;
+}
+.ddl-linkCopiedText_.ddl-hidden_ {
+  visibility: hidden;
+}
+#game button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-transition: transform 200ms ease;
+  -o-transition: transform 200ms ease;
+  transition: transform 200ms ease;
+  pointer-events: all;
+}
+.ddl-endScreenButtons_ button {
+  width: 117px;
+  height: 117px;
+}
+.ddl-endScreenSocialButtons_ button {
+  height: 64px;
+  width: 64px;
+}
+.ddl-endScreenText_ {
+  font-size: 72px;
+  width: 425px;
+  height: 83px;
+}
+.ddl-endScreenButtons_ button:hover,
+.ddl-endScreenSocialButtons_ button:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.ddl-endScreenButtons_ button:active,
+.ddl-endScreenSocialButtons_ button:active,
+#game button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.ddl-scoreWrapper_ {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.ddl-endScreen_ .ddl-customerIcon_,
+.ddl-endScreen_ .ddl-badge_ {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+}
+.ddl-endScreenCustomer_ {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.ddl-outline_ {
+  position: absolute;
+  -webkit-text-stroke: 6px #fff;
+  color: #fff;
+  top: 0;
+}
+.ddl-fill_ {
+  position: absolute;
+  color: #d74b00;
+  top: 0;
+}
+.ddl-TEA_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/tea-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-KETTLE_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 842px 358px;
+  -o-background-size: 842px 358px;
+  background-size: 842px 358px;
+  width: 340px;
+  height: 247px;
+}
+.ddl-KETTLE_ {
+  background: url(/doodle-bubble-tea/assets/tea-sprite.png) 0px 0px/842px 358px no-repeat;
+  width: 340px;
+  height: 247px;
+}
+.ddl-TEA_BG_LEFT_offset_ {
+  background-position: -646px 0px;
+  -webkit-background-size: 842px 358px;
+  -o-background-size: 842px 358px;
+  background-size: 842px 358px;
+  width: 176px;
+  height: 329px;
+}
+.ddl-TEA_BG_LEFT_ {
+  background: url(/doodle-bubble-tea/assets/tea-sprite.png) -646px 0px/842px 358px no-repeat;
+  width: 176px;
+  height: 329px;
+}
+.ddl-TEA_BG_RIGHT_offset_ {
+  background-position: -343px 0px;
+  -webkit-background-size: 842px 358px;
+  -o-background-size: 842px 358px;
+  background-size: 842px 358px;
+  width: 300px;
+  height: 358px;
+}
+.ddl-TEA_BG_RIGHT_ {
+  background: url(/doodle-bubble-tea/assets/tea-sprite.png) -343px 0px/842px 358px no-repeat;
+  width: 300px;
+  height: 358px;
+}
+.ddl-TEA_DROP_offset_ {
+  background-position: -825px 0px;
+  -webkit-background-size: 842px 358px;
+  -o-background-size: 842px 358px;
+  background-size: 842px 358px;
+  width: 17px;
+  height: 30px;
+}
+.ddl-TEA_DROP_ {
+  background: url(/doodle-bubble-tea/assets/tea-sprite.png) -825px 0px/842px 358px no-repeat;
+  width: 17px;
+  height: 30px;
+}
+.ddl-PEARLS_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/pearls-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-BOBA_CLUMP_0000_offset_ {
+  background-position: -384px -119px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0000_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -384px -119px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0001_offset_ {
+  background-position: -1026px -143px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0001_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1026px -143px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0002_offset_ {
+  background-position: -1205px -143px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0002_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1205px -143px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0003_offset_ {
+  background-position: -1384px -143px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0003_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1384px -143px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0004_offset_ {
+  background-position: -563px -193px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_CLUMP_0004_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -563px -193px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-BOBA_FILL_BLACK_offset_ {
+  background-position: 0px -119px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 189px;
+  height: 279px;
+}
+.ddl-BOBA_FILL_BLACK_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) 0px -119px/2004px 460px no-repeat;
+  width: 189px;
+  height: 279px;
+}
+.ddl-BOBA_FILL_WHITE_offset_ {
+  background-position: -192px -119px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 189px;
+  height: 279px;
+}
+.ddl-BOBA_FILL_WHITE_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -192px -119px/2004px 460px no-repeat;
+  width: 189px;
+  height: 279px;
+}
+.ddl-BOBA_SINGLE_BLACK_offset_ {
+  background-position: -1927px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 77px;
+  height: 76px;
+}
+.ddl-BOBA_SINGLE_BLACK_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1927px 0px/2004px 460px no-repeat;
+  width: 77px;
+  height: 76px;
+}
+.ddl-BOBA_SINGLE_WHITE_offset_ {
+  background-position: -1927px -79px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 77px;
+  height: 76px;
+}
+.ddl-BOBA_SINGLE_WHITE_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1927px -79px/2004px 460px no-repeat;
+  width: 77px;
+  height: 76px;
+}
+.ddl-PEARLS_BG_LEFT_offset_ {
+  background-position: -1706px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 218px;
+  height: 314px;
+}
+.ddl-PEARLS_BG_LEFT_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1706px 0px/2004px 460px no-repeat;
+  width: 218px;
+  height: 314px;
+}
+.ddl-PEARLS_BG_RIGHT_offset_ {
+  background-position: -1563px -143px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 135px;
+  height: 311px;
+}
+.ddl-PEARLS_BG_RIGHT_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1563px -143px/2004px 460px no-repeat;
+  width: 135px;
+  height: 311px;
+}
+.ddl-STRAINER_01_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 340px;
+  height: 116px;
+}
+.ddl-STRAINER_01_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) 0px 0px/2004px 460px no-repeat;
+  width: 340px;
+  height: 116px;
+}
+.ddl-STRAINER_02_offset_ {
+  background-position: -1026px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 337px;
+  height: 140px;
+}
+.ddl-STRAINER_02_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1026px 0px/2004px 460px no-repeat;
+  width: 337px;
+  height: 140px;
+}
+.ddl-STRAINER_03_offset_ {
+  background-position: -686px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 337px;
+  height: 190px;
+}
+.ddl-STRAINER_03_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -686px 0px/2004px 460px no-repeat;
+  width: 337px;
+  height: 190px;
+}
+.ddl-STRAINER_WHITE_01_offset_ {
+  background-position: -343px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 340px;
+  height: 116px;
+}
+.ddl-STRAINER_WHITE_01_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -343px 0px/2004px 460px no-repeat;
+  width: 340px;
+  height: 116px;
+}
+.ddl-STRAINER_WHITE_02_offset_ {
+  background-position: -1366px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 337px;
+  height: 140px;
+}
+.ddl-STRAINER_WHITE_02_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1366px 0px/2004px 460px no-repeat;
+  width: 337px;
+  height: 140px;
+}
+.ddl-STRAINER_WHITE_03_offset_ {
+  background-position: -686px 0px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 337px;
+  height: 190px;
+}
+.ddl-STRAINER_WHITE_03_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -686px 0px/2004px 460px no-repeat;
+  width: 337px;
+  height: 190px;
+}
+.ddl-WHITE_BOBA_FALL_0000_offset_ {
+  background-position: -742px -193px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0000_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -742px -193px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0001_offset_ {
+  background-position: -384px -279px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0001_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -384px -279px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0002_offset_ {
+  background-position: -921px -303px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0002_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -921px -303px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0003_offset_ {
+  background-position: -1100px -303px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0003_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1100px -303px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0004_offset_ {
+  background-position: -1279px -303px;
+  -webkit-background-size: 2004px 460px;
+  -o-background-size: 2004px 460px;
+  background-size: 2004px 460px;
+  width: 176px;
+  height: 157px;
+}
+.ddl-WHITE_BOBA_FALL_0004_ {
+  background: url(/doodle-bubble-tea/assets/pearls-sprite.png) -1279px -303px/2004px 460px no-repeat;
+  width: 176px;
+  height: 157px;
+}
+.ddl-SUGAR_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/sugar-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-DOUBLE_GLOW_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 292px;
+  height: 418px;
+}
+.ddl-DOUBLE_GLOW_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) 0px 0px/2035px 439px no-repeat;
+  width: 292px;
+  height: 418px;
+}
+.ddl-LID_WIPE_0000_offset_ {
+  background-position: -1166px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0000_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1166px 0px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0001_offset_ {
+  background-position: -1405px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0001_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1405px 0px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0002_offset_ {
+  background-position: -1644px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0002_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1644px 0px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0003_offset_ {
+  background-position: -1166px -47px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0003_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1166px -47px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0004_offset_ {
+  background-position: -1405px -47px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0004_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1405px -47px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0005_offset_ {
+  background-position: -1644px -47px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 236px;
+  height: 44px;
+}
+.ddl-LID_WIPE_0005_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1644px -47px/2035px 439px no-repeat;
+  width: 236px;
+  height: 44px;
+}
+.ddl-QUADRUPLE_GLOW_offset_ {
+  background-position: -295px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 292px;
+  height: 418px;
+}
+.ddl-QUADRUPLE_GLOW_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -295px 0px/2035px 439px no-repeat;
+  width: 292px;
+  height: 418px;
+}
+.ddl-SINGLE_GLOW_offset_ {
+  background-position: -590px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 292px;
+  height: 418px;
+}
+.ddl-SINGLE_GLOW_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -590px 0px/2035px 439px no-repeat;
+  width: 292px;
+  height: 418px;
+}
+.ddl-SUGAR_BGLEFT_offset_ {
+  background-position: -885px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 278px;
+  height: 295px;
+}
+.ddl-SUGAR_BGLEFT_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -885px 0px/2035px 439px no-repeat;
+  width: 278px;
+  height: 295px;
+}
+.ddl-SUGAR_BGRIGHT_offset_ {
+  background-position: -1166px -94px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 171px;
+  height: 345px;
+}
+.ddl-SUGAR_BGRIGHT_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1166px -94px/2035px 439px no-repeat;
+  width: 171px;
+  height: 345px;
+}
+.ddl-SUGAR_BOTTLE_offset_ {
+  background-position: -1883px 0px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 152px;
+  height: 371px;
+}
+.ddl-SUGAR_BOTTLE_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1883px 0px/2035px 439px no-repeat;
+  width: 152px;
+  height: 371px;
+}
+.ddl-SUGAR_DROP_offset_ {
+  background-position: -1489px -94px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 17px;
+  height: 48px;
+}
+.ddl-SUGAR_DROP_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1489px -94px/2035px 439px no-repeat;
+  width: 17px;
+  height: 48px;
+}
+.ddl-SUGAR_PUMP_offset_ {
+  background-position: -1340px -94px;
+  -webkit-background-size: 2035px 439px;
+  -o-background-size: 2035px 439px;
+  background-size: 2035px 439px;
+  width: 146px;
+  height: 115px;
+}
+.ddl-SUGAR_PUMP_ {
+  background: url(/doodle-bubble-tea/assets/sugar-sprite.png) -1340px -94px/2035px 439px no-repeat;
+  width: 146px;
+  height: 115px;
+}
+.ddl-HONEYDEW_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/honeydew-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-HONEYDEW_SHAKE_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00001_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) 0px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00002_offset_ {
+  background-position: -317px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00002_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -317px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00003_offset_ {
+  background-position: -634px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00003_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -634px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00004_offset_ {
+  background-position: -951px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00004_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -951px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00005_offset_ {
+  background-position: -1268px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00005_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1268px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00006_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00006_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00007_offset_ {
+  background-position: 0px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00007_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) 0px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00008_offset_ {
+  background-position: -317px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00008_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -317px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00009_offset_ {
+  background-position: -634px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00009_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -634px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00010_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00010_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00011_offset_ {
+  background-position: -951px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00011_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -951px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00012_offset_ {
+  background-position: -1268px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00012_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1268px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00013_offset_ {
+  background-position: -1585px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00013_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1585px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00014_offset_ {
+  background-position: 0px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00014_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) 0px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00015_offset_ {
+  background-position: -317px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00015_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -317px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00016_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00016_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00017_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00017_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00018_offset_ {
+  background-position: -951px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00018_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -951px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00019_offset_ {
+  background-position: -1268px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00019_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1268px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00020_offset_ {
+  background-position: -1585px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00020_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -1585px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00021_offset_ {
+  background-position: 0px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00021_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) 0px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00022_offset_ {
+  background-position: -317px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00022_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -317px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00023_offset_ {
+  background-position: -634px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-HONEYDEW_SHAKE_00023_ {
+  background: url(/doodle-bubble-tea/assets/honeydew-sprite.png) -634px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/oolong-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-OOLONG_SHAKE_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00001_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) 0px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00002_offset_ {
+  background-position: -317px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00002_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -317px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00003_offset_ {
+  background-position: -634px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00003_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -634px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00004_offset_ {
+  background-position: -951px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00004_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -951px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00005_offset_ {
+  background-position: -1268px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00005_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1268px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00006_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00006_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00007_offset_ {
+  background-position: 0px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00007_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) 0px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00008_offset_ {
+  background-position: -317px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00008_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -317px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00009_offset_ {
+  background-position: -634px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00009_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -634px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00010_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00010_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00011_offset_ {
+  background-position: -951px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00011_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -951px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00012_offset_ {
+  background-position: -1268px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00012_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1268px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00013_offset_ {
+  background-position: -1585px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00013_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1585px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00014_offset_ {
+  background-position: 0px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00014_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) 0px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00015_offset_ {
+  background-position: -317px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00015_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -317px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00016_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00016_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00017_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00017_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00018_offset_ {
+  background-position: -951px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00018_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -951px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00019_offset_ {
+  background-position: -1268px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00019_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1268px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00020_offset_ {
+  background-position: -1585px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00020_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -1585px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00021_offset_ {
+  background-position: 0px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00021_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) 0px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00022_offset_ {
+  background-position: -317px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00022_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -317px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00023_offset_ {
+  background-position: -634px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-OOLONG_SHAKE_00023_ {
+  background: url(/doodle-bubble-tea/assets/oolong-sprite.png) -634px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-REGULAR_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/regular-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-REGULAR_SHAKE_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00001_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) 0px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00002_offset_ {
+  background-position: -318px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00002_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -318px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00003_offset_ {
+  background-position: -636px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00003_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -636px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00004_offset_ {
+  background-position: -954px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00004_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -954px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00005_offset_ {
+  background-position: -1272px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00005_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1272px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00006_offset_ {
+  background-position: -1590px 0px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00006_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1590px 0px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00007_offset_ {
+  background-position: 0px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00007_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) 0px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00008_offset_ {
+  background-position: -318px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00008_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -318px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00009_offset_ {
+  background-position: -636px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00009_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -636px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00010_offset_ {
+  background-position: -954px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00010_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -954px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00011_offset_ {
+  background-position: -1272px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00011_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1272px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00012_offset_ {
+  background-position: -1590px -521px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00012_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1590px -521px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00013_offset_ {
+  background-position: 0px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00013_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) 0px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00014_offset_ {
+  background-position: -318px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00014_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -318px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00015_offset_ {
+  background-position: -636px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00015_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -636px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00016_offset_ {
+  background-position: -954px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00016_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -954px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00017_offset_ {
+  background-position: -954px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00017_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -954px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00018_offset_ {
+  background-position: -1272px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00018_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1272px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00019_offset_ {
+  background-position: -1590px -1042px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00019_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1590px -1042px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00020_offset_ {
+  background-position: 0px -1563px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00020_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) 0px -1563px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00021_offset_ {
+  background-position: -318px -1563px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00021_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -318px -1563px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00022_offset_ {
+  background-position: -636px -1563px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00022_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -636px -1563px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00023_offset_ {
+  background-position: -954px -1563px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00023_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -954px -1563px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00024_offset_ {
+  background-position: -1272px -1563px;
+  -webkit-background-size: 1905px 2081px;
+  -o-background-size: 1905px 2081px;
+  background-size: 1905px 2081px;
+  width: 315px;
+  height: 518px;
+}
+.ddl-REGULAR_SHAKE_00024_ {
+  background: url(/doodle-bubble-tea/assets/regular-sprite.png) -1272px -1563px/1905px 2081px no-repeat;
+  width: 315px;
+  height: 518px;
+}
+.ddl-TARO_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/taro-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-TARO_SHAKE_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00001_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) 0px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00002_offset_ {
+  background-position: -317px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00002_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -317px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00003_offset_ {
+  background-position: -634px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00003_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -634px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00004_offset_ {
+  background-position: -951px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00004_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -951px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00005_offset_ {
+  background-position: -1268px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00005_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1268px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00006_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00006_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00007_offset_ {
+  background-position: 0px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00007_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) 0px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00008_offset_ {
+  background-position: -317px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00008_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -317px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00009_offset_ {
+  background-position: -634px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00009_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -634px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00010_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00010_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00011_offset_ {
+  background-position: -951px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00011_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -951px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00012_offset_ {
+  background-position: -1268px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00012_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1268px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00013_offset_ {
+  background-position: -1585px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00013_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1585px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00014_offset_ {
+  background-position: 0px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00014_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) 0px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00015_offset_ {
+  background-position: -317px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00015_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -317px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00016_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00016_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00017_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00017_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00018_offset_ {
+  background-position: -951px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00018_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -951px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00019_offset_ {
+  background-position: -1268px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00019_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1268px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00020_offset_ {
+  background-position: -1585px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00020_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -1585px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00021_offset_ {
+  background-position: 0px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00021_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) 0px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00022_offset_ {
+  background-position: -317px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00022_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -317px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00023_offset_ {
+  background-position: -634px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-TARO_SHAKE_00023_ {
+  background: url(/doodle-bubble-tea/assets/taro-sprite.png) -634px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/thai-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-THAI_SHAKE_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00001_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) 0px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00002_offset_ {
+  background-position: -317px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00002_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -317px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00003_offset_ {
+  background-position: -634px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00003_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -634px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00004_offset_ {
+  background-position: -951px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00004_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -951px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00005_offset_ {
+  background-position: -1268px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00005_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1268px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00006_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00006_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00007_offset_ {
+  background-position: 0px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00007_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) 0px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00008_offset_ {
+  background-position: -317px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00008_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -317px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00009_offset_ {
+  background-position: -634px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00009_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -634px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00010_offset_ {
+  background-position: -1585px 0px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00010_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1585px 0px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00011_offset_ {
+  background-position: -951px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00011_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -951px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00012_offset_ {
+  background-position: -1268px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00012_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1268px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00013_offset_ {
+  background-position: -1585px -520px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00013_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1585px -520px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00014_offset_ {
+  background-position: 0px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00014_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) 0px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00015_offset_ {
+  background-position: -317px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00015_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -317px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00016_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00016_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00017_offset_ {
+  background-position: -634px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00017_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -634px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00018_offset_ {
+  background-position: -951px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00018_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -951px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00019_offset_ {
+  background-position: -1268px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00019_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1268px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00020_offset_ {
+  background-position: -1585px -1040px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00020_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -1585px -1040px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00021_offset_ {
+  background-position: 0px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00021_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) 0px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00022_offset_ {
+  background-position: -317px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00022_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -317px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00023_offset_ {
+  background-position: -634px -1560px;
+  -webkit-background-size: 1899px 2077px;
+  -o-background-size: 1899px 2077px;
+  background-size: 1899px 2077px;
+  width: 314px;
+  height: 517px;
+}
+.ddl-THAI_SHAKE_00023_ {
+  background: url(/doodle-bubble-tea/assets/thai-sprite.png) -634px -1560px/1899px 2077px no-repeat;
+  width: 314px;
+  height: 517px;
+}
+.ddl-SINGLE_STRAW_STAB_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-SINGLE_STRAW_STAB_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00001_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) 0px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00002_offset_ {
+  background-position: -48px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00002_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -48px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00003_offset_ {
+  background-position: -96px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00003_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -96px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00004_offset_ {
+  background-position: -144px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00004_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -144px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00005_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00005_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00006_offset_ {
+  background-position: -240px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00006_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -240px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00007_offset_ {
+  background-position: -288px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00007_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -288px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00008_offset_ {
+  background-position: -336px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00008_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -336px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00009_offset_ {
+  background-position: -384px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00009_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -384px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00010_offset_ {
+  background-position: -432px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00010_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -432px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00011_offset_ {
+  background-position: -480px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00011_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -480px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00012_offset_ {
+  background-position: -528px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00012_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -528px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00013_offset_ {
+  background-position: -576px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00013_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -576px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00014_offset_ {
+  background-position: -624px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00014_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -624px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00015_offset_ {
+  background-position: -672px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00015_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -672px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00016_offset_ {
+  background-position: -720px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00016_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -720px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00017_offset_ {
+  background-position: -768px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00017_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -768px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00018_offset_ {
+  background-position: -816px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00018_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -816px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00019_offset_ {
+  background-position: -864px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00019_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -864px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00020_offset_ {
+  background-position: -912px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00020_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -912px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00021_offset_ {
+  background-position: -960px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00021_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -960px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00022_offset_ {
+  background-position: -1008px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00022_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1008px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00023_offset_ {
+  background-position: -1056px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00023_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1056px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00024_offset_ {
+  background-position: -1104px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00024_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1104px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00025_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00025_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00026_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00026_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00027_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00027_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00028_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00028_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00029_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00029_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00030_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00030_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00031_offset_ {
+  background-position: -192px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00031_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -192px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00032_offset_ {
+  background-position: -1152px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00032_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1152px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00033_offset_ {
+  background-position: -1200px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00033_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1200px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00034_offset_ {
+  background-position: -1248px 0px;
+  -webkit-background-size: 1293px 659px;
+  -o-background-size: 1293px 659px;
+  background-size: 1293px 659px;
+  width: 45px;
+  height: 659px;
+}
+.ddl-SINGLE_STRAW_STAB_00034_ {
+  background: url(/doodle-bubble-tea/assets/single-straw-stab-sprite.png) -1248px 0px/1293px 659px no-repeat;
+  width: 45px;
+  height: 659px;
+}
+.ddl-DOUBLE_STRAW_STAB_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-DOUBLE_STRAW_STAB_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00001_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) 0px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00002_offset_ {
+  background-position: -110px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00002_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -110px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00003_offset_ {
+  background-position: -220px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00003_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -220px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00004_offset_ {
+  background-position: -330px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00004_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -330px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00005_offset_ {
+  background-position: -440px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00005_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -440px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00006_offset_ {
+  background-position: -550px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00006_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -550px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00007_offset_ {
+  background-position: -660px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00007_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -660px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00008_offset_ {
+  background-position: -770px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00008_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -770px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00009_offset_ {
+  background-position: -880px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00009_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00010_offset_ {
+  background-position: -990px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00010_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -990px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00011_offset_ {
+  background-position: -1100px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00011_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1100px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00012_offset_ {
+  background-position: -1210px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00012_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1210px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00013_offset_ {
+  background-position: -1320px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00013_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1320px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00014_offset_ {
+  background-position: -1430px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00014_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1430px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00015_offset_ {
+  background-position: -1540px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00015_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1540px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00016_offset_ {
+  background-position: -1650px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00016_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1650px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00017_offset_ {
+  background-position: -1760px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00017_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1760px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00018_offset_ {
+  background-position: -1870px 0px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00018_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1870px 0px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00019_offset_ {
+  background-position: 0px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00019_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) 0px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00020_offset_ {
+  background-position: -110px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00020_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -110px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00021_offset_ {
+  background-position: -220px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00021_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -220px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00022_offset_ {
+  background-position: -330px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00022_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -330px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00023_offset_ {
+  background-position: -440px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00023_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -440px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00024_offset_ {
+  background-position: -550px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00024_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -550px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00025_offset_ {
+  background-position: -660px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00025_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -660px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00026_offset_ {
+  background-position: -770px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00026_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -770px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00027_offset_ {
+  background-position: -880px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00027_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00028_offset_ {
+  background-position: -880px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00028_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00029_offset_ {
+  background-position: -880px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00029_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00030_offset_ {
+  background-position: -880px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00030_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00031_offset_ {
+  background-position: -880px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00031_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -880px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00032_offset_ {
+  background-position: -990px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00032_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -990px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00033_offset_ {
+  background-position: -1100px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00033_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1100px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00034_offset_ {
+  background-position: -1210px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00034_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1210px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00035_offset_ {
+  background-position: -1320px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00035_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1320px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00036_offset_ {
+  background-position: -1430px -491px;
+  -webkit-background-size: 1977px 979px;
+  -o-background-size: 1977px 979px;
+  background-size: 1977px 979px;
+  width: 107px;
+  height: 488px;
+}
+.ddl-DOUBLE_STRAW_STAB_00036_ {
+  background: url(/doodle-bubble-tea/assets/double-straw-stab-sprite.png) -1430px -491px/1977px 979px no-repeat;
+  width: 107px;
+  height: 488px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00001_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00001_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) 0px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00002_offset_ {
+  background-position: -169px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00002_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -169px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00003_offset_ {
+  background-position: -338px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00003_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -338px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00004_offset_ {
+  background-position: -507px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00004_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00005_offset_ {
+  background-position: -676px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00005_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -676px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00006_offset_ {
+  background-position: -845px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00006_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -845px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00007_offset_ {
+  background-position: -1014px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00007_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1014px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00008_offset_ {
+  background-position: -1183px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00008_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1183px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00009_offset_ {
+  background-position: -1352px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00009_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1352px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00010_offset_ {
+  background-position: -1521px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00010_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1521px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00011_offset_ {
+  background-position: -1690px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00011_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1690px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00012_offset_ {
+  background-position: -1859px 0px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00012_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1859px 0px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00013_offset_ {
+  background-position: 0px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00013_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) 0px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00014_offset_ {
+  background-position: -169px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00014_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -169px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00015_offset_ {
+  background-position: -338px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00015_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -338px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00016_offset_ {
+  background-position: -507px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00016_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00017_offset_ {
+  background-position: -676px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00017_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -676px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00018_offset_ {
+  background-position: -845px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00018_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -845px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00019_offset_ {
+  background-position: -1014px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00019_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1014px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00020_offset_ {
+  background-position: -1183px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00020_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1183px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00021_offset_ {
+  background-position: -1352px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00021_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1352px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00022_offset_ {
+  background-position: -1521px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00022_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1521px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00023_offset_ {
+  background-position: -1690px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00023_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1690px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00024_offset_ {
+  background-position: -1859px -514px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00024_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1859px -514px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00025_offset_ {
+  background-position: 0px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00025_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) 0px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00026_offset_ {
+  background-position: -169px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00026_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -169px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00027_offset_ {
+  background-position: -338px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00027_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -338px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00028_offset_ {
+  background-position: -507px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00028_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00029_offset_ {
+  background-position: -507px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00029_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00030_offset_ {
+  background-position: -507px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00030_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00031_offset_ {
+  background-position: -507px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00031_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -507px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00032_offset_ {
+  background-position: -676px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00032_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -676px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00033_offset_ {
+  background-position: -845px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00033_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -845px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00034_offset_ {
+  background-position: -1014px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00034_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1014px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00035_offset_ {
+  background-position: -1183px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00035_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1183px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00036_offset_ {
+  background-position: -1352px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00036_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1352px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00037_offset_ {
+  background-position: -1521px -1028px;
+  -webkit-background-size: 2025px 1539px;
+  -o-background-size: 2025px 1539px;
+  background-size: 2025px 1539px;
+  width: 166px;
+  height: 511px;
+}
+.ddl-QUADRUPLE_STRAW_STAB_00037_ {
+  background: url(/doodle-bubble-tea/assets/quadruple-straw-stab-sprite.png) -1521px -1028px/2025px 1539px no-repeat;
+  width: 166px;
+  height: 511px;
+}
+.ddl-TOP_PANEL_CUSTOMERS_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-CATS_LEAVE_1_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_LEAVE_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) 0px 0px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_LEAVE_2_offset_ {
+  background-position: -423px 0px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_LEAVE_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -423px 0px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_WAIT_1_offset_ {
+  background-position: -846px 0px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_WAIT_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -846px 0px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_WAIT_2_offset_ {
+  background-position: -1269px 0px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-CATS_WAIT_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -1269px 0px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_LEAVE_1_offset_ {
+  background-position: 0px -302px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_LEAVE_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) 0px -302px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_LEAVE_2_offset_ {
+  background-position: -423px -302px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_LEAVE_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -423px -302px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_WAIT_1_offset_ {
+  background-position: -846px -302px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_WAIT_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -846px -302px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_WAIT_2_offset_ {
+  background-position: -1269px -302px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-DOG_WAIT_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -1269px -302px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_LEAVE_1_offset_ {
+  background-position: 0px -604px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_LEAVE_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) 0px -604px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_LEAVE_2_offset_ {
+  background-position: -423px -604px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_LEAVE_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -423px -604px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_WAIT_1_offset_ {
+  background-position: -846px -604px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_WAIT_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -846px -604px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_WAIT_2_offset_ {
+  background-position: -1269px -604px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-FROG_WAIT_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -1269px -604px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_LEAVE_1_offset_ {
+  background-position: 0px -906px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_LEAVE_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) 0px -906px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_LEAVE_2_offset_ {
+  background-position: -423px -906px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_LEAVE_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -423px -906px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_WAIT_1_offset_ {
+  background-position: -846px -906px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_WAIT_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -846px -906px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_WAIT_2_offset_ {
+  background-position: -1269px -906px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SHEEP_WAIT_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -1269px -906px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_LEAVE_1_offset_ {
+  background-position: 0px -1208px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_LEAVE_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) 0px -1208px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_LEAVE_2_offset_ {
+  background-position: -423px -1208px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_LEAVE_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -423px -1208px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_WAIT_1_offset_ {
+  background-position: -846px -1208px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_WAIT_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -846px -1208px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_WAIT_2_offset_ {
+  background-position: -1269px -1208px;
+  -webkit-background-size: 1689px 1507px;
+  -o-background-size: 1689px 1507px;
+  background-size: 1689px 1507px;
+  width: 420px;
+  height: 299px;
+}
+.ddl-SPIRITS_WAIT_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-customers-sprite.png) -1269px -1208px/1689px 1507px no-repeat;
+  width: 420px;
+  height: 299px;
+}
+.ddl-TOP_PANEL_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/top-panel-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-HONEYDEW_COUNTER_offset_ {
+  background-position: -1638px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 112px;
+  height: 176px;
+}
+.ddl-HONEYDEW_COUNTER_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1638px 0px/1980px 623px no-repeat;
+  width: 112px;
+  height: 176px;
+}
+.ddl-OOLONG_COUNTER_offset_ {
+  background-position: -1753px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 112px;
+  height: 176px;
+}
+.ddl-OOLONG_COUNTER_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1753px 0px/1980px 623px no-repeat;
+  width: 112px;
+  height: 176px;
+}
+.ddl-RAIN_1_offset_ {
+  background-position: -546px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 543px;
+  height: 310px;
+}
+.ddl-RAIN_1_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -546px 0px/1980px 623px no-repeat;
+  width: 543px;
+  height: 310px;
+}
+.ddl-RAIN_2_offset_ {
+  background-position: -1092px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 543px;
+  height: 310px;
+}
+.ddl-RAIN_2_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1092px 0px/1980px 623px no-repeat;
+  width: 543px;
+  height: 310px;
+}
+.ddl-REGULAR_COUNTER_offset_ {
+  background-position: -1868px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 112px;
+  height: 176px;
+}
+.ddl-REGULAR_COUNTER_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1868px 0px/1980px 623px no-repeat;
+  width: 112px;
+  height: 176px;
+}
+.ddl-SHOP_BG_offset_ {
+  background-position: -546px -313px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 542px;
+  height: 310px;
+}
+.ddl-SHOP_BG_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -546px -313px/1980px 623px no-repeat;
+  width: 542px;
+  height: 310px;
+}
+.ddl-SHOP_FRAME_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 543px;
+  height: 341px;
+}
+.ddl-SHOP_FRAME_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) 0px 0px/1980px 623px no-repeat;
+  width: 543px;
+  height: 341px;
+}
+.ddl-TARO_COUNTER_offset_ {
+  background-position: -1638px -179px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 112px;
+  height: 176px;
+}
+.ddl-TARO_COUNTER_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1638px -179px/1980px 623px no-repeat;
+  width: 112px;
+  height: 176px;
+}
+.ddl-THAI_COUNTER_offset_ {
+  background-position: -1753px -179px;
+  -webkit-background-size: 1980px 623px;
+  -o-background-size: 1980px 623px;
+  background-size: 1980px 623px;
+  width: 112px;
+  height: 176px;
+}
+.ddl-THAI_COUNTER_ {
+  background: url(/doodle-bubble-tea/assets/top-panel-sprite.png) -1753px -179px/1980px 623px no-repeat;
+  width: 112px;
+  height: 176px;
+}
+.ddl-MINIGAME_SHARED_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-BADGE_0_AVATAR_offset_ {
+  background-position: -1566px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_0_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1566px -139px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_0_STAR_offset_ {
+  background-position: -1520px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_0_STAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1520px 0px/2038px 633px no-repeat;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_1_AVATAR_offset_ {
+  background-position: -1669px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_1_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1669px -139px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_1_STAR_offset_ {
+  background-position: -1643px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_1_STAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1643px 0px/2038px 633px no-repeat;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_2_AVATAR_offset_ {
+  background-position: -1772px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_2_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1772px -139px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_2_STAR_offset_ {
+  background-position: -1766px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_2_STAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1766px 0px/2038px 633px no-repeat;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_3_AVATAR_offset_ {
+  background-position: -1875px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_3_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1875px -139px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-BADGE_3_STAR_offset_ {
+  background-position: -1889px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_3_STAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1889px 0px/2038px 633px no-repeat;
+  width: 120px;
+  height: 136px;
+}
+.ddl-BADGE_UNKNOWN_offset_ {
+  background-position: -1978px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 60px;
+  height: 69px;
+}
+.ddl-BADGE_UNKNOWN_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1978px -139px/2038px 633px no-repeat;
+  width: 60px;
+  height: 69px;
+}
+.ddl-CATS_AVATAR_offset_ {
+  background-position: -1566px -242px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-CATS_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1566px -242px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-CUP_offset_ {
+  background-position: -976px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 189px;
+  height: 279px;
+}
+.ddl-CUP_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -976px 0px/2038px 633px no-repeat;
+  width: 189px;
+  height: 279px;
+}
+.ddl-CUP_MASK_offset_ {
+  background-position: -1168px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 189px;
+  height: 279px;
+}
+.ddl-CUP_MASK_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1168px 0px/2038px 633px no-repeat;
+  width: 189px;
+  height: 279px;
+}
+.ddl-CUP_SHADOW_offset_ {
+  background-position: -1360px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 157px;
+  height: 16px;
+}
+.ddl-CUP_SHADOW_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1360px 0px/2038px 633px no-repeat;
+  width: 157px;
+  height: 16px;
+}
+.ddl-DOG_AVATAR_offset_ {
+  background-position: -1669px -242px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-DOG_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1669px -242px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-FROG_AVATAR_offset_ {
+  background-position: -1772px -242px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-FROG_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1772px -242px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-INGREDIENT_MASK_offset_ {
+  background-position: -784px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 189px;
+  height: 450px;
+}
+.ddl-INGREDIENT_MASK_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -784px 0px/2038px 633px no-repeat;
+  width: 189px;
+  height: 450px;
+}
+.ddl-MINIGAME_FRAME_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 543px;
+  height: 633px;
+}
+.ddl-MINIGAME_FRAME_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) 0px 0px/2038px 633px no-repeat;
+  width: 543px;
+  height: 633px;
+}
+.ddl-OWNER_HAPPY_offset_ {
+  background-position: -1360px -19px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 116px;
+}
+.ddl-OWNER_HAPPY_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1360px -19px/2038px 633px no-repeat;
+  width: 100px;
+  height: 116px;
+}
+.ddl-OWNER_NORMAL_offset_ {
+  background-position: -1360px -138px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 116px;
+}
+.ddl-OWNER_NORMAL_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1360px -138px/2038px 633px no-repeat;
+  width: 100px;
+  height: 116px;
+}
+.ddl-OWNER_SAD_offset_ {
+  background-position: -1463px -139px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 116px;
+}
+.ddl-OWNER_SAD_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1463px -139px/2038px 633px no-repeat;
+  width: 100px;
+  height: 116px;
+}
+.ddl-SHEEP_AVATAR_offset_ {
+  background-position: -1875px -242px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-SHEEP_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1875px -242px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-SPIRITS_AVATAR_offset_ {
+  background-position: -1360px -257px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 100px;
+  height: 100px;
+}
+.ddl-SPIRITS_AVATAR_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -1360px -257px/2038px 633px no-repeat;
+  width: 100px;
+  height: 100px;
+}
+.ddl-TUTORIAL_BOBA_offset_ {
+  background-position: -546px 0px;
+  -webkit-background-size: 2038px 633px;
+  -o-background-size: 2038px 633px;
+  background-size: 2038px 633px;
+  width: 235px;
+  height: 290px;
+}
+.ddl-TUTORIAL_BOBA_ {
+  background: url(/doodle-bubble-tea/assets/minigame-shared-sprite.png) -546px 0px/2038px 633px no-repeat;
+  width: 235px;
+  height: 290px;
+}
+.ddl-PRECLICK_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/preclick-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-CTAPLAY_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1007px 507px;
+  -o-background-size: 1007px 507px;
+  background-size: 1007px 507px;
+  width: 395px;
+  height: 507px;
+}
+.ddl-CTAPLAY_ {
+  background: url(/doodle-bubble-tea/assets/preclick-sprite.png) 0px 0px/1007px 507px no-repeat;
+  width: 395px;
+  height: 507px;
+}
+.ddl-LOADING_1_offset_ {
+  background-position: -398px 0px;
+  -webkit-background-size: 1007px 507px;
+  -o-background-size: 1007px 507px;
+  background-size: 1007px 507px;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_1_ {
+  background: url(/doodle-bubble-tea/assets/preclick-sprite.png) -398px 0px/1007px 507px no-repeat;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_2_offset_ {
+  background-position: -551px 0px;
+  -webkit-background-size: 1007px 507px;
+  -o-background-size: 1007px 507px;
+  background-size: 1007px 507px;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_2_ {
+  background: url(/doodle-bubble-tea/assets/preclick-sprite.png) -551px 0px/1007px 507px no-repeat;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_3_offset_ {
+  background-position: -704px 0px;
+  -webkit-background-size: 1007px 507px;
+  -o-background-size: 1007px 507px;
+  background-size: 1007px 507px;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_3_ {
+  background: url(/doodle-bubble-tea/assets/preclick-sprite.png) -704px 0px/1007px 507px no-repeat;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_4_offset_ {
+  background-position: -857px 0px;
+  -webkit-background-size: 1007px 507px;
+  -o-background-size: 1007px 507px;
+  background-size: 1007px 507px;
+  width: 150px;
+  height: 226px;
+}
+.ddl-LOADING_4_ {
+  background: url(/doodle-bubble-tea/assets/preclick-sprite.png) -857px 0px/1007px 507px no-repeat;
+  width: 150px;
+  height: 226px;
+}
+.ddl-UI_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/ui-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-ANDROID_SHARE_offset_ {
+  background-position: -900px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 113px;
+  height: 112px;
+}
+.ddl-ANDROID_SHARE_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -900px 0px/1782px 960px no-repeat;
+  width: 113px;
+  height: 112px;
+}
+.ddl-COPY_offset_ {
+  background-position: -1364px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 68px;
+  height: 69px;
+}
+.ddl-COPY_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1364px 0px/1782px 960px no-repeat;
+  width: 68px;
+  height: 69px;
+}
+.ddl-EMAIL_offset_ {
+  background-position: -1435px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 68px;
+  height: 69px;
+}
+.ddl-EMAIL_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1435px 0px/1782px 960px no-repeat;
+  width: 68px;
+  height: 69px;
+}
+.ddl-END_SCREEN_BG_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 540px;
+  height: 960px;
+}
+.ddl-END_SCREEN_BG_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) 0px 0px/1782px 960px no-repeat;
+  width: 540px;
+  height: 960px;
+}
+.ddl-FB_offset_ {
+  background-position: -1506px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 68px;
+  height: 69px;
+}
+.ddl-FB_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1506px 0px/1782px 960px no-repeat;
+  width: 68px;
+  height: 69px;
+}
+.ddl-IOS_SHARE_offset_ {
+  background-position: -1016px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 113px;
+  height: 112px;
+}
+.ddl-IOS_SHARE_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1016px 0px/1782px 960px no-repeat;
+  width: 113px;
+  height: 112px;
+}
+.ddl-MUTED_offset_ {
+  background-position: -1711px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 34px;
+  height: 27px;
+}
+.ddl-MUTED_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1711px 0px/1782px 960px no-repeat;
+  width: 34px;
+  height: 27px;
+}
+.ddl-PLAY_BUTTON_offset_ {
+  background-position: -1648px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 60px;
+  height: 70px;
+}
+.ddl-PLAY_BUTTON_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1648px 0px/1782px 960px no-repeat;
+  width: 60px;
+  height: 70px;
+}
+.ddl-POINTER_FINGER_offset_ {
+  background-position: -783px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 114px;
+  height: 142px;
+}
+.ddl-POINTER_FINGER_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -783px 0px/1782px 960px no-repeat;
+  width: 114px;
+  height: 142px;
+}
+.ddl-REPLAY_offset_ {
+  background-position: -1132px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 113px;
+  height: 112px;
+}
+.ddl-REPLAY_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1132px 0px/1782px 960px no-repeat;
+  width: 113px;
+  height: 112px;
+}
+.ddl-RIGHT_ARROW_offset_ {
+  background-position: -543px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 117px;
+  height: 74px;
+}
+.ddl-RIGHT_ARROW_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -543px 0px/1782px 960px no-repeat;
+  width: 117px;
+  height: 74px;
+}
+.ddl-SEARCH_offset_ {
+  background-position: -1248px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 113px;
+  height: 112px;
+}
+.ddl-SEARCH_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1248px 0px/1782px 960px no-repeat;
+  width: 113px;
+  height: 112px;
+}
+.ddl-SKIP_offset_ {
+  background-position: -663px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 117px;
+  height: 74px;
+}
+.ddl-SKIP_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -663px 0px/1782px 960px no-repeat;
+  width: 117px;
+  height: 74px;
+}
+.ddl-SOUND_ON_offset_ {
+  background-position: -1748px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 34px;
+  height: 27px;
+}
+.ddl-SOUND_ON_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1748px 0px/1782px 960px no-repeat;
+  width: 34px;
+  height: 27px;
+}
+.ddl-TWITTER_offset_ {
+  background-position: -1577px 0px;
+  -webkit-background-size: 1782px 960px;
+  -o-background-size: 1782px 960px;
+  background-size: 1782px 960px;
+  width: 68px;
+  height: 69px;
+}
+.ddl-TWITTER_ {
+  background: url(/doodle-bubble-tea/assets/ui-sprite.png) -1577px 0px/1782px 960px no-repeat;
+  width: 68px;
+  height: 69px;
+}
+.ddl-LINE_SPRITE_ {
+  background-image: url(/doodle-bubble-tea/assets/line-sprite.png);
+  background-repeat: no-repeat;
+}
+.ddl-LINE_offset_ {
+  background-position: 0px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-LINE_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-LINE_GLOW_offset_ {
+  background-position: -279px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-LINE_GLOW_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00012_offset_ {
+  background-position: -558px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00012_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -558px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00013_offset_ {
+  background-position: -837px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00013_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -837px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00014_offset_ {
+  background-position: -1116px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00014_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1116px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00015_offset_ {
+  background-position: -1395px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00015_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1395px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00016_offset_ {
+  background-position: -1674px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00016_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1674px 0px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00017_offset_ {
+  background-position: 0px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00017_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00018_offset_ {
+  background-position: -279px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00018_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00019_offset_ {
+  background-position: -558px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00019_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -558px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00020_offset_ {
+  background-position: -837px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00020_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -837px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00021_offset_ {
+  background-position: -1116px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00021_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1116px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00022_offset_ {
+  background-position: -1395px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00022_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1395px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00023_offset_ {
+  background-position: -1674px -56px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00023_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1674px -56px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00024_offset_ {
+  background-position: 0px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00024_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00025_offset_ {
+  background-position: -279px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00025_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00026_offset_ {
+  background-position: -558px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00026_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -558px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00027_offset_ {
+  background-position: -837px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00027_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -837px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00028_offset_ {
+  background-position: -1116px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00028_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1116px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00029_offset_ {
+  background-position: -1395px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00029_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1395px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00030_offset_ {
+  background-position: -1674px -112px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00030_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1674px -112px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00031_offset_ {
+  background-position: 0px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00031_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00032_offset_ {
+  background-position: -279px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00032_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00033_offset_ {
+  background-position: -558px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00033_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -558px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00034_offset_ {
+  background-position: -837px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00034_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -837px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00035_offset_ {
+  background-position: -1116px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00035_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1116px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00036_offset_ {
+  background-position: -1395px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00036_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1395px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00037_offset_ {
+  background-position: -1674px -168px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00037_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1674px -168px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00038_offset_ {
+  background-position: 0px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00038_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00039_offset_ {
+  background-position: -279px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00039_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00040_offset_ {
+  background-position: -558px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00040_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -558px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00041_offset_ {
+  background-position: -837px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00041_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -837px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00042_offset_ {
+  background-position: -1116px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00042_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1116px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00043_offset_ {
+  background-position: -1395px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00043_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1395px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00044_offset_ {
+  background-position: -1674px -224px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00044_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1674px -224px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00045_offset_ {
+  background-position: 0px -280px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00045_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) 0px -280px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00046_offset_ {
+  background-position: -279px -280px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 276px;
+  height: 53px;
+}
+.ddl-RAINBOW_LINE_GLOW_00046_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -279px -280px/1985px 333px no-repeat;
+  width: 276px;
+  height: 53px;
+}
+.ddl-STAR_offset_ {
+  background-position: -1953px 0px;
+  -webkit-background-size: 1985px 333px;
+  -o-background-size: 1985px 333px;
+  background-size: 1985px 333px;
+  width: 32px;
+  height: 31px;
+}
+.ddl-STAR_ {
+  background: url(/doodle-bubble-tea/assets/line-sprite.png) -1953px 0px/1985px 333px no-repeat;
+  width: 32px;
+  height: 31px;
+}
+.ddl-hplogocta_ {
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  background-position: center;
+  border: none;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  cursor: pointer;
+  padding: 0;
+  -webkit-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+  opacity: 0;
+  pointer-events: auto;
+}
+.ddl-hplogocta_.ddl-showCta_ {
+  opacity: 1;
+}
+.ddl-hplogocta_.ddl-ctaHideDuringLightbox_ {
+  display: none;
+}
+.ddl-closeFullscreenBtn_ {
+  pointer-events: all;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 3000;
+}
+.ddl-domRootLightboxed_ {
+  left: 0;
+  top: 0;
+}
+.ddl-contentHide_ {
+  display: none;
+}
+#ddlDomRoot {
+  pointer-events: none;
+}
+.ddl-ctaStartButton_ {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+}
+.ddl-lightboxMode_,
+#game.ddl-lightboxMode_ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+}
+.ddl-lightboxContentContainer_ {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.ddl-lightboxEnabled_ .ddl-lightboxContentContainer_ {
+  height: 90%;
+  width: 90%;
+}
+.ddl-lightboxContent_ {
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.ddl-lightboxContainer_ {
+  position: absolute;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.ddl-lightboxBackground_ {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.ddl-lightboxEnabled_ {
+  opacity: 1;
+  -webkit-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}

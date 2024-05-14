@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html id="sadoodle">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/game.css" />
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      #game {
+        outline: none;
+        overflow: hidden;
+        position: relative;
+        -moz-user-select: -moz-none;
+        -ms-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <div id="ddlDomRoot">
+        <div id="gameCanvas" width="960" height="540"></div>
+        <div id="ctaRoot">
+          <canvas id="ctaCanvas" width="960" height="540"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="js/game.js"></script>
+  </body>
+</html>
