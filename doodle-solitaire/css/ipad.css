@@ -1,0 +1,51 @@
+#solitaire-topbar {
+  height: 80px;
+  font-size: 20px;
+}
+
+#solitaire-topbar .material-icons-extended {
+  font-size: 32px;
+  margin: 12px;
+}
+
+#solitaire-topbar > div:last-child {
+  margin-right: 20px;
+}
+
+#solitaire-scorebar .title {
+  margin-left: 24px;
+}
+
+#solitaire-scorebar .item {
+  margin-right: 24px;
+}
+
+#solitaire-mode {
+  margin-left: 92px;
+}
+
+.topbar-mode-indicator {
+  margin: 0px 16px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  bottom: -2px;
+}
+
+#solitaire-scorebar {
+  height: 80px;
+  font-size: 20px;
+}
+
+#solitaire-container {
+  top: 80px;
+}
+
+#solitaire-scorebar-sidebar {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+#solitaire-scorebar-sidebar .solitaire-scorebar-icons {
+  font-size: 32px;
+}
+

@@ -1,0 +1,592 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.border-box {
+  box-sizing: border-box;
+}
+#solitaire-waiting-hint {
+  font-size: 30pt;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(43, 123, 59, 1);
+  color: white;
+}
+
+/************ Loading Spinner *************/
+.spinner {
+  position: absolute;
+  stroke: white;
+  -webkit-animation: rotator 1.4s linear infinite;
+  animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+/************** End *************************/
+
+#solitaire {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#solitaire-topbar {
+  font-size: 14px;
+  height: 56px;
+  color: white;
+  background-color: rgba(49, 49, 49, 1);
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+#solitaire-topbar .material-icons-extended {
+  cursor: pointer;
+  margin: 8px;
+}
+
+.topbar-mode-indicator {
+  margin: 0px 8px;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: left bottom 0;
+  transform-origin: left bottom 0;
+  bottom: 10px;
+}
+
+#solitaire-scorebar .material-icons-extended {
+  font-size: 18px;
+}
+
+.place_center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#solitaire-board {
+  position: relative;
+}
+#solitaire-board .dark-box {
+  background-color: rgba(43, 123, 59, 1);
+}
+#solitaire-board .pile {
+  position: absolute;
+}
+#solitaire-board .card {
+  position: absolute;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#solitaire-board .card-canvas {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  height: 100%;
+}
+#solitaire-board .placeholder {
+  position: relative;
+  z-index: 1;
+}
+#solitaire-container {
+  background-color: #34a249;
+  position: absolute;
+
+  /* top equals to solitaire.util.NON_BOARD_ELEMENT_HEIGHT */
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#solitaire-scorebar {
+  cursor: default;
+  padding: 0px 16px;
+  height: 30px;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  font-size: 12px;
+}
+#solitaire-scorebar .item {
+  color: #ffffff;
+  text-align: center;
+  margin: 12px;
+  margin-right: 24px;
+}
+#solitaire-scorebar .title {
+  color: #ffffff;
+  opacity: 0.5;
+  text-align: center;
+  margin-left: 24px;
+}
+
+#solitaire-topbar > div:last-child {
+  margin-right: 8px;
+}
+
+.flex-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#solitaire-dialog-share {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+#solitaire-dialog-share span {
+  margin-right: 12px;
+}
+
+#solitaire-dialog-share .share-icons {
+  width: 40px;
+  height: 40px;
+
+  margin: 4px;
+  margin-top: 8px;
+
+  cursor: pointer;
+}
+
+#solitaire-dialog-share .share-icons > div {
+  -webkit-transform: scale(0.42);
+  transform: scale(0.42);
+  -webkit-transform-origin: left top 0;
+  transform-origin: left top 0;
+}
+
+#solitaire-scorebar-sidebar .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#solitaire-topbar .button,
+#solitaire-scorebar-sidebar .button {
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-weight: 500;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+}
+
+#solitaire-scorebar-sidebar .button i {
+  margin: 5px;
+}
+
+#solitaire-scorebar .disabled,
+#solitaire-scorebar-sidebar .disabled {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.54);
+}
+#solitaire-scorebar-sidebar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 56px;
+  font-size: 14px;
+  z-index: 1;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+#solitaire-scorebar-sidebar .button {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#solitaire-mode {
+  opacity: 0;
+}
+
+.solitaire-dialog {
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+#solitaire-mode-dialog .container {
+  background-color: white;
+  border-radius: 8px;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+#solitaire-mode-dialog .hint {
+  font-size: 14px;
+  color: #888888;
+  text-align: center;
+  padding: 18px 15px 8px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#solitaire-mode-dialog .option-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 15px 15px 15px;
+}
+#solitaire-mode-dialog .option {
+  cursor: pointer;
+  padding: 0 10px;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+#solitaire-mode-dialog .option > div {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+#solitaire-mode-dialog .option span {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  margin: 5px;
+}
+#solitaire-mode-dialog .close-button {
+  cursor: pointer;
+  position: relative;
+  left: 40px;
+  top: -4px;
+  /*Uses negative margin to make the X take 0px, so that the hint text is in the center;*/
+  margin-left: -24px;
+  color: #212121;
+}
+
+#solitaire-final-dialog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+#solitaire-final-dialog-container {
+  width: 280px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#final-dialog-flipper {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#ribbon-img {
+  position: absolute;
+  top: auto;
+  opacity: 0;
+
+  -webkit-transition: all 300ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 1000ms;
+
+  transition: all 300ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 1000ms;
+}
+
+#ribbon-body {
+  position: relative;
+  background: rgba(81, 154, 274, 1);
+  width: 0;
+  height: 50px;
+  margin-left: 30px;
+
+  font-size: 2em;
+  white-space: nowrap;
+  color: white;
+  font-family: Roboto;
+  font-weight: bold;
+
+  overflow: hidden;
+
+  -webkit-transition: all 1000ms cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+  transition: all 1000ms cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+.ribbon-char {
+  position: relative;
+  top: 100px;
+  display: inline;
+  -webkit-transition: all 300ms ease-out 1500ms;
+  transition: all 300ms ease-out 1500ms;
+}
+.ribbon-char:nth-child(2) {
+  -webkit-transition: all 300ms ease-out 1700ms;
+  transition: all 300ms ease-out 1700ms;
+}
+.ribbon-char:last-child {
+  -webkit-transition: all 300ms ease-out 1900ms;
+  transition: all 300ms ease-out 1900ms;
+}
+
+.confetti-jar {
+  position: absolute;
+  top: -900px;
+}
+
+.confetti {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  background-color: yellow;
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+
+#ribbon-cards {
+  height: 50px;
+  text-align: center;
+  white-space: nowrap;
+
+  position: relative;
+}
+
+#ribbon-cards .card {
+  display: inline;
+  margin: 3px;
+  top: 150px;
+  width: 35px;
+  height: 50px;
+  opacity: 0;
+
+  position: relative;
+}
+
+#ribbon-cards .card-canvas {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+  height: 50px;
+}
+
+/* .win class starts the win screen animation.
+ */
+
+.win #ribbon-body {
+  width: 220px;
+}
+
+.win #ribbon-img {
+  opacity: 1;
+}
+
+.win .ribbon-char {
+  top: 0;
+}
+
+.win .confetti-jar {
+  top: 400px;
+  -webkit-transform: rotateY(720deg);
+  transform: rotateY(720deg);
+}
+
+@-webkit-keyframes ribbon-card-animation {
+  0% {
+    top: 150px;
+    opacity: 0;
+  }
+
+  60% {
+    top: -20px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes ribbon-card-animation {
+  0% {
+    top: 150px;
+    opacity: 0;
+  }
+
+  60% {
+    top: -20px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.win #ribbon-cards .card:nth-child(1) {
+  -webkit-animation: 750ms ease-in-out 1400ms ribbon-card-animation;
+  animation: 750ms ease-in-out 1400ms ribbon-card-animation;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.win #ribbon-cards .card:nth-child(2) {
+  -webkit-animation: 750ms ease-in-out 1600ms ribbon-card-animation;
+  animation: 750ms ease-in-out 1600ms ribbon-card-animation;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.win #ribbon-cards .card:nth-child(3) {
+  -webkit-animation: 750ms ease-in-out 1800ms ribbon-card-animation;
+  animation: 750ms ease-in-out 1800ms ribbon-card-animation;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.win #ribbon-cards .card:nth-child(4) {
+  -webkit-animation: 750ms ease-in-out 2000ms ribbon-card-animation;
+  animation: 750ms ease-in-out 2000ms ribbon-card-animation;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+#solitaire-final-dialog-container.win-end {
+  top: -100px;
+  opacity: 0;
+}
