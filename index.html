@@ -18,6 +18,40 @@
       display: none;
     }
 
+    .promo {
+      background-color: rgba(202, 225, 28, 0.8);
+      border-radius: 6px;
+      padding: 2px 4px;
+      font-size: smaller;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      border: #6a5bde 2px solid;
+      animation: circleBorder 2s infinite;
+    }
+
+    @keyframes circleBorder {
+      0% {
+        border-color: #6a5bde;
+      }
+
+      25% {
+        border-color: #00A8F1;
+      }
+
+      50% {
+        border-color: #679F1F;
+      }
+
+      75% {
+        border-color: #FFC107;
+      }
+
+      100% {
+        border-color: #6a5bde;
+      }
+    }
+
     .game-link {
       position: fixed;
 
@@ -60,8 +94,8 @@
 
     .cricket-games {
       position: absolute;
-      top: 70px;
-      right: 82px;
+      top: 100px;
+      right: 4px;
       display: flex;
       justify-content: flex-end;
     }
@@ -160,6 +194,7 @@
 
       .cricket-games {
         top: 90px;
+        right: 82px;
       }
 
       .google-doodle-games {
@@ -294,13 +329,7 @@
           padding: 2px 4px;
           font-size: smaller;
           text-decoration: none;
-          color: black;" href=/doodle-baseball>Doodle Baseball</a></div><div class=cricket-games><a style="background-color: rgba(255, 255, 255, 0.8);
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-          padding: 2px 4px;
-          font-size: smaller;
-          text-decoration: none;
-          color: black;" href=/cricket-games>Cricket Games</a></div><div class=more-games><a style="background-color: rgba(255, 255, 255, 0.8);
+          color: black;" href=/doodle-baseball>Doodle Baseball</a></div><div class=cricket-games><a class=promo href=https://conwordable.com>Play Conwordable</a></div><div class=more-games><a style="background-color: rgba(255, 255, 255, 0.8);
           border-bottom-left-radius: 6px;
           padding: 2px 4px;
           font-size: smaller;
