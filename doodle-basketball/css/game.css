@@ -1,0 +1,189 @@
+#game {
+  background: url(/doodle-basketball/assets/splash.png) no-repeat;
+  background-size: contain;
+  display: inline-block;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+#game-canvas {
+  width: 100%;
+}
+#game,
+#game_sc,
+#game_pc {
+  width: 100%;
+}
+#game_sc,
+#game_pc {
+  left: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+#game_pb,
+#game_pr,
+#game_sb,
+#game_sr,
+#game_ss,
+#game_sg,
+#game_sm {
+  background: url(/doodle-basketball/assets/sprite-buttons.png) no-repeat;
+}
+#game_sc {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12P4fwYAAs0BzFaJyDQAAAAASUVORK5CYII=);
+  cursor: default;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+#game_sb,
+#game_sle {
+  font:
+    28px "Fredoka One",
+    arial,
+    sans;
+}
+.game_sse {
+  cursor: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -webkit-user-select: text;
+}
+#game_sb {
+  background-position: -193px -152px;
+  color: #fbfbfb;
+  height: 60px;
+  padding-top: 5px;
+  text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+  width: 425px;
+}
+#game_sbt {
+  margin-right: 8px;
+}
+#game_pb,
+#game_pr {
+  display: inline-block;
+  height: 73px;
+  width: 67px;
+}
+#game_sr,
+#game_ss,
+#game_sg {
+  cursor: pointer;
+  display: inline-block;
+  height: 64px;
+  margin: 8px 12px 8px 8px;
+  vertical-align: top;
+  width: 50px;
+}
+#game_pr {
+  background-position: -193px 0;
+}
+#game_pc:hover #game_pr {
+  background-position: -387px -76px;
+}
+#game_pc #game_pr.game_prd0 {
+  background-position: -193px -76px;
+}
+#game_pc #game_pr.game_prd1 {
+  background-position: -457px -76px;
+}
+#game_pc #game_pr.game_prd2 {
+  background-position: -316px 0;
+}
+#game_pb {
+  background-position: 0 0;
+}
+#game_pc:hover #game_pb {
+  background-position: -527px -76px;
+}
+#game_pc #game_pb.game_pbd0 {
+  background-position: -123px 0;
+}
+#game_pc #game_pb.game_pbd1 {
+  background-position: -439px 0;
+}
+#game_pc #game_pb.game_pbd2 {
+  background-position: -317px -76px;
+}
+#game_sg {
+  background-position: -85px -76px;
+}
+#game_sg:hover {
+  background-position: -138px -76px;
+}
+#game_sg.game_sgd0 {
+  background-position: -563px 0;
+}
+#game_sg.game_sgd1 {
+  background-position: -621px -66px;
+}
+#game_sg.game_sgd2 {
+  background-position: -621px -132px;
+}
+#game_sr {
+  background-position: -53px -142px;
+}
+#game_sr:hover {
+  background-position: -31px -76px;
+}
+#game_sr.game_srd0 {
+  background-position: -263px -76px;
+}
+#game_sr.game_srd1 {
+  background-position: -107px -142px;
+}
+#game_sr.game_srd2 {
+  background-position: -509px 0;
+}
+#game_sle {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+#game_sle span {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #146dc6;
+  padding: 2px 4px;
+  text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+#game_ss {
+  background-position: -621px 0;
+}
+#game_ss:hover {
+  background-position: -263px 0;
+}
+#game_ss.game_ssd0 {
+  background-position: -386px 0;
+}
+#game_ss.game_ssd1 {
+  background-position: -70px 0;
+}
+#game_ss.game_ssd2 {
+  background-position: 0 -142px;
+}
+#game_sm {
+  background-position: -674px 0;
+  display: inline-block;
+  height: 30px;
+  margin: 4px 0 0 2px;
+  vertical-align: top;
+  width: 28px;
+}
+#game_sm.game_smg {
+  background-position: 0 -76px;
+}
+#game_ss,
+#game_sg {
+  display: none;
+}
