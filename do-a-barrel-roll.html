@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play "Do a Barrel Roll" with any website on Google</title>
+  <meta name="description" content="This website offers you to Do a Barrel Roll or spin any website in 360 degrees.">
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@doodlecricket" />
+  <meta name="twitter:title" content="Play 'Do a Barrel Roll' with any website on Google" />
+  <meta name="twitter:description"
+    content="This website offers you to Do a Barrel Roll or spin any website in 360 degrees." />
+  <meta name="twitter:creator" content="@doodlecricket" />
+  <meta name="twitter:image" content="https://doodlecricket.github.io/doodle-baseball.png" />
+
+  <meta property="og:title" content="Play 'Do a Barrel Roll' with any website on Google" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://doodlecricket.github.io/doodle-baseball" />
+  <meta property="og:image" content="https://doodlecricket.github.io/doodle-baseball.png" />
+  <meta property="og:description"
+    content="This website offers you to Do a Barrel Roll or spin any website in 360 degrees." />
+  <meta property="og:site_name" content="Doodle Cricket Game" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/do-a-barrel-roll/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/do-a-barrel-roll/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/do-a-barrel-roll/favicon-16x16.png">
+  <link rel="manifest" href="/do-a-barrel-roll/site.webmanifest">
+  <link rel="mask-icon" href="/do-a-barrel-roll/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/do-a-barrel-roll/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/do-a-barrel-roll/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="canonical" href="https://doodlecricket.github.io/do-a-barrel-roll" />
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+      color: #fff;
+    }
+
+    .container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    input,
+    button {
+      margin: 10px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    input {
+      width: 300px;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+    }
+
+    button {
+      background-color: #5151E5;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #72EDF2;
+      color: #5151E5;
+      transform: translateY(-2px);
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .spin {
+      animation: barrel-roll 2s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .spin.resume {
+      animation-play-state: running;
+    }
+
+    @keyframes barrel-roll {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 10;
+    }
+
+    .modal {
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #5151E5;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal button:hover {
+      background-color: #72EDF2;
+      color: #5151E5;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body x-data="app">
+  <div class="container" x-show="!loaded">
+    <h1>Do a Barrel Roll</h1>
+    <input type="text" class="input" x-model="url" placeholder="Enter website URL">
+    <button @click="loadAndSpin">Load and Spin</button>
+  </div>
+  <iframe x-ref="webFrame" x-bind:src="url" x-show="loaded" x-bind:class="{ 'spin': spin, 'resume': resume }"></iframe>
+  <div x-show="loaded && spin" class="overlay" @click="toggleSpin()"></div>
+  <div class="modal" x-show="showModal">
+    <div class="modal-content">
+      <button @click="continueSpin">Continue Spinning</button>
+      <button @click="newWebsite">New Website</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('app', () => ({
+        loaded: false,
+        url: '',
+        spin: false,
+        resume: false,
+        showModal: false,
+        loadAndSpin() {
+          console.log('Loading and spinning...');
+          const url = this.url;
+          if (url) {
+            const iframe = this.$refs.webFrame;
+            iframe.src = url;
+            iframe.onload = () => {
+              this.loaded = true;
+              this.spin = false; // Reset animation
+              this.resume = false; // Ensure resume is false
+              setTimeout(() => {
+                this.spin = true; // Start animation
+                this.resume = true; // Start animation
+              }, 100); // Add slight delay to ensure reset takes effect
+            };
+          } else {
+            alert('Please enter a valid URL.');
+          }
+        },
+        toggleSpin() {
+          console.log('toggle spin');
+          if (this.resume) {
+            this.resume = false;
+            this.showModal = true; // Show modal when paused
+          } else {
+            this.resume = true;
+            this.showModal = false; // Hide modal when resuming
+          }
+        },
+        continueSpin() {
+          this.resume = true;
+          this.showModal = false;
+        },
+        newWebsite() {
+          window.location.reload();
+        }
+      }));
+    });
+  </script>
+</body>
+
+</html>
