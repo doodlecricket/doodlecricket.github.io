@@ -280,6 +280,38 @@
     }</style><script async src=https://securepubads.g.doubleclick.net/tag/js/gpt.js></script><script>stpd = window.stpd || { que: [] };
     window.googletag = window.googletag || {};
     googletag.cmd = googletag.cmd || [];
+
+
+    function giveReward() {
+      console.log('Reward given');
+      googletag.pubads().removeEventListener('rewardedSlotClosed', dismissReward);
+    }
+
+    // For Rewarded ad
+    function dismissReward(evt) {
+      googletag.destroySlots([evt.rewardedSlot]);
+      console.log('Reward dismissed');
+    }
+
+    // For Rewarded ad
+    function showAd() {
+      console.log('show')
+      googletag.cmd.push(function () {
+
+        var rewardedSlot = googletag.defineOutOfPageSlot('/147246189,22921845643/doodlecricket.github.io_rewarded', googletag.enums.OutOfPageFormat.REWARDED);
+        if (rewardedSlot)
+          rewardedSlot.addService(googletag.pubads());
+        googletag.enableServices();
+        googletag.pubads().addEventListener('rewardedSlotReady', function (evt) { evt.makeRewardedVisible(); });
+        googletag.pubads().addEventListener('rewardedSlotClosed', dismissReward);
+        googletag.pubads().addEventListener('rewardedSlotGranted', giveReward);
+        googletag.display(rewardedSlot);
+        googletag.pubads().refresh([rewardedSlot]);
+
+      });
+    }
+
+
     googletag.cmd.push(function () {
       if (window.innerWidth >= 1200) {
         googletag.defineSlot('/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right', [[300, 600], [160, 600], [300, 250], [300, 300]], 'doodlecricket_github_io_sidebar_right_desktop').addService(googletag.pubads());
@@ -303,7 +335,7 @@
       googletag.pubads().setTargeting('category', 'sports_cricket').setTargeting('audience_interest', 'sports_cricket');
       googletag.enableServices();
       googletag.display(interstitialSlot);
-    });</script><script async src=https://stpd.cloud/saas/7197></script><script src=https://cmp.setupcmp.com/cmp/cmp/cmp-stub.js data-prop-id=7133></script><script src=https://cmp.setupcmp.com/cmp/cmp/cmp-v1.js data-prop-stpd-cmp-id=7133 async></script>  <script type="module" crossorigin src="/assets/index-Ce6OZduD.js"></script>
+    });</script><script async src=https://stpd.cloud/saas/7197></script><script src=https://cmp.setupcmp.com/cmp/cmp/cmp-stub.js data-prop-id=7133></script><script src=https://cmp.setupcmp.com/cmp/cmp/cmp-v1.js data-prop-stpd-cmp-id=7133 async></script>  <script type="module" crossorigin src="/assets/index-BKsGKZje.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BGn-wZ8K.css">
 </head><body style="max-height: 100vh; overflow: hidden; display: flex; flex-direction:column;"><div id=splash style="position: absolute;
         top: 0;
