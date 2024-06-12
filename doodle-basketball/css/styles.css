@@ -71,6 +71,8 @@ body {
   overflow: hidden;
   height: var(--ad-top-height) !important;
   background-color: var(--ad-top-bg-color);
+  display: flex;
+  justify-content: center;
 }
 .ad-left {
   position: relative;
