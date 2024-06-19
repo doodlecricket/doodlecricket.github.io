@@ -1,5 +1,19 @@
 const assetsPath = "/doodle-football/assets/";
 
+function mapValue(x, range1, range2) {
+  let [min1, max1] = range1;
+  let [min2, max2] = range2;
+  return ((x - min1) * (max2 - min2)) / (max1 - min1) + min2;
+}
+
+function isTouchDevice() {
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0
+  );
+}
+
 window.google = {};
 (function () {
   var aa = this,
@@ -230,7 +244,7 @@ window.google = {};
       return !1;
     },
     Ia = function () {
-      var a = Ha;
+      var a = canvas;
       a.getContext("2d").clearRect(0, 0, a.width, a.height);
     },
     p = function (a, b, c) {
@@ -569,7 +583,7 @@ window.google = {};
                   window.webkitRequestAnimationFrame(ib));
     },
     lb = function (a) {
-      fb = A;
+      fb = gameElement;
       gb = a || null;
       window.addEventListener &&
         (window.addEventListener("MozGamepadConnected", jb, !1),
@@ -1158,7 +1172,7 @@ window.google = {};
   fc.prototype.A = function () {};
   var hc,
     ic,
-    A,
+    gameElement,
     jc,
     kc,
     lc,
@@ -1198,7 +1212,7 @@ window.google = {};
         a.style.top = "50%";
         a.height = 207;
         a.width = 530;
-        A.appendChild(a);
+        gameElement.appendChild(a);
         var b = a.getContext("2d");
         b && b.fillRect(0, 0, 1, 1);
       }
@@ -1216,7 +1230,7 @@ window.google = {};
         d.play();
       };
       b.style.display = "none";
-      A.appendChild(b);
+      gameElement.appendChild(b);
       return b;
     },
     Tc = function () {
@@ -1251,7 +1265,7 @@ window.google = {};
       e.textContent = gameLink;
       pc.appendChild(e);
       I.appendChild(pc);
-      A.appendChild(I);
+      gameElement.appendChild(I);
       J = new r();
       u(J, function () {
         I.style.display = "";
@@ -1363,9 +1377,9 @@ window.google = {};
       jc = a;
       nc = ha();
       rc = b;
-      A = document.getElementById("hplogo");
-      if (!A) return !1;
-      A.innerHTML = "";
+      gameElement = document.getElementById("hplogo");
+      if (!gameElement) return !1;
+      gameElement.innerHTML = "";
       return !0;
     },
     Pc = function (a) {
@@ -1386,7 +1400,7 @@ window.google = {};
         ? (Ec = !1)
         : !Hc && jc(a, b)
           ? (window.requestAnimationFrame
-              ? window.requestAnimationFrame(K, A)
+              ? window.requestAnimationFrame(K, gameElement)
               : window.oRequestAnimationFrame
                 ? window.oRequestAnimationFrame(K)
                 : window.mozRequestAnimationFrame
@@ -1394,7 +1408,7 @@ window.google = {};
                   : window.msRequestAnimationFrame
                     ? window.msRequestAnimationFrame(K)
                     : window.webkitRequestAnimationFrame
-                      ? window.webkitRequestAnimationFrame(K, A)
+                      ? window.webkitRequestAnimationFrame(K, gameElement)
                       : window.setTimeout(K, 16),
             (nc = a),
             (Ec = !0))
@@ -1430,16 +1444,16 @@ window.google = {};
       Dc || rc();
       sc = null;
     },
-    cd = function (a) {
+    onMouseDown = function (a) {
       tc = !0;
       $c();
-      document.activeElement != A || yc || a.preventDefault();
+      document.activeElement != gameElement || yc || a.preventDefault();
       uc && uc(a);
     },
     dd = function (a) {
       tc && vc && ((tc = !1), vc(a));
     },
-    ed = function (a) {
+    onMouseMove = function (a) {
       $c();
       wc && wc(a);
     },
@@ -1634,11 +1648,11 @@ window.google = {};
     [3525, 0, 16, 16],
   ];
   var hd,
-    L,
+    gameStatus,
     M,
     id,
     jd,
-    kd,
+    ctx,
     N,
     ld,
     md,
@@ -1646,7 +1660,7 @@ window.google = {};
     od,
     pd,
     qd,
-    Ha,
+    canvas,
     rd,
     O,
     P,
@@ -1759,8 +1773,8 @@ window.google = {};
     Td,
     Ud,
     Vd,
-    X,
-    Wd,
+    playerX,
+    playerY,
     Y,
     Xd,
     $d = function () {
@@ -1768,21 +1782,21 @@ window.google = {};
         b = V(6, 0, 0, 126, 156, 2, -145),
         c = V(5, 0, 0, 113, 112, 5, -96),
         d = V(7, 0, 0, 128, 104, -2, -90);
-      X = 278;
-      Wd = 270;
+      playerX = 278;
+      playerY = 270;
       Yd();
       Xd = !1;
       Pd = a;
       Od = Xa(Pd, 10, 150);
       u(Od, function () {
-        X -= 5;
+        playerX -= 5;
         Y = null;
       });
       Rd = Pd.clone();
       Rd.k = -1;
       Qd = Xa(Rd, 10, 150);
       u(Qd, function () {
-        X += 5;
+        playerX += 5;
         Y = null;
       });
       Nd = b;
@@ -1808,25 +1822,25 @@ window.google = {};
       Y && (Qa(Y), (Y = null));
     },
     ae = function () {
-      W.x = X - v(W) / 2;
-      W.y = Wd;
+      W.x = playerX - v(W) / 2;
+      W.y = playerY;
       var a = 30 + 30 * (Math.cos(3.14 * (0.5 + (1 + Nd.frame) / 18)) + 1);
-      Cd(X, Wd, a, 0.3 * a, "rgba(0,0,0,0.2)");
+      Cd(playerX, playerY, a, 0.3 * a, "rgba(0,0,0,0.2)");
       W.v();
     },
     be = function () {
       null == Y &&
-        (2 == L
+        (2 == gameStatus
           ? ((W = Pd), (Y = Od))
-          : 5 == L
+          : 5 == gameStatus
             ? 0 < M
               ? ((W = Td), (Y = Sd))
               : ((W = Vd), (Y = Ud))
             : Xd
               ? ((W = Nd), (Y = Md))
-              : N[2] && 150 <= X
+              : N[2] && 150 <= playerX
                 ? ((W = Pd), (Y = Od))
-                : (N[2] && 150 <= X ? 0 : N[3] && 390 >= X)
+                : (N[2] && 150 <= playerX ? 0 : N[3] && 390 >= playerX)
                   ? ((W = Rd), (Y = Qd))
                   : ((W = Pd), (W.frame = 0)),
         Y && Y.play());
@@ -1845,7 +1859,16 @@ window.google = {};
       k = k[1];
       d || (d = Ad.i[a][2]);
       e || (e = Ad.i[a][3]);
-      return new Wa(Ha, zd, h + (b || 0), k + (c || 0), d, e, f || 0, g || 0);
+      return new Wa(
+        canvas,
+        zd,
+        h + (b || 0),
+        k + (c || 0),
+        d,
+        e,
+        f || 0,
+        g || 0,
+      );
     },
     de = function (a) {
       Q.x = a;
@@ -1854,21 +1877,22 @@ window.google = {};
       R.y = Q.y + w(Q) / 2 - w(R) / 2 - 2;
     },
     Vc = function (a, b) {
-      4 == L && 10 > hd && (hd += 1.5e-5 * b);
+      4 == gameStatus && 10 > hd && (hd += 1.5e-5 * b);
       var c = b * hd;
-      3 == L && rd && (2 == rd ? (ld = !0) : 3 == rd && (md = !0));
-      3 == L && 3 == ud && ee(4);
+      3 == gameStatus && rd && (2 == rd ? (ld = !0) : 3 == rd && (md = !0));
+      3 == gameStatus && 3 == ud && updateGameStatus(4);
       1 == ud && ld && md && fe(2);
       yd += b;
-      4 == L &&
+      4 == gameStatus &&
         2e3 < yd &&
         3 > id &&
         ((yd = 0), Id ? ((U = Jd), Sa.play()) : Kd());
-      N[2] && 150 <= X
-        ? (X -= 5)
-        : (N[2] && 150 <= X ? 0 : N[3] && 390 >= X) && (X += 5);
+      N[2] && 150 <= playerX
+        ? (playerX -= 5)
+        : (N[2] && 150 <= playerX ? 0 : N[3] && 390 >= playerX) &&
+          (playerX += 5);
       be();
-      for (var d = X, e = 0, f; (f = jd[e++]); ) {
+      for (var d = playerX, e = 0, f; (f = jd[e++]); ) {
         var g = f,
           h = c;
         g.k.i = Math.min(1, g.k.i + 0.001 * h);
@@ -1902,13 +1926,13 @@ window.google = {};
               (f.p = 50),
               (f.i = 0)));
       }
-      3 <= id && ee(5);
+      3 <= id && updateGameStatus(5);
       ge(a);
       return !0;
     },
     he = function () {
       2 == ud && fe(3);
-      (3 != L && 4 != L) || Xd || ((Xd = !0), Yd(), be());
+      (3 != gameStatus && 4 != gameStatus) || Xd || ((Xd = !0), Yd(), be());
     },
     ge = function (a) {
       Ia();
@@ -1933,7 +1957,7 @@ window.google = {};
     },
     je = function (a) {
       O.frame = (a / 1e3) & 1;
-      O.x = X + 40;
+      O.x = playerX + 40;
       O.y = 11;
       O.v();
       S.x = O.x - 15;
@@ -1945,7 +1969,7 @@ window.google = {};
       T.i = O.i;
       T.v();
       P.frame = (a / 1e3) & 1;
-      P.x = X - 190;
+      P.x = playerX - 190;
       P.y = 11;
       P.v();
       S.x = P.x + 150;
@@ -1992,7 +2016,7 @@ window.google = {};
     Cd = function (a, b, c, d, e) {
       a = a - c / 2;
       b = b - d / 2;
-      var f = kd;
+      var f = ctx;
       f.save();
       f.beginPath();
       f.translate(a, b);
@@ -2023,66 +2047,90 @@ window.google = {};
     },
     Wc = function () {
       Ad.o = !0;
-      var a = ne,
-        b = oe;
+      var a = playerJump,
+        b = playerMove;
       vc = null;
-      A.onmouseout = dd;
-      A.onmouseup = dd;
-      me && (A.onkeyup = me);
+      gameElement.onmouseout = dd;
+      gameElement.onmouseup = dd;
+      me && (gameElement.onkeyup = me);
       uc = a;
-      A.onmousedown = cd;
+      gameElement.onmousedown = onMouseDown;
       wc = b;
-      A.onmousemove = ed;
+
+      if (isTouchDevice()) {
+        gameElement.ontouchmove = function (event) {
+          event.preventDefault();
+          onMouseMove(event);
+        };
+      } else {
+        gameElement.onmousemove = onMouseMove;
+      }
       qc = le;
-      A.onkeydown = ad;
-      A.style.cursor = "pointer";
-      -1 != navigator.userAgent.indexOf("Opera") && (A.onkeypress = bd);
-      ee(1);
+
+      gameElement.onkeydown = ad;
+      gameElement.style.cursor = "pointer";
+      -1 != navigator.userAgent.indexOf("Opera") &&
+        (gameElement.onkeypress = bd);
+      updateGameStatus(1);
       K();
     },
-    ne = function () {
+    playerJump = function () {
       2 != Fc && (Fc = 1);
       he();
     },
-    oe = function (a) {
-      if (null != Ha) {
-        if ((a = a || window.event)) {
-          var b = a.targetTouches && a.targetTouches[0];
-          a =
-            b && void 0 !== b.pageX
-              ? [b.pageX, b.pageY]
-              : void 0 !== a.clientX
-                ? [
-                    a.clientX +
-                      ("rtl" == document.dir ? -1 : 1) *
-                        (document.body.scrollLeft ||
-                          document.documentElement.scrollLeft ||
-                          0),
-                    a.clientY +
-                      (document.body.scrollTop ||
-                        document.documentElement.scrollTop ||
+    playerMove = function (event) {
+      if (canvas == null) return;
+
+      let point = [0, 0];
+
+      if (event) {
+        var element = event.targetTouches && event.targetTouches[0];
+
+        point =
+          element && element.pageX !== void 0
+            ? [element.pageX, element.pageY]
+            : event.clientX !== void 0
+              ? [
+                  event.clientX +
+                    ("rtl" == document.dir ? -1 : 1) *
+                      (document.body.scrollLeft ||
+                        document.documentElement.scrollLeft ||
                         0),
-                  ]
-                : void 0 !== a.pageX
-                  ? [a.pageX, a.pageY]
-                  : [0, 0];
-        } else a = [0, 0];
-        var b = Ha,
-          c = 0;
-        if (b) {
-          do c += b.offsetLeft;
-          while ((b = b.offsetParent));
+                  event.clientY +
+                    (document.body.scrollTop ||
+                      document.documentElement.scrollTop ||
+                      0),
+                ]
+              : void 0 !== event.pageX
+                ? [event.pageX, event.pageY]
+                : [0, 0];
+      }
+
+      const box = canvas.getBoundingClientRect();
+
+      let offsetX = point[0] - box.left;
+
+      // game ready
+      if (gameStatus == 3) {
+        if (nd == null) {
+          nd = offsetX;
+        } else {
+          if (Math.abs(nd - offsetX) > 75) {
+            ld = md = true;
+          }
         }
-        a = a[0] - c;
-        3 == L &&
-          (null == nd ? (nd = a) : 75 < Math.abs(nd - a) && (ld = md = !0));
-        if (3 == L || 4 == L) X = Math.min(390, Math.max(150, a));
+      }
+
+      // game ready or started
+      if (gameStatus == 3 || gameStatus == 4) {
+        const mappedX = mapValue(offsetX, [0, box.width], [0, 530]);
+        playerX = Math.min(390, Math.max(150, mappedX));
       }
     },
     Nc = function () {
       Yd();
       Id = null;
-      ee(3);
+      updateGameStatus(3);
     },
     Jc = function () {
       xd.play();
@@ -2097,9 +2145,15 @@ window.google = {};
         2 != Fc && (Fc = 2);
       });
     },
-    ee = function (a) {
-      if (L != a)
-        switch (((L = a), a)) {
+    updateGameStatus = function (a) {
+      // 0 = loading
+      // 1 = loaded
+      // 2 = starting animation
+      // 3 = game ready
+      // 4 = game started
+      // 5 = game over
+      if (gameStatus != a) {
+        switch (((gameStatus = a), a)) {
           case 1:
             vd.play();
             break;
@@ -2107,12 +2161,13 @@ window.google = {};
             id = M = 0;
             hd = 0.6;
             nd = null;
-            ld = md = !1;
+            ld = md = false;
             fe(1);
             break;
           case 4:
             a = [];
-            for (var b = 0; 5 > b; b++) {
+            const balls = 5;
+            for (var b = 0; balls > b; b++) {
               var c = V(1),
                 d = V(2);
               a.push(new Bd(235 + 20 * b, 50, 50 + 15 * Math.random(), c, d));
@@ -2123,6 +2178,7 @@ window.google = {};
           case 5:
             1 >= M && (Na("0"), (ud = 0));
         }
+      }
     },
     fe = function (a) {
       for (; ud < a; )
@@ -2151,7 +2207,7 @@ window.google = {};
     google && google.x ? google.x({ id: "DOODLE" }, e) : e();
   })(
     function () {
-      ee(0);
+      updateGameStatus(0);
       jd = [];
       rd = 0;
       N = {};
@@ -2160,8 +2216,8 @@ window.google = {};
       if (Xc()) {
         zd = Pc("sprite-player.png");
         Ad = new rb("/logos/2012/sprite-player.png", gd);
-        Ha = Ic();
-        kd = Ha.getContext("2d");
+        canvas = Ic();
+        ctx = canvas.getContext("2d");
         wd = Mc();
         Tc();
         for (var a = 0; 9 >= a; a++) Z[a] = V(11, 25 * a, 0, 25, 27);
@@ -2194,19 +2250,19 @@ window.google = {};
           R.i = 1;
           wd.style.display = "none";
           td.play();
-          ee(2);
+          updateGameStatus(2);
         });
         u(
           xd,
           function (a) {
-            Wd = 270 + -79 * a;
+            playerY = 270 + -79 * a;
           },
           500,
         );
         u(xd, function () {
-          ee(3);
+          updateGameStatus(3);
         });
-        od = new Wa(Ha, Pc("game-bg.png"));
+        od = new Wa(canvas, Pc("game-bg.png"));
         pd = V(4);
         qd = V(3);
         vd = new r();
@@ -2226,11 +2282,11 @@ window.google = {};
     },
     function () {
       Hc = Pa = !0;
-      A && (A.innerHTML = "");
+      gameElement && (gameElement.innerHTML = "");
       yc = !1;
     },
     function () {
-      return document.activeElement != A;
+      return document.activeElement != gameElement;
     },
   );
 })();
