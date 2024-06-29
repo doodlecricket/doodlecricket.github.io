@@ -1,0 +1,196 @@
+#hplogo {
+  background: url(/doodle-football/assets/splash.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: inline-block;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+#hplogo,
+#hplogo_sc,
+#hplogo_pc {
+  width: 100%;
+  height: 100%;
+}
+#hplogo_sc,
+#hplogo_pc {
+  left: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+#hplogo_pc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hplogo_pb,
+#hplogo_pr,
+#hplogo_sb,
+#hplogo_sr,
+#hplogo_ss,
+#hplogo_sg,
+#hplogo_sm {
+  background: url(/doodle-football/assets/sprite-buttons.png) no-repeat;
+}
+#hplogo_sc {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12P4fwYAAs0BzFaJyDQAAAAASUVORK5CYII=);
+  cursor: default;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+#hplogo_sb,
+#hplogo_sle {
+  font:
+    28px "Fredoka One",
+    arial,
+    sans;
+}
+.hplogo_sse {
+  cursor: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -webkit-user-select: text;
+}
+#hplogo_sb {
+  background-position: -193px -152px;
+  color: #fbfbfb;
+  height: 60px;
+  padding-top: 5px;
+  text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4);
+  width: 425px;
+}
+#hplogo_sbt {
+  margin-right: 8px;
+}
+#hplogo_pb,
+#hplogo_pr {
+  display: inline-block;
+  height: 73px;
+  width: 67px;
+}
+#hplogo_sr,
+#hplogo_ss,
+#hplogo_sg {
+  cursor: pointer;
+  display: inline-block;
+  height: 64px;
+  margin: 8px 12px 8px 8px;
+  vertical-align: top;
+  width: 50px;
+}
+#hplogo_pr {
+  background-position: -193px 0;
+}
+#hplogo_pc:hover #hplogo_pr {
+  background-position: -387px -76px;
+}
+#hplogo_pc #hplogo_pr.hplogo_prd0 {
+  background-position: -193px -76px;
+}
+#hplogo_pc #hplogo_pr.hplogo_prd1 {
+  background-position: -457px -76px;
+}
+#hplogo_pc #hplogo_pr.hplogo_prd2 {
+  background-position: -316px 0;
+}
+#hplogo_pb {
+  background-position: 0 0;
+}
+#hplogo_pc:hover #hplogo_pb {
+  background-position: -527px -76px;
+}
+#hplogo_pc #hplogo_pb.hplogo_pbd0 {
+  background-position: -123px 0;
+}
+#hplogo_pc #hplogo_pb.hplogo_pbd1 {
+  background-position: -439px 0;
+}
+#hplogo_pc #hplogo_pb.hplogo_pbd2 {
+  background-position: -317px -76px;
+}
+#hplogo_sg {
+  background-position: -85px -76px;
+}
+#hplogo_sg:hover {
+  background-position: -138px -76px;
+}
+#hplogo_sg.hplogo_sgd0 {
+  background-position: -563px 0;
+}
+#hplogo_sg.hplogo_sgd1 {
+  background-position: -621px -66px;
+}
+#hplogo_sg.hplogo_sgd2 {
+  background-position: -621px -132px;
+}
+#hplogo_sr {
+  background-position: -53px -142px;
+}
+#hplogo_sr:hover {
+  background-position: -31px -76px;
+}
+#hplogo_sr.hplogo_srd0 {
+  background-position: -263px -76px;
+}
+#hplogo_sr.hplogo_srd1 {
+  background-position: -107px -142px;
+}
+#hplogo_sr.hplogo_srd2 {
+  background-position: -509px 0;
+}
+#hplogo_sle {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+#hplogo_sle span {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #146dc6;
+  padding: 2px 4px;
+  text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+#hplogo_ss {
+  background-position: -621px 0;
+}
+#hplogo_ss:hover {
+  background-position: -263px 0;
+}
+#hplogo_ss.hplogo_ssd0 {
+  background-position: -386px 0;
+}
+#hplogo_ss.hplogo_ssd1 {
+  background-position: -70px 0;
+}
+#hplogo_ss.hplogo_ssd2 {
+  background-position: 0 -142px;
+}
+#hplogo_sm {
+  background-position: -674px 0;
+  display: inline-block;
+  height: 30px;
+  margin: 4px 0 0 2px;
+  vertical-align: top;
+  width: 28px;
+}
+#hplogo_sm.hplogo_smg {
+  background-position: 0 -76px;
+}
+#hplogo_ss,
+#hplogo_sg {
+  display: none;
+}
+body {
+  text-align: center;
+}
