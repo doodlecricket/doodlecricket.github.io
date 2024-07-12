@@ -349,17 +349,37 @@
       #hpcanvas {
         position: absolute;
         left: 0;
-        top: 50px !important;
+        top: 100px !important;
         bottom: 100px !important;
         width: 100%;
         height: calc(100% - 150px);
         aspect-ratio: 96/54;
       }
 
+      .sticky-sidebar-video {
+        display: block;
+        position: fixed;
+        bottom: 100px;
+        width: 300px !important;
+        height: auto;
+        z-index: 10;
+        left: 0;
+      }
+
       @media (min-width: 1024px) {
         #hpcanvas {
           height: calc(100% - 190px);
           top: 106px !important;
+        }
+
+        .sticky-sidebar-video {
+          display: block;
+          position: fixed;
+          bottom: 107px;
+          width: 300px !important;
+          height: auto;
+          z-index: 10;
+          left: 300px;
         }
       }
 
@@ -819,6 +839,10 @@
             Games</a>
         </div>
       </nav>
+    </div>
+
+    <div class="sticky-sidebar-video">
+      <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
     </div>
 
     <script>
