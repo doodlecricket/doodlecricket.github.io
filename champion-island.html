@@ -363,14 +363,46 @@
         width: 300px !important;
         height: auto;
         z-index: 10;
-        left: 0;
+        left: 300px;
       }
 
       @media (min-width: 1024px) {
         #hpcanvas {
-          height: calc(100% - 190px);
-          top: 106px !important;
+          position: absolute;
+          top: 100px !important;
+          left: 300px !important;
+          right: 300px !important;
+          max-height: calc(100% - 200px) !important;
+          width: calc(100vw - 600px) !important;
+          height: auto !important;
+          aspect-ratio: 96/54 !important;
         }
+
+        .sticky-sidebar {
+          display: block;
+          position: fixed;
+          top: 100px;
+          width: 300px;
+          height: 600px;
+          z-index: 10;
+        }
+
+        .left-sidebar {
+          left: 0;
+        }
+
+        .right-sidebar {
+          right: 0;
+        }
+      }
+
+      #doodlecricket_github_io_anchor_ad_responsive {
+        background: transparent !important;
+      }
+
+      #doodlecricket_github_io_sidebar_right_desktop>div {
+        display: flex;
+        justify-content: end;
       }
 
       #hplogoaria,
@@ -575,6 +607,20 @@
         googletag.cmd.push(function () {
           googletag.display("doodlecricket_github_io_anchor_ad_responsive");
         });
+      </script>
+    </div>
+
+    <div id="doodlecricket_github_io_sidebar_left_desktop" class="sticky-sidebar left-sidebar"
+      style="display:inline-block;width:300px;height:300px!important;">
+      <script>
+        googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_left_desktop'); });
+      </script>
+    </div>
+
+    <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar"
+      style="display:inline-block;width:300px;height:600px">
+      <script>
+        googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
       </script>
     </div>
 
