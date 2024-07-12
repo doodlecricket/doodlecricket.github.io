@@ -77,9 +77,24 @@
         --ad-top-height: 90px;
       }
 
+
+
       .more-games,
       .doodle-games {
         top: 90px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .sticky-sidebar-video {
+        display: block;
+        position: fixed;
+        bottom: 107px;
+        width: 300px !important;
+        height: auto;
+        z-index: 10;
+        left: 300px;
       }
     }
   </style>
@@ -261,8 +276,9 @@
         </script>
       </div>
     </div>
-    <div class="col content">
+    <div class="col content -mt-[70px]">
       <div id="hplogo"></div>
+
     </div>
     <div class="col-auto ad-right" style="height: 100% !important">
       <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar"
@@ -276,6 +292,10 @@
         </script>
       </div>
     </div>
+  </div>
+
+  <div class="sticky-sidebar-video">
+    <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
   </div>
   <div id="btnDoodleGames" x-data="{}" class="fixed z-[100]">
     <button class="bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
