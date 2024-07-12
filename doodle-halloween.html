@@ -80,18 +80,16 @@
       z-index: 10;
     }
 
-    /* Game specific styles */
-    #game {
-      height: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .sticky-sidebar-video {
+      display: block;
+      position: fixed;
+      bottom: 107px;
+      width: 300px !important;
+      height: auto;
+      z-index: 10;
+      left: 0;
     }
 
-    canvas {
-      height: 100%;
-      max-width: 100%;
-    }
 
     @media (max-width: 720px) {
       canvas {
@@ -100,12 +98,15 @@
     }
 
     @media (min-width: 1024px) {
-      :root {
-        --ad-top-height: 90px;
-      }
 
-      .cricket-games {
-        top: 90px;
+      .sticky-sidebar-video {
+        display: block;
+        position: fixed;
+        bottom: 107px;
+        width: 300px !important;
+        height: auto;
+        z-index: 10;
+        left: 300px;
       }
 
       .more-games,
@@ -163,54 +164,38 @@
   </script>
 </head>
 
-<body class="column">
+<body class="">
+  <div id="doodlecricket_github_io_top_responsive">
+    <script>
+      googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_top_responsive'); });
+    </script>
+  </div>
 
-  <div class="cricket-games">
-    <a style="
-          background-color: rgba(255, 255, 255, 0.8);
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-          padding: 2px 4px;
-          font-size: smaller;
-          text-decoration: none;
-          color: black;
-        " href="/cricket-games">Cricket Games</a>
+  <div id="doodlecricket_github_io_sidebar_left_desktop" class="sticky-sidebar left-sidebar"
+    style="display:inline-block;width:300px;height:600px">
+    <script>
+      googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_left_desktop'); });
+    </script>
   </div>
-  <div class="ad-top" style="height: var(--ad-top-height) !important;">
-    <div id="doodlecricket_github_io_top_responsive">
-      <script>
-        googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_top_responsive'); });
-      </script>
-    </div>
+
+  <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar"
+    style="display:inline-block;width:300px;height:600px">
+    <script>
+      googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
+    </script>
   </div>
-  <div class="row">
-    <div class="col-auto ad-left" style="height: 100% !important">
-      <div id="doodlecricket_github_io_sidebar_left_desktop" class="sticky-sidebar left-sidebar"
-        style="display:inline-block;width:300px;height:600px">
-        <script>
-          googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_left_desktop'); });
-        </script>
-      </div>
-    </div>
-    <div class="col content">
-      <div id="game">
-        <canvas width="640" height="360"></canvas>
-      </div>
-    </div>
-    <div class="col-auto ad-right" style="height: 100% !important">
-      <div id="doodlecricket_github_io_sidebar_right_desktop" class="sticky-sidebar right-sidebar"
-        style="display:inline-block;width:300px;height:600px">
-        <script>
-          googletag.cmd.push(function () { googletag.display('doodlecricket_github_io_sidebar_right_desktop'); });
-        </script>
-      </div>
-    </div>
+
+  <div class="sticky-sidebar-video">
+    <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
   </div>
+
   <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
     <button class="bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
       @click="$dispatch('toggle-games')">Doodle<br>
       Games</button>
   </div>
+
+
 
   <div x-data="{show:false}"
     class="fixed inset-0 w-full h-full bg-black/50 hidden p-8 flex flex-col items-center justify-center z-[1000]"
@@ -463,7 +448,47 @@
       });
     </script>
   </div>
-  <script src="/doodle-halloween/js/game.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Original canvas size
+      let originalHeight = 360;
+      let originalWidth = 640;
+
+      // Create a new canvas element
+      var canvasWrapper = document.createElement('div');
+      canvasWrapper.style = `position:absolute; top:100px;left:300px;`;
+      canvasWrapper.id = 'game';
+
+      var canvas = document.createElement('canvas');
+      canvas.width = originalWidth;
+      canvas.height = originalHeight;
+      canvas.style = 'cursor: default; aspect-ratio:640/360';
+
+
+      canvasWrapper.appendChild(canvas);
+      document.body.appendChild(canvasWrapper);
+
+      // Load the game.js script
+      var script = document.createElement('script');
+      script.src = '/doodle-halloween/js/game.js';
+      document.body.appendChild(script);
+
+      // Calculate available space
+      let availableHeight = window.innerHeight - 200; // 100% of viewport height - 200px
+      let availableWidth = window.innerWidth - 600; // 100% of viewport width - 600px
+
+      // Calculate scale factors
+      let scaleFactorHeight = availableHeight / originalHeight;
+      let scaleFactorWidth = availableWidth / originalWidth;
+
+      // Choose the smaller scale factor to maintain aspect ratio
+      let scaleFactor = Math.min(scaleFactorHeight, scaleFactorWidth);
+
+      // Apply the scale transformation
+      canvasWrapper.style.transform = `scale(${scaleFactor})`;
+      canvasWrapper.style.transformOrigin = 'top left'; // Ensure scaling starts from top left
+    });
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
