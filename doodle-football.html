@@ -291,8 +291,50 @@
     </div>
   </div>
 
-  <div class="sticky-sidebar-video">
-    <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
+  <div class="sticky-sidebar-video" id="playvid-wrapper">
+
+    <svg class="absolute animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+      </path>
+    </svg>
+
+
+    <script type="module">
+      window.requestIdleCallback = window.requestIdleCallback || function (cb) {
+        var start = Date.now();
+        return setTimeout(function () {
+          cb({
+            didTimeout: false,
+            timeRemaining: function () {
+              return Math.max(0, 50 - (Date.now() - start));
+            }
+          });
+        }, 1);
+      };
+
+      // Function to load the script
+      function loadScript() {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = "https://360playvid.info/slidepleer/s2000s.js";
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.getElementById('playvid-wrapper').appendChild(script);
+        });
+      }
+
+      // Use requestIdleCallback to schedule the script loading
+      requestIdleCallback(() => {
+        // Wait for 2 seconds, then load the script
+        setTimeout(() => {
+          loadScript().catch(error => console.error('Script loading failed:', error));
+        }, 2000);
+      });
+    </script>
   </div>
   <div id="btnDoodleGames" x-data="{}" class="fixed z-[100]">
     <button class="bg-green-600 text-white font-black rounded-full shadow-lg shadow-white w-14 h-14 text-xs border"
