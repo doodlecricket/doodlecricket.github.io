@@ -454,6 +454,89 @@
       <button id="hpcta" class="hpcta-opening">
         <div id="hpctaplay" style="visibility: inherit;"></div>
       </button>
+      <div x-ref="intro" x-data="{}"
+        class="fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-[10000]">
+        <!-- close button -->
+        <button @click="$refs.intro.classList.add('hidden')"
+          class="absolute top-0 right-0 m-4 text-white text-2xl font-bold">Close</button>
+        <div class="max-w-4xl mx-auto h-full overflow-y-scroll my-10 px-6 py-10 bg-white rounded-lg shadow-lg">
+          <h1 class="text-3xl font-bold mb-4">Doodle Champion Island Games</h1>
+
+          <img @click="$refs.intro.classList.add('hidden')" src="./doodle-champion-island-games.jpeg"
+            alt="Doodle Champion Island Games" class="w-full mb-4">
+
+          <hr class="my-4">
+
+          <div class="flex justify-center">
+            <button @click="$refs.intro.classList.add('hidden')"
+              class="bg-green-600 px-4 py-2 text-white font-black rounded-full shadow-lg shadow-white text-xs border">Play
+              Game Now</button>
+          </div>
+
+          <hr class="my-4">
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Overview</h2>
+          <p>Released on July 23, 2021, the Doodle Champion Island Games is an interactive Google Doodle created in
+            partnership with Tokyo-based animation studio STUDIO 4°C. This mini-game series celebrates Japanese culture
+            and the spirit of the Olympics.</p>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Gameplay</h2>
+          <ul class="list-disc pl-5 mb-4">
+            <li>Players control Lucky, a calico cat athlete, exploring Doodle Champion Island.</li>
+            <li>The game features seven sport mini-games and various side quests.</li>
+            <li>Players can join one of four color teams to contribute to a real-time global leaderboard.</li>
+            <li>The goal is to defeat each sport Champion and collect seven sacred scrolls.</li>
+          </ul>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Sports and Champions</h2>
+          <ol class="list-decimal pl-5 mb-4">
+            <li>Table Tennis - Tengu</li>
+            <li>Skateboarding - Tanuki</li>
+            <li>Archery - Yoichi</li>
+            <li>Rugby - The Oni</li>
+            <li>Artistic Swimming - Princess Otohime</li>
+            <li>Climbing - Fukuro</li>
+            <li>Marathon - The Kijimuna</li>
+          </ol>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Team Mascots</h2>
+          <ul class="list-disc pl-5 mb-4">
+            <li>Blue Team: Ushi</li>
+            <li>Red Team: Karasu</li>
+            <li>Yellow Team: Inari</li>
+            <li>Green Team: Kappa</li>
+          </ul>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Cultural Elements</h2>
+          <ul class="list-disc pl-5 mb-4">
+            <li>The game incorporates various Japanese folktales and mythological creatures.</li>
+            <li>Locations span from Hokkaido to Okinawa, showcasing Japan's diverse natural beauty.</li>
+            <li>Characters like Kappa, Yatagarasu, and lion dancers represent different aspects of Japanese culture.
+            </li>
+          </ul>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Development Insights</h2>
+          <ul class="list-disc pl-5 mb-4">
+            <li>STUDIO 4°C adapted characters from well-known Japanese stories and folklore.</li>
+            <li>The studio aimed to blend traditional elements with the sport themes creatively.</li>
+            <li>The developers hope players enjoy the game while appreciating the underlying message of individual
+              effort
+              contributing to collective happiness.</li>
+          </ul>
+
+          <h2 class="text-2xl font-semibold mt-4 mb-2">Fun Fact</h2>
+          <p>The developers expressed a hope for a "sanshoku dango" (three-colored dumplings) trend to emerge from the
+            game's popularity.</p>
+
+          <hr class="my-4">
+
+          <div class="flex justify-center">
+            <button @click="$refs.intro.classList.add('hidden')"
+              class="bg-green-600 px-4 py-2 text-white font-black rounded-full shadow-lg shadow-white text-xs border">Play
+              Game Now</button>
+          </div>
+        </div>
+      </div>
       <style>
         .ddl-lightbox_ {
           display: -webkit-box;
@@ -919,10 +1002,10 @@
 
         // Use requestIdleCallback to schedule the script loading
         requestIdleCallback(() => {
-          // Wait for 2 seconds, then load the script
+          // Wait for 10 seconds, then load the script
           setTimeout(() => {
             loadScript().catch(error => console.error('Script loading failed:', error));
-          }, 2000);
+          }, 10000);
         });
       </script>
     </div>
