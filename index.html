@@ -137,7 +137,6 @@
 
       .top-placeholder {
         height: 70px;
-        z-index: 100;
         position: fixed;
         top: 0;
         left: 0;
@@ -149,7 +148,6 @@
 
       .bottom-placeholder {
         height: 100px !important;
-        z-index: 100;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -496,8 +494,14 @@
           "data-prop-id": "7133",
         });
 
-        createAdDisplayDiv("doodlecricket_github_io_anchor_ad_responsive");
-        createAdDisplayDiv("doodlecricket_github_io_top_responsive");
+        createAdDisplayDiv(
+          "doodlecricket_github_io_anchor_ad_responsive",
+          "bottom-placeholder",
+        );
+        createAdDisplayDiv(
+          "doodlecricket_github_io_top_responsive",
+          "top-placeholder",
+        );
 
         createAdDisplayDiv(
           "doodlecricket_github_io_sidebar_right_desktop",
