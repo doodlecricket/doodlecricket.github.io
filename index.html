@@ -8,7 +8,77 @@
       }
       gtag("js", new Date());
 
-      gtag("config", "UA-105728110-1");</script><style>body {
+      gtag("config", "UA-105728110-1");</script><style>.pushable {
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        transition: filter 250ms;
+      }
+      .shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: hsl(0deg 0% 0% / 0.25);
+        will-change: transform;
+        transform: translateY(2px);
+        transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+      }
+      .edge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: linear-gradient(
+          to left,
+          hsl(170, 100%, 16%) 0%,
+          hsl(121, 100%, 32%) 8%,
+          hsl(146, 100%, 32%) 92%,
+          hsl(154, 100%, 16%) 100%
+        );
+      }
+      .front {
+        display: block;
+        position: relative;
+        padding: 12px 42px;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+        background: hsl(93, 94%, 35%);
+        will-change: transform;
+        transform: translateY(-4px);
+        transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+      }
+      .pushable:hover {
+        filter: brightness(110%);
+      }
+      .pushable:hover .front {
+        transform: translateY(-6px);
+        transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+      }
+      .pushable:active .front {
+        transform: translateY(-2px);
+        transition: transform 34ms;
+      }
+      .pushable:hover .shadow {
+        transform: translateY(4px);
+        transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+      }
+      .pushable:active .shadow {
+        transform: translateY(1px);
+        transition: transform 34ms;
+      }
+      .pushable:focus:not(:focus-visible) {
+        outline: none;
+      }</style><style>body {
         background: linear-gradient(to bottom, #00a8f1, #679f1f);
       }
 
@@ -253,7 +323,7 @@
 </head><body style="max-height: 100vh;
       overflow: hidden;
       display: flex;
-      flex-direction: column;"><div id=splash-new class="absolute inset-0 z-[9999] bg-white"><div class="flex flex-col items-center justify-center gap-4"><h1 class="text-center mt-24 font-bold text-3xl">Doodle Cricket Game</h1><img src=/doodle-cricket.svg alt="Doodle Cricket" class="w-[200px] mx-auto"><div class="flex justify-center relative"><button id=play class="px-6 py-2 bg-green-600 text-white text-2xl rounded-lg cursor-pointer z-999">Play</button></div></div></div><div id=q-app></div><nav><div class=more-games><a style="background-color: rgba(255, 255, 255, 0.8);
+      flex-direction: column;"><div id=splash-new class="h-screen z-[9999] bg-white overflow-y-auto"><div class="flex flex-col items-center justify-center gap-4"><h1 class="text-center mt-12 font-bold text-3xl">Doodle Cricket Game</h1><img src=/doodle-cricket.svg alt="Doodle Cricket" class="w-[200px] mx-auto drop-shadow-xl"><div class="flex justify-center relative"><button id=play class=pushable><span class=shadow></span> <span class=edge></span> <span class=front>Play</span></button></div><div class="mx-auto max-w-xs mt-8 text-base"><p>Google made a fun game called Doodle Cricket in 2017 to celebrate a big cricket tournament.</p><p>In the game, you're the batter trying to score lots of runs.</p><p>What makes it cool is how easy it is to play - you just click to swing the bat. But you still need to be smart about when you swing to hit the ball and not get out. There are different challenges too, like hitting the ball to certain spots or scoring fast.</p><p>It's a great way to honor the cricket tournament that lots of people love. Whether you're into cricket or just want a fun game to play, you should give Doodle Cricket a try!</p></div></div></div><div id=q-app></div><nav><div class=more-games><a style="background-color: rgba(255, 255, 255, 0.8);
             border-bottom-left-radius: 6px;
             padding: 2px 4px;
             font-size: smaller;
