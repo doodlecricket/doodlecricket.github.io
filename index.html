@@ -578,6 +578,12 @@
           document.head.appendChild(style);
           loadJuice();
           showAd();
+          // remove query param without reloading
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname,
+          );
         } else {
           style.innerHTML = `#splash-new { display: block; } #q-app { display: none; }`;
           document.head.appendChild(style);
