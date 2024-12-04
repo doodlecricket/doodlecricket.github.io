@@ -51,7 +51,7 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
       defer
     ></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
       tailwind.config = {
         corePlugins: {
@@ -613,9 +613,12 @@
   <body class="column">
     <div
       id="splash"
-      class="pointer-events-none fixed inset-0 z-[9999] flex items-center justify-center bg-gray-900"
+      class="fixed h-screen inset-0 z-[9999] flex items-center justify-center bg-gray-900 overflow-y-auto"
     >
       <div class="text-center">
+        <h1 class="text-white text-3xl font-bold">
+          Welcome to Doodle Baseball
+        </h1>
         <img
           src="./doodle-baseball/icons/android-icon-192x192.png"
           alt="Logo"
@@ -627,6 +630,29 @@
         >
           ▶ Play
         </button>
+
+        <div
+          class="mx-auto max-w-xs mt-8 text-base text-white prose prose-headings:font-bold prose-headings:text-white prose-p:text-white prose-p:text-sm"
+        >
+          <p class="mb-2">
+            Step into a baseball diamond where your favorite ballpark snacks
+            come to life! Swing as a mighty hot dog, a powerful popcorn kernel,
+            a cool ice cream cone, or a juicy watermelon slice.
+          </p>
+          <h2 class="my-2">How to Play</h2>
+          <p class="mb-2">
+            Simply click your mouse or tap your screen to swing when the peanut
+            pitcher throws the ball. Time your hits perfectly to score runs!
+          </p>
+          <h2 class="my-2">Your Team</h2>
+          <ul class="list-disc">
+            <li>Hot Dog: Your classic cleanup hitter</li>
+            <li>Popcorn: Quick and poppy at the plate</li>
+            <li>Ice Cream: Cool under pressure</li>
+            <li>Watermelon: The heavy hitter</li>
+          </ul>
+          <h2 class="my-2">Click Play to begin</h2>
+        </div>
       </div>
     </div>
 
