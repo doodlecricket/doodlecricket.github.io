@@ -43,18 +43,33 @@ function createScriptTag(options) {
 }
 
 // Function to create and insert ad display div
-function createAdDisplayDiv(id, className) {
+function createAdDisplayDiv(
+  id,
+  className = null,
+  container = null,
+  style = null,
+) {
   const div = document.createElement("div");
   div.id = id;
-  div.className = className;
+  if (className != null) {
+    div.className = className;
+  }
+  if (style != null) {
+    div.setAttribute("style", style);
+  }
 
   const script = document.createElement("script");
   script.textContent = `
-    googletag.cmd.push(function () { 
-      googletag.display('${id}'); 
+    googletag.cmd.push(function () {
+      googletag.display('${id}');
     });
   `;
 
   div.appendChild(script);
-  document.body.appendChild(div);
+
+  if (container == null) {
+    document.body.appendChild(div);
+  } else {
+    document.querySelector(container).appendChild(div);
+  }
 }
