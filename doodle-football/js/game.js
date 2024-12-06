@@ -1344,6 +1344,7 @@ window.google = {};
         I.style.display = "none";
       });
       xc.onmousedown = function () {
+        location.search = "restart";
         yc && !H.i && H.play();
       };
       Ac = Kc(zc, "hplogo_ssd");

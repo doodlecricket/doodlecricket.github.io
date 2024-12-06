@@ -7827,6 +7827,7 @@ function fullscreen(element) {
             Me,
             Ue,
             function () {
+              location.search = "restart";
               s.V = !0;
             },
             Ot("End Screen - New Game"),

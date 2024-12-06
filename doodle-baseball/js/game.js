@@ -7914,6 +7914,7 @@ window.senty = {};
       40,
       Of,
       function () {
+        location.search = "restart";
         // TODO: restart button clicked
         return x(w.ka(), 5);
       },

@@ -574,6 +574,18 @@
         createAdDisplayDiv("doodlecricket_github_io_anchor_ad_responsive");
       }
 
+      function checkRestart() {
+        if (new URLSearchParams(location.search).has("restart")) {
+          loadJuice();
+          showAd();
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname,
+          );
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Check if the page is loaded inside an iframe
         if (window.location !== window.parent.location) {
@@ -586,6 +598,8 @@
         }
 
         document.querySelector("#play").addEventListener("click", loadJuice);
+
+        checkRestart();
       });
     </script>
 

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Doodle Halloween Online</title>
-
+    <script src="./loaders.js"></script>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@doodlecricket" />
     <meta name="twitter:title" content="Doodle Halloween Online" />
@@ -218,157 +218,313 @@
       src="https://stats.senty.com.au/js/script.js"
     ></script>
 
-    <script
-      async
-      src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
-    ></script>
     <script>
-      stpd = window.stpd || { que: [] };
-      window.googletag = window.googletag || {};
-      googletag.cmd = googletag.cmd || [];
-      googletag.cmd.push(function () {
-        if (window.innerWidth >= 1200) {
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right",
-              [
-                [300, 600],
-                [160, 600],
-                [300, 250],
-                [300, 300],
-              ],
-              "doodlecricket_github_io_sidebar_right_desktop",
-            )
-            .addService(googletag.pubads());
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_left",
-              [
-                [300, 600],
-                [160, 600],
-                [300, 250],
-                [300, 300],
-              ],
-              "doodlecricket_github_io_sidebar_left_desktop",
-            )
-            .addService(googletag.pubads());
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor",
-              [
-                [1000, 100],
-                [970, 90],
-                [728, 90],
-                [990, 90],
-                [970, 50],
-                [960, 90],
-                [950, 90],
-                [980, 90],
-              ],
-              "doodlecricket_github_io_anchor_ad_responsive",
-            )
-            .addService(googletag.pubads());
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top",
-              [
-                [1000, 100],
-                [970, 90],
-                [728, 90],
-                [990, 90],
-                [970, 50],
-                [960, 90],
-                [950, 90],
-                [980, 90],
-              ],
-              "doodlecricket_github_io_top_responsive",
-            )
-            .addService(googletag.pubads());
-        } else if (window.innerWidth >= 1024) {
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor",
-              [
-                [1000, 100],
-                [970, 90],
-                [728, 90],
-                [990, 90],
-                [970, 50],
-                [960, 90],
-                [950, 90],
-                [980, 90],
-              ],
-              "doodlecricket_github_io_anchor_ad_responsive",
-            )
-            .addService(googletag.pubads());
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top",
-              [
-                [1000, 100],
-                [970, 90],
-                [728, 90],
-                [990, 90],
-                [970, 50],
-                [960, 90],
-                [950, 90],
-                [980, 90],
-              ],
-              "doodlecricket_github_io_top_responsive",
-            )
-            .addService(googletag.pubads());
-        } else {
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_320x100_mobile_anchor",
-              [
-                [320, 100],
-                [320, 50],
-                [300, 100],
-                [300, 50],
-              ],
-              "doodlecricket_github_io_anchor_ad_responsive",
-            )
-            .addService(googletag.pubads());
-          googletag
-            .defineSlot(
-              "/147246189,22921845643/doodlecricket.github.io_320x50_mobile_top",
-              [
-                [320, 50],
-                [300, 50],
-              ],
-              "doodlecricket_github_io_top_responsive",
-            )
-            .addService(googletag.pubads());
+      function loadVideo() {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = "https://360playvid.info/slidepleer/s1992s.js";
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.getElementById("playvid-wrapper").appendChild(script);
+        });
+      }
+
+      function loadJuice() {
+        document.querySelector("#splash").remove();
+
+        if (window.innerWidth >= 1024) {
+          loadVideo();
         }
 
-        var interstitialSlot = googletag.defineOutOfPageSlot(
-          "/147246189,22921845643/doodlecricket.github.io_interstitial",
-          googletag.enums.OutOfPageFormat.INTERSTITIAL,
-        );
-        if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
+        loadGame();
 
-        googletag.pubads().disableInitialLoad();
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().collapseEmptyDivs();
-        googletag
-          .pubads()
-          .setTargeting("category", "sports_cricket")
-          .setTargeting("audience_interest", "sports_cricket");
-        googletag.enableServices();
-        googletag.display(interstitialSlot);
+        createScriptTag({
+          src: "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+          async: true,
+        });
+
+        createScriptTag({
+          inline: `
+      stpd = window.stpd || { que: [] };
+            window.googletag = window.googletag || {};
+            googletag.cmd = googletag.cmd || [];
+
+            function giveReward() {
+              console.log("Reward given");
+              googletag
+                .pubads()
+                .removeEventListener("rewardedSlotClosed", dismissReward);
+            }
+
+            // For Rewarded ad
+            function dismissReward(evt) {
+              googletag.destroySlots([evt.rewardedSlot]);
+            }
+
+            // For Rewarded ad
+            function showAd() {
+              console.log("show");
+              googletag.cmd.push(function () {
+                var rewardedSlot = googletag.defineOutOfPageSlot(
+                  "/147246189,22921845643/doodlecricket.github.io_rewarded",
+                  googletag.enums.OutOfPageFormat.REWARDED,
+                );
+                if (rewardedSlot) rewardedSlot.addService(googletag.pubads());
+                googletag.enableServices();
+                googletag
+                  .pubads()
+                  .addEventListener("rewardedSlotReady", function (evt) {
+                    evt.makeRewardedVisible();
+                  });
+                googletag
+                  .pubads()
+                  .addEventListener("rewardedSlotClosed", dismissReward);
+                googletag
+                  .pubads()
+                  .addEventListener("rewardedSlotGranted", giveReward);
+                googletag.display(rewardedSlot);
+                googletag.pubads().refresh([rewardedSlot]);
+              });
+            }
+
+            googletag.cmd.push(function () {
+              if (window.innerWidth >= 1200) {
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right",
+                    [
+                      [300, 600],
+                      [160, 600],
+                      [300, 250],
+                      [300, 300],
+                    ],
+                    "doodlecricket_github_io_sidebar_right_desktop",
+                  )
+                  .addService(googletag.pubads());
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_left",
+                    [
+                      [300, 600],
+                      [160, 600],
+                      [300, 250],
+                      [300, 300],
+                    ],
+                    "doodlecricket_github_io_sidebar_left_desktop",
+                  )
+                  .addService(googletag.pubads());
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor",
+                    [
+                      [1000, 100],
+                      [970, 90],
+                      [728, 90],
+                      [990, 90],
+                      [970, 50],
+                      [960, 90],
+                      [950, 90],
+                      [980, 90],
+                    ],
+                    "doodlecricket_github_io_anchor_ad_responsive",
+                  )
+                  .addService(googletag.pubads());
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top",
+                    [
+                      [1000, 100],
+                      [970, 90],
+                      [728, 90],
+                      [990, 90],
+                      [970, 50],
+                      [960, 90],
+                      [950, 90],
+                      [980, 90],
+                    ],
+                    "doodlecricket_github_io_top_responsive",
+                  )
+                  .addService(googletag.pubads());
+              } else if (window.innerWidth >= 1024) {
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_anchor",
+                    [
+                      [1000, 100],
+                      [970, 90],
+                      [728, 90],
+                      [990, 90],
+                      [970, 50],
+                      [960, 90],
+                      [950, 90],
+                      [980, 90],
+                    ],
+                    "doodlecricket_github_io_anchor_ad_responsive",
+                  )
+                  .addService(googletag.pubads());
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_1000x100_desktop_top",
+                    [
+                      [1000, 100],
+                      [970, 90],
+                      [728, 90],
+                      [990, 90],
+                      [970, 50],
+                      [960, 90],
+                      [950, 90],
+                      [980, 90],
+                    ],
+                    "doodlecricket_github_io_top_responsive",
+                  )
+                  .addService(googletag.pubads());
+              } else {
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_320x100_mobile_anchor",
+                    [
+                      [320, 100],
+                      [320, 50],
+                      [300, 100],
+                      [300, 50],
+                    ],
+                    "doodlecricket_github_io_anchor_ad_responsive",
+                  )
+                  .addService(googletag.pubads());
+                googletag
+                  .defineSlot(
+                    "/147246189,22921845643/doodlecricket.github.io_320x50_mobile_top",
+                    [
+                      [320, 50],
+                      [300, 50],
+                    ],
+                    "doodlecricket_github_io_top_responsive",
+                  )
+                  .addService(googletag.pubads());
+              }
+
+              var interstitialSlot = googletag.defineOutOfPageSlot(
+                "/147246189,22921845643/doodlecricket.github.io_interstitial",
+                googletag.enums.OutOfPageFormat.INTERSTITIAL,
+              );
+              if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
+
+              googletag.pubads().disableInitialLoad();
+              googletag.pubads().enableSingleRequest();
+              googletag.pubads().collapseEmptyDivs();
+              googletag
+                .pubads()
+                .setTargeting("category", "sports_cricket")
+                .setTargeting("audience_interest", "sports_cricket");
+              googletag.enableServices();
+              googletag.display(interstitialSlot);
+            });
+                `,
+        });
+
+        createScriptTag({
+          src: "https://stpd.cloud/saas/7197",
+          async: true,
+        });
+
+        createScriptTag({
+          src: "https://cmp.setupcmp.com/cmp/cmp/cmp-v1.js",
+          "data-prop-stpd-cmp-id": "7133",
+          async: true,
+        });
+
+        createScriptTag({
+          src: "https://cmp.setupcmp.com/cmp/cmp/cmp-stub.js",
+          "data-prop-id": "7133",
+        });
+
+        createAdDisplayDiv("doodlecricket_github_io_top_responsive");
+
+        createAdDisplayDiv(
+          "doodlecricket_github_io_sidebar_left_desktop",
+          "sticky-sidebar left-sidebar",
+          null,
+          "display: inline-block; width: 300px; height: 600px",
+        );
+
+        createAdDisplayDiv(
+          "doodlecricket_github_io_sidebar_right_desktop",
+          "sticky-sidebar right-sidebar",
+          null,
+          "display: inline-block; width: 300px; height: 600px",
+        );
+
+        createAdDisplayDiv("doodlecricket_github_io_anchor_ad_responsive");
+      }
+
+      function checkRestart() {
+        if (new URLSearchParams(location.search).has("restart")) {
+          loadJuice();
+          showAd();
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname,
+          );
+        }
+      }
+
+      function loadGame() {
+        // Original canvas size
+        let originalHeight = 360;
+        let originalWidth = 640;
+
+        // Create a new canvas element
+        var canvasWrapper = document.createElement("div");
+        canvasWrapper.style = `position:absolute; top:100px;left:300px;`;
+        canvasWrapper.id = "game";
+
+        var canvas = document.createElement("canvas");
+        canvas.width = originalWidth;
+        canvas.height = originalHeight;
+        canvas.style = "cursor: default; aspect-ratio:640/360";
+
+        canvasWrapper.appendChild(canvas);
+        document.body.appendChild(canvasWrapper);
+
+        // Load the game.js script
+        var script = document.createElement("script");
+        script.src = "/doodle-halloween/js/game.js";
+        document.body.appendChild(script);
+
+        // Calculate available space
+        let availableHeight = window.innerHeight - 200; // 100% of viewport height - 200px
+        let availableWidth = window.innerWidth - 600; // 100% of viewport width - 600px
+
+        // Calculate scale factors
+        let scaleFactorHeight = availableHeight / originalHeight;
+        let scaleFactorWidth = availableWidth / originalWidth;
+
+        // Choose the smaller scale factor to maintain aspect ratio
+        let scaleFactor = Math.min(scaleFactorHeight, scaleFactorWidth);
+
+        // Apply the scale transformation
+        canvasWrapper.style.transform = `scale(${scaleFactor})`;
+        canvasWrapper.style.transformOrigin = "top left"; // Ensure scaling starts from top left
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if the page is loaded inside an iframe
+        if (window.location !== window.parent.location) {
+          // Get all anchor tags that are inside nav tags
+          const links = document.querySelectorAll("nav a");
+          // Loop through each link and set its target attribute to "_blank"
+          links.forEach(function (link) {
+            link.target = "_blank";
+          });
+        }
+
+        document.querySelector("#play").addEventListener("click", loadJuice);
+
+        checkRestart();
       });
     </script>
-    <script async src="https://stpd.cloud/saas/7197"></script>
-    <script
-      src="https://cmp.setupcmp.com/cmp/cmp/cmp-stub.js"
-      data-prop-id="7133"
-    ></script>
-    <script
-      src="https://cmp.setupcmp.com/cmp/cmp/cmp-v1.js"
-      data-prop-stpd-cmp-id="7133"
-      async
-    ></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -387,36 +543,23 @@
   </head>
 
   <body class="">
-    <div id="doodlecricket_github_io_top_responsive">
-      <script>
-        googletag.cmd.push(function () {
-          googletag.display("doodlecricket_github_io_top_responsive");
-        });
-      </script>
-    </div>
-
     <div
-      id="doodlecricket_github_io_sidebar_left_desktop"
-      class="sticky-sidebar left-sidebar"
-      style="display: inline-block; width: 300px; height: 600px"
+      id="splash"
+      class="fixed h-screen inset-0 z-[9999] flex items-center justify-center bg-gray-900 overflow-y-auto"
     >
-      <script>
-        googletag.cmd.push(function () {
-          googletag.display("doodlecricket_github_io_sidebar_left_desktop");
-        });
-      </script>
-    </div>
-
-    <div
-      id="doodlecricket_github_io_sidebar_right_desktop"
-      class="sticky-sidebar right-sidebar"
-      style="display: inline-block; width: 300px; height: 600px"
-    >
-      <script>
-        googletag.cmd.push(function () {
-          googletag.display("doodlecricket_github_io_sidebar_right_desktop");
-        });
-      </script>
+      <div class="text-center">
+        <img
+          src="./doodle-halloween/icons/android-icon-192x192.png"
+          alt="Logo"
+          class="w-32 h-32 mx-auto mb-4"
+        />
+        <button
+          id="play"
+          class="pointer-events-auto px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none"
+        >
+          ▶ Play
+        </button>
+      </div>
     </div>
 
     <div class="sticky-sidebar-video" id="playvid-wrapper">
@@ -440,44 +583,6 @@
           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
         ></path>
       </svg>
-
-      <script type="module">
-        window.requestIdleCallback =
-          window.requestIdleCallback ||
-          function (cb) {
-            var start = Date.now();
-            return setTimeout(function () {
-              cb({
-                didTimeout: false,
-                timeRemaining: function () {
-                  return Math.max(0, 50 - (Date.now() - start));
-                },
-              });
-            }, 1);
-          };
-
-        // Function to load the script
-        function loadScript() {
-          return new Promise((resolve, reject) => {
-            const script = document.createElement("script");
-            script.src = "https://360playvid.info/slidepleer/s1992s.js";
-            script.async = true;
-            script.onload = resolve;
-            script.onerror = reject;
-            document.getElementById("playvid-wrapper").appendChild(script);
-          });
-        }
-
-        // Use requestIdleCallback to schedule the script loading
-        requestIdleCallback(() => {
-          // Wait for 2 seconds, then load the script
-          setTimeout(() => {
-            loadScript().catch((error) =>
-              console.error("Script loading failed:", error),
-            );
-          }, 2000);
-        });
-      </script>
     </div>
 
     <div x-data="{}" class="fixed top-[120px] left-4 sm:left-[320px] z-[100]">
@@ -914,66 +1019,5 @@
       class="ad-bottom"
       style="height: var(--ad-bottom-height) !important"
     ></div>
-    <div id="doodlecricket_github_io_anchor_ad_responsive">
-      <script>
-        googletag.cmd.push(function () {
-          googletag.display("doodlecricket_github_io_anchor_ad_responsive");
-        });
-      </script>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Original canvas size
-        let originalHeight = 360;
-        let originalWidth = 640;
-
-        // Create a new canvas element
-        var canvasWrapper = document.createElement("div");
-        canvasWrapper.style = `position:absolute; top:100px;left:300px;`;
-        canvasWrapper.id = "game";
-
-        var canvas = document.createElement("canvas");
-        canvas.width = originalWidth;
-        canvas.height = originalHeight;
-        canvas.style = "cursor: default; aspect-ratio:640/360";
-
-        canvasWrapper.appendChild(canvas);
-        document.body.appendChild(canvasWrapper);
-
-        // Load the game.js script
-        var script = document.createElement("script");
-        script.src = "/doodle-halloween/js/game.js";
-        document.body.appendChild(script);
-
-        // Calculate available space
-        let availableHeight = window.innerHeight - 200; // 100% of viewport height - 200px
-        let availableWidth = window.innerWidth - 600; // 100% of viewport width - 600px
-
-        // Calculate scale factors
-        let scaleFactorHeight = availableHeight / originalHeight;
-        let scaleFactorWidth = availableWidth / originalWidth;
-
-        // Choose the smaller scale factor to maintain aspect ratio
-        let scaleFactor = Math.min(scaleFactorHeight, scaleFactorWidth);
-
-        // Apply the scale transformation
-        canvasWrapper.style.transform = `scale(${scaleFactor})`;
-        canvasWrapper.style.transformOrigin = "top left"; // Ensure scaling starts from top left
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Check if the page is loaded inside an iframe
-        if (window.location !== window.parent.location) {
-          // Get all anchor tags that are inside nav tags
-          const links = document.querySelectorAll("nav a");
-          // Loop through each link and set its target attribute to "_blank"
-          links.forEach(function (link) {
-            link.target = "_blank";
-          });
-        }
-      });
-    </script>
   </body>
 </html>
