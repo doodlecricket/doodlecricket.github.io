@@ -237,7 +237,10 @@
           loadVideo();
         }
 
-        loadGame();
+        createScriptTag({
+          src: "/doodle-halloween/js/game.js",
+          async: true,
+        });
 
         createScriptTag({
           src: "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
@@ -439,19 +442,23 @@
           "data-prop-id": "7133",
         });
 
-        createAdDisplayDiv("doodlecricket_github_io_top_responsive");
+        createAdDisplayDiv(
+          "doodlecricket_github_io_top_responsive",
+          null,
+          ".ad-top",
+        );
 
         createAdDisplayDiv(
           "doodlecricket_github_io_sidebar_left_desktop",
           "sticky-sidebar left-sidebar",
-          null,
+          ".ad-left",
           "display: inline-block; width: 300px; height: 600px",
         );
 
         createAdDisplayDiv(
           "doodlecricket_github_io_sidebar_right_desktop",
           "sticky-sidebar right-sidebar",
-          null,
+          ".ad-right",
           "display: inline-block; width: 300px; height: 600px",
         );
 
@@ -468,45 +475,6 @@
             window.location.pathname,
           );
         }
-      }
-
-      function loadGame() {
-        // Original canvas size
-        let originalHeight = 360;
-        let originalWidth = 640;
-
-        // Create a new canvas element
-        var canvasWrapper = document.createElement("div");
-        canvasWrapper.style = `position:absolute; top:100px;left:300px;`;
-        canvasWrapper.id = "game";
-
-        var canvas = document.createElement("canvas");
-        canvas.width = originalWidth;
-        canvas.height = originalHeight;
-        canvas.style = "cursor: default; aspect-ratio:640/360";
-
-        canvasWrapper.appendChild(canvas);
-        document.body.appendChild(canvasWrapper);
-
-        // Load the game.js script
-        var script = document.createElement("script");
-        script.src = "/doodle-halloween/js/game.js";
-        document.body.appendChild(script);
-
-        // Calculate available space
-        let availableHeight = window.innerHeight - 200; // 100% of viewport height - 200px
-        let availableWidth = window.innerWidth - 600; // 100% of viewport width - 600px
-
-        // Calculate scale factors
-        let scaleFactorHeight = availableHeight / originalHeight;
-        let scaleFactorWidth = availableWidth / originalWidth;
-
-        // Choose the smaller scale factor to maintain aspect ratio
-        let scaleFactor = Math.min(scaleFactorHeight, scaleFactorWidth);
-
-        // Apply the scale transformation
-        canvasWrapper.style.transform = `scale(${scaleFactor})`;
-        canvasWrapper.style.transformOrigin = "top left"; // Ensure scaling starts from top left
       }
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -1033,6 +1001,19 @@
           >
         </div>
       </div>
+    </div>
+
+    <div class="ad-top" style="height: var(--ad-top-height) !important"></div>
+    <div class="row">
+      <div class="col-auto ad-left" style="height: 100% !important"></div>
+      <div id="game" class="col content">
+        <canvas
+          style="cursor: default; aspect-ratio: 640/360; width: 100%"
+          height="360"
+          width="640"
+        ></canvas>
+      </div>
+      <div class="col-auto ad-right" style="height: 100% !important"></div>
     </div>
     <div
       class="ad-bottom"
