@@ -188,7 +188,15 @@
       stpd = window.stpd || { que: [] };
       window.googletag = window.googletag || {};
       googletag.cmd = googletag.cmd || [];
+      var anchorSlot;
       googletag.cmd.push(function () {
+        anchorSlot = googletag
+          .defineOutOfPageSlot(
+            "/22921845643/doodlecricket_global_bottom_anchor",
+            googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+          )
+          .addService(googletag.pubads());
+
         if (window.innerWidth >= 1200) {
           googletag
             .defineSlot(
@@ -319,6 +327,9 @@
           .setTargeting("audience_interest", "sports_cricket");
         googletag.enableServices();
         googletag.display(interstitialSlot);
+        setInterval(function () {
+          googletag.pubads().refresh([anchorSlot]);
+        }, 30000);
       });
     </script>
     <script async src="https://stpd.cloud/saas/7197"></script>
@@ -1677,6 +1688,11 @@
         positionDoodleGames();
       });
       positionDoodleGames();
+    </script>
+    <script>
+      googletag.cmd.push(() => {
+        googletag.display(anchorSlot);
+      });
     </script>
   </body>
 </html>

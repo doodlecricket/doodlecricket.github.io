@@ -183,8 +183,16 @@
       stpd = window.stpd || { que: [] };
       window.googletag = window.googletag || {};
       googletag.cmd = googletag.cmd || [];
+      var anchorSlot;
       googletag.cmd.push(function () {
         if (window.innerWidth >= 1200) {
+          anchorSlot = googletag
+            .defineOutOfPageSlot(
+              "/22921845643/doodlecricket_global_bottom_anchor",
+              googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+            )
+            .addService(googletag.pubads());
+
           googletag
             .defineSlot(
               "/147246189,22921845643/doodlecricket.github.io_300x600_desktop_sidebar_right",
@@ -314,6 +322,10 @@
           .setTargeting("audience_interest", "online_games");
         googletag.enableServices();
         googletag.display(interstitialSlot);
+
+        setInterval(function () {
+          googletag.pubads().refresh([anchorSlot]);
+        }, 30000);
       });
     </script>
     <script async src="https://stpd.cloud/saas/7197"></script>
@@ -1037,6 +1049,11 @@
             link.target = "_blank";
           });
         }
+      });
+    </script>
+    <script>
+      googletag.cmd.push(() => {
+        googletag.display(anchorSlot);
       });
     </script>
   </body>

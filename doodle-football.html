@@ -227,7 +227,7 @@
       stpd = window.stpd || { que: [] };
             window.googletag = window.googletag || {};
             googletag.cmd = googletag.cmd || [];
-
+            var anchorSlot;
             function giveReward() {
               console.log("Reward given");
               googletag
@@ -267,6 +267,13 @@
             }
 
             googletag.cmd.push(function () {
+              anchorSlot = googletag
+                .defineOutOfPageSlot(
+                  "/22921845643/doodlecricket_global_bottom_anchor",
+                  googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+                )
+                .addService(googletag.pubads());
+
               if (window.innerWidth >= 1200) {
                 googletag
                   .defineSlot(
@@ -397,6 +404,12 @@
                 .setTargeting("audience_interest", "sports_cricket");
               googletag.enableServices();
               googletag.display(interstitialSlot);
+              setInterval(function () {
+                googletag.pubads().refresh([anchorSlot]);
+              }, 30000);
+              googletag.cmd.push(() => {
+                googletag.display(anchorSlot);
+              });
             });
                 `,
         });
