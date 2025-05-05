@@ -7,12 +7,12 @@ Welcome to the Doodle Cricket Game! Powered By Advance AI Algorithms. This is a 
 ### Features:
 
 - Tap to Play
-- Most lightweight Game with awesome Graphics
+- Most lightweighted Game with awesome Graphics
 - Dynamic camera angles
 - Challenging AI opponent
-- Realistic Physics
+- Realistic Gameplay
 - Dynamic Ambiance
-- Share Score on Social Networks
+- Share Score on Social Networks such as twitter and Facebook
 
 ## [Google Doodle games](https://doodlecricket.github.io/google-doodle-games)
 
