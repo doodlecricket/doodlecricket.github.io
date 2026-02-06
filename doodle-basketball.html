@@ -388,13 +388,42 @@
           id="doodlecricket_github_io_sidebar_left_desktop"
           class="sticky-sidebar left-sidebar"
           style="display: inline-block; width: 300px; height: 600px"
-        >
-          <script>
-            googletag.cmd.push(function () {
-              googletag.display("doodlecricket_github_io_sidebar_left_desktop");
-            });
-          </script>
-        </div>
+        ><script>
+      (function() {
+        var container = document.currentScript.parentElement;
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.gap = '20px';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+
+        var injectAd = function(parent) {
+          var iframe = document.createElement("iframe");
+          iframe.style.width = "300px";
+          iframe.style.height = "250px";
+          iframe.style.border = "none";
+          iframe.style.overflow = "hidden";
+          parent.appendChild(iframe);
+          
+          var doc = iframe.contentWindow.document;
+          var content = '<html><body style="margin:0;padding:0;"><script type="text/javascript">atOptions = {"key" : "bae7a713fd9c74c5c4ea514a235d8330", "format" : "iframe", "height" : 250, "width" : 300, "params" : {}};<\/script><script type="text/javascript" src="https://thieflamppost.com/bae7a713fd9c74c5c4ea514a235d8330/invoke.js"><\/script></body></html>';
+          doc.open();
+          doc.write(content);
+          doc.close();
+        };
+
+        // Clear existing content just in case, though we are replacing the script tag
+        // Actually, the replacement just replaces the inner script, so we might want to clear other children if any?
+        // But for safety, let's just append the new ads. The old script is gone.
+        
+        var ad1 = document.createElement("div");
+        ad1.style.width = "300px";
+        ad1.style.height = "250px";
+        container.appendChild(ad1);
+        
+        injectAd(ad1);
+      })();
+    </script></div>
       </div>
       <div class="col content md:-mt-[70px]">
         <div id="game">

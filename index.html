@@ -357,27 +357,34 @@
           
           document.body.appendChild(container);
 
-          const injectAd = (parent, index, callback) => {
-            const scriptOptions = document.createElement("script");
-            scriptOptions.type = "text/javascript";
-            scriptOptions.textContent = `
-              atOptions = {
-                'key' : 'bae7a713fd9c74c5c4ea514a235d8330',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
-                'params' : {}
-              };
+          const injectAd = (parent) => {
+            const iframe = document.createElement("iframe");
+            iframe.style.width = "300px";
+            iframe.style.height = "250px";
+            iframe.style.border = "none";
+            iframe.style.overflow = "hidden";
+            parent.appendChild(iframe);
+
+            const doc = iframe.contentWindow.document;
+            const content = `
+              <html>
+                <body style="margin:0;padding:0;">
+                  <script type="text/javascript">
+                    atOptions = {
+                      'key' : 'bae7a713fd9c74c5c4ea514a235d8330',
+                      'format' : 'iframe',
+                      'height' : 250,
+                      'width' : 300,
+                      'params' : {}
+                    };
+                  <\/script>
+                  <script type="text/javascript" src="https://thieflamppost.com/bae7a713fd9c74c5c4ea514a235d8330/invoke.js"><\/script>
+                </body>
+              </html>
             `;
-            parent.appendChild(scriptOptions);
-            
-            const scriptInvoke = document.createElement("script");
-            scriptInvoke.type = "text/javascript";
-            scriptInvoke.src="https://thieflamppost.com/bae7a713fd9c74c5c4ea514a235d8330/invoke.js" + (index > 0 ? "?cb=" + index : "");
-            if (callback) {
-              scriptInvoke.onload = callback;
-            }
-            parent.appendChild(scriptInvoke);
+            doc.open();
+            doc.write(content);
+            doc.close();
           };
 
           const ad1 = document.createElement("div");
@@ -385,15 +392,8 @@
           ad1.style.height = "250px";
           container.appendChild(ad1);
           
-          const ad2 = document.createElement("div");
-          ad2.style.width = "300px";
-          ad2.style.height = "250px";
-          container.appendChild(ad2);
-
-          // Inject first ad, then the second one after the first finishes loading
-          injectAd(ad1, 0, () => {
-            injectAd(ad2, 1);
-          });
+          // Inject ads in parallel isolated iframes
+          injectAd(ad1);
         }
 
         createScriptTag({

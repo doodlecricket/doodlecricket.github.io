@@ -1,0 +1,28 @@
+{
+    "git": {
+        "remotes": {
+            "origin": "git@github.com:doodlecricket/doodlecricket.github.io.git"
+        },
+        "default_branch": "master"
+    },
+    "domains": [
+        "doodlecricket.github.io"
+    ],
+    "stack": {
+        "type": "static",
+        "language": "html",
+        "framework": null,
+        "frontend": null,
+        "database": null,
+        "nodejs": {
+            "detected": false,
+            "package_manager": null,
+            "audit": null
+        },
+        "composer": {
+            "detected": false,
+            "php_version": null,
+            "audit": null
+        }
+    }
+}
