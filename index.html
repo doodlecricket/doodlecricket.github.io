@@ -299,6 +299,16 @@
           margin-top: 100px;
           margin-bottom: 100px;
         }
+
+        .sticky-sidebar-video {
+          display: block;
+          position: fixed;
+          bottom: 107px;
+          width: 300px !important;
+          height: auto;
+          z-index: 10;
+          left: 0;
+        }
       }
 
       @media (min-width: 1280px) {
@@ -318,7 +328,7 @@
           width: 300px !important;
           height: auto;
           z-index: 10;
-          left: 300px;
+          left: 0;
         }
 
         .left-sidebar {
@@ -367,7 +377,7 @@
         }
 
         if (window.innerWidth >= 1024) {
-          // loadVideo();
+          loadVideo();
           const container = document.createElement("div");
           container.className = "sticky-sidebar left-sidebar";
           container.style.display = "flex";
@@ -672,8 +682,8 @@
         }
 
         document.querySelector("#play").addEventListener("click", loadJuice);
-      });</script>  <script type="module" crossorigin src="/assets/index-CB9cSSVB.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BGn-wZ8K.css">
+      });</script>  <script type="module" crossorigin src="/assets/index-klGXlCmL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CA8zoRzT.css">
 </head><body style="max-height: 100vh;
       overflow: hidden;
       display: flex;
