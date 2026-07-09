@@ -363,6 +363,9 @@
       }
 
       function loadJuice() {
+        if (window.__juiceLoaded) return;
+        window.__juiceLoaded = true;
+
         // hide splash-new
         const splash = document.querySelector("#splash-new");
         if (splash) {
@@ -585,7 +588,9 @@
               );
               if (interstitialSlot) interstitialSlot.addService(googletag.pubads());
 
-              googletag.pubads().disableInitialLoad();
+              // Allow GPT to request ads as soon as slots are displayed.
+              // Previously this prevented initial ad loads until a later refresh.
+              // googletag.pubads().disableInitialLoad();
               googletag.pubads().enableSingleRequest();
               googletag.pubads().collapseEmptyDivs();
               googletag
@@ -663,8 +668,9 @@
             window.location.pathname,
           );
         } else {
-          style.innerHTML = `#splash-new { display: block; } #q-app { display: none; }`;
+          style.innerHTML = `#splash-new { display: none; } #q-app { display: block; }`;
           document.head.appendChild(style);
+          loadJuice();
         }
       }
 
@@ -679,7 +685,10 @@
           });
         }
 
-        document.querySelector("#play").addEventListener("click", loadJuice);
+        const playButton = document.querySelector("#play");
+        if (playButton) {
+          playButton.addEventListener("click", loadJuice);
+        }
       });</script>  <script type="module" crossorigin src="/assets/index-XL1bGH6b.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CA8zoRzT.css">
 </head><body style="max-height: 100vh;
