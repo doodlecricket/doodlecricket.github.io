@@ -156,9 +156,13 @@
       async
     ></script>
     <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="preload" href="/doodle/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/doodle/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/doodle/doodle.css" />
+    <script src="/doodle/menu.js" defer></script>
   </head>
 
-  <body>
+  <body class="dd-page dd-dotted">
     <div
       id="doodlecricket_github_io_sidebar_left_desktop"
       class="sticky-sidebar left-sidebar"
@@ -210,7 +214,7 @@
       </script>
     </div>
     <div
-      class="prose prose-md mx-auto max-w-2xl py-16 px-4 mt-[50px] sm:mt-[90px]"
+      class="dd-prose"
     >
       <h1>Popular Cricket Games</h1>
         <p>
@@ -223,13 +227,13 @@
         Here are some of the most popular cricket games you can play online:
       </p>
 
-      <div class="w-full mx-auto max-w-[430px] my-4">
+      <div class="dd-player">
         <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
       </div>
 
       <h2 id="cricket-game-2017-">Cricket Game (2017)</h2>
       <img
-        class="rounded-lg"
+        class="dd-img"
         src="/banner.png"
         alt="Doodle Cricket - Google Cricket Game"
       />
@@ -241,7 +245,7 @@
       </p>
 
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/"
         >Play Doodle Cricket Game</a
       >
@@ -255,7 +259,7 @@
       </p>
       <img src="/2048-cricket/style/img/bg.jpeg" alt="2048 Cricket Players" />
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/2048-cricket"
         >Play 2048 Cricket</a
       >
@@ -265,7 +269,8 @@
           Google's 2019 Fourth of July game, or browse all
           <a href="/google-doodle-games">Google Doodle games</a>.
         </p>
-        <div class="mt-2 text-center"><a href="/privacy" class="text-xs text-gray-500">Privacy Policy</a></div>
+        <p><a class="dd-btn" href="/google-doodle-games">Browse all games</a></p>
+      <p class="dd-muted"><a href="/privacy">Privacy Policy</a></p>
     </div>
 
     <div class="top-placeholder">

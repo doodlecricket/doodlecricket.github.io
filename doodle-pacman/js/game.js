@@ -4309,9 +4309,9 @@ addEventListener("DOMContentLoaded", () => {
   const positionDoodleGames = () => {
     const content = document.querySelector(".content");
     const btnDoodleGames = document.querySelector("#btnDoodleGames");
-    btnDoodleGames.style.top = `${content.offsetTop + 20}px`;
-    btnDoodleGames.style.left = `${content.offsetLeft + Math.floor(content.clientWidth / 2)}px`;
-    btnDoodleGames.style.translate = `-50%`;
+    if (btnDoodleGames) btnDoodleGames.style.top = `${content.offsetTop + 20}px`;
+    if (btnDoodleGames) btnDoodleGames.style.left = `${content.offsetLeft + Math.floor(content.clientWidth / 2)}px`;
+    if (btnDoodleGames) btnDoodleGames.style.translate = `-50%`;
   };
 
   addEventListener("resize", (event) => {

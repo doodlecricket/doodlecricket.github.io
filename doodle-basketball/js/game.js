@@ -2676,8 +2676,8 @@ window.google = {};
 const positionDoodleGames = () => {
   const content = document.querySelector(".content");
   const btnDoodleGames = document.querySelector("#btnDoodleGames");
-  btnDoodleGames.style.top = `${content.offsetTop}px`;
-  btnDoodleGames.style.left = `${content.offsetLeft}px`;
+  if (btnDoodleGames) btnDoodleGames.style.top = `${content.offsetTop}px`;
+  if (btnDoodleGames) btnDoodleGames.style.left = `${content.offsetLeft}px`;
 };
 
 addEventListener("resize", (event) => {

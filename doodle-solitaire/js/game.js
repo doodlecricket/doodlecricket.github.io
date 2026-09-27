@@ -3961,8 +3961,8 @@ var wf = function (a) {
     // TODO: set container to use for calculating width
     const content = document.querySelector(".content");
     const btnDoodleGames = document.querySelector("#btnDoodleGames");
-    btnDoodleGames.style.top = `${content.offsetTop}px`;
-    btnDoodleGames.style.left = `${content.offsetLeft}px`;
+    if (btnDoodleGames) btnDoodleGames.style.top = `${content.offsetTop}px`;
+    if (btnDoodleGames) btnDoodleGames.style.left = `${content.offsetLeft}px`;
     var c = content.clientWidth,
       d = content.clientHeight - 56,
       e = new df(c, d);
@@ -4447,8 +4447,8 @@ Hb(window, "load", function () {
   const positionDoodleGames = () => {
     const content = document.querySelector(".content");
     const btnDoodleGames = document.querySelector("#btnDoodleGames");
-    btnDoodleGames.style.top = `${content.offsetTop}px`;
-    btnDoodleGames.style.left = `${content.offsetLeft}px`;
+    if (btnDoodleGames) btnDoodleGames.style.top = `${content.offsetTop}px`;
+    if (btnDoodleGames) btnDoodleGames.style.left = `${content.offsetLeft}px`;
   };
 
   addEventListener("resize", (event) => {

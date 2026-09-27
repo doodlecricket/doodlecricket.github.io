@@ -1,0 +1,879 @@
+/*
+ * Doodle "sticker book" UI shared by every page: the games menu (launcher,
+ * drawer / bottom sheet, chips, cards), text pages (.dd-prose) and game
+ * start screens (.dd-splash).
+ *
+ * --dd-safe-top / -left / -bottom keep floating UI clear of ad slots; menu.js
+ * measures the ads and sets them, the values below are fallbacks.
+ */
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("/doodle/fonts/fredoka.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/doodle/fonts/nunito.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-display: swap;
+}
+
+:root {
+  --dd-ink: #1d2433;
+  --dd-paper: #fffaf0;
+  --dd-sun: #ffd23f;
+  --dd-pitch: #1f7a3a;
+  --dd-pencil: #5b6475;
+  --dd-dots: #e6dac0;
+  --dd-rule: #d9ccb0;
+  --dd-display: "Fredoka", "Nunito", system-ui, sans-serif;
+  --dd-body: "Nunito", system-ui, sans-serif;
+  --dd-safe-top: 82px;
+  --dd-safe-left: 12px;
+  --dd-safe-bottom: 100px;
+}
+
+.dd-dotted {
+  background-color: var(--dd-paper);
+  background-image: radial-gradient(var(--dd-dots) 1.3px, transparent 1.3px);
+  background-size: 18px 18px;
+}
+
+.dd-no-scrollbar {
+  scrollbar-width: none;
+}
+.dd-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Launcher ---------- */
+
+.dd-launcher {
+  position: fixed;
+  z-index: 1000;
+  top: var(--dd-safe-top);
+  left: var(--dd-safe-left);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 8px 20px 8px 10px;
+  background: var(--dd-sun);
+  color: var(--dd-ink);
+  border: 3px solid var(--dd-ink);
+  border-radius: 999px;
+  box-shadow: 4px 5px 0 var(--dd-ink);
+  transform: rotate(-2deg);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.2s ease;
+}
+.dd-launcher:hover {
+  transform: translate(-2px, -3px) rotate(0deg);
+  box-shadow: 6px 8px 0 var(--dd-ink);
+}
+.dd-launcher:active {
+  transform: translate(2px, 3px) rotate(-2deg);
+  box-shadow: 1px 1px 0 var(--dd-ink);
+}
+.dd-launcher:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+}
+.dd-launcher-stickers {
+  display: flex;
+  align-items: center;
+}
+.dd-launcher-stickers img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 2.5px solid var(--dd-ink);
+  background: #fff;
+  transition: transform 0.18s ease;
+}
+.dd-launcher-stickers img + img {
+  margin-left: -14px;
+}
+.dd-launcher-stickers img:nth-child(1) {
+  transform: rotate(-8deg);
+}
+.dd-launcher-stickers img:nth-child(2) {
+  transform: rotate(4deg);
+}
+.dd-launcher-stickers img:nth-child(3) {
+  transform: rotate(-3deg);
+}
+.dd-launcher:hover .dd-launcher-stickers img:nth-child(1) {
+  transform: rotate(-14deg) translateY(-3px);
+}
+.dd-launcher:hover .dd-launcher-stickers img:nth-child(2) {
+  transform: rotate(6deg) translateY(-6px);
+}
+.dd-launcher:hover .dd-launcher-stickers img:nth-child(3) {
+  transform: rotate(-4deg) translateY(-2px);
+}
+.dd-launcher-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+.dd-launcher-title {
+  font: 700 22px/1 var(--dd-display);
+}
+.dd-launcher-title-short {
+  display: none;
+}
+.dd-launcher-sub {
+  font: 800 12px/1 var(--dd-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.dd-launcher-chevron {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Mid-size screens: the launcher sits beside a 300px sidebar ad, so keep it
+   narrow enough to stay clear of the scoreboard at the top of the game. */
+@media (min-width: 641px) and (max-width: 1599px) {
+  .dd-launcher {
+    gap: 10px;
+    padding: 6px 16px 6px 8px;
+  }
+  .dd-launcher-stickers img {
+    width: 36px;
+    height: 36px;
+  }
+  .dd-launcher-stickers img:nth-child(3),
+  .dd-launcher-sub {
+    display: none;
+  }
+  .dd-launcher-title {
+    font-size: 19px;
+  }
+  .dd-launcher-chevron {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Compact on phones so it stays clear of in-game UI such as scoreboards. */
+@media (max-width: 640px) {
+  .dd-launcher {
+    gap: 7px;
+    padding: 5px 11px 5px 5px;
+    border-width: 2.5px;
+    box-shadow: 2px 3px 0 var(--dd-ink);
+  }
+  .dd-launcher-stickers img {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+  }
+  .dd-launcher-stickers img + img,
+  .dd-launcher-sub,
+  .dd-launcher-title-long {
+    display: none;
+  }
+  .dd-launcher-title-short {
+    display: inline;
+  }
+  .dd-launcher-title {
+    font-size: 15px;
+  }
+  .dd-launcher-chevron {
+    width: 12px;
+    height: 12px;
+    transform: rotate(90deg);
+  }
+}
+
+/* ---------- Drawer (desktop) / bottom sheet (phone) ---------- */
+
+.dd-menu[hidden] {
+  display: none;
+}
+.dd-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(29, 36, 51, 0.45);
+  cursor: pointer;
+}
+.dd-panel {
+  position: fixed;
+  z-index: 1002;
+  top: var(--dd-safe-top);
+  left: var(--dd-safe-left);
+  width: min(468px, calc(100vw - var(--dd-safe-left) - 16px));
+  max-height: calc(100dvh - var(--dd-safe-top) - var(--dd-safe-bottom) - 12px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 22px 16px;
+  color: var(--dd-ink);
+  font-family: var(--dd-body);
+  border: 3px solid var(--dd-ink);
+  border-radius: 26px;
+  box-shadow: 6px 7px 0 var(--dd-ink);
+  animation: dd-pop 0.18s ease-out;
+}
+.dd-panel:focus {
+  outline: none;
+}
+@keyframes dd-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+.dd-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.dd-panel-title {
+  margin: 0;
+  font: 700 32px/1.05 var(--dd-display);
+}
+.dd-scribble {
+  display: block;
+  width: 170px;
+  height: 12px;
+}
+.dd-panel-sub {
+  margin: 4px 0 0;
+  font: 700 14px/1.3 var(--dd-body);
+  color: var(--dd-pencil);
+}
+.dd-close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--dd-ink);
+  cursor: pointer;
+}
+.dd-close:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--dd-ink);
+}
+.dd-panel-body {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dd-panel-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 6px 6px 36px 4px;
+}
+.dd-panel-body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  background: linear-gradient(rgba(255, 250, 240, 0), var(--dd-paper));
+  pointer-events: none;
+}
+.dd-panel-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 2px dashed var(--dd-rule);
+  font: 800 14px var(--dd-body);
+}
+.dd-panel-foot a {
+  color: var(--dd-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.dd-panel-foot a + a {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--dd-pencil);
+}
+
+@media (max-width: 640px) {
+  .dd-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: var(--dd-safe-bottom);
+    width: auto;
+    height: min(
+      604px,
+      calc(100dvh - var(--dd-safe-top) - var(--dd-safe-bottom))
+    );
+    max-height: none;
+    gap: 12px;
+    padding: 10px 16px 12px;
+    border-bottom: 0;
+    border-radius: 28px 28px 0 0;
+    box-shadow: none;
+    animation-name: dd-rise;
+  }
+  .dd-panel::before {
+    content: "";
+    align-self: center;
+    width: 48px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--dd-ink);
+    opacity: 0.25;
+  }
+  .dd-panel-title {
+    font-size: 26px;
+  }
+  .dd-scribble {
+    width: 140px;
+    height: 10px;
+  }
+  .dd-panel-sub {
+    display: none;
+  }
+  .dd-panel-scroll {
+    padding-bottom: 30px;
+  }
+  .dd-panel-foot {
+    font-size: 13px;
+  }
+}
+@keyframes dd-rise {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+/* ---------- Filter chips ---------- */
+
+.dd-chips {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 2px 0 4px;
+}
+.dd-chip {
+  flex-shrink: 0;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0 14px;
+  background: #fff;
+  color: var(--dd-ink);
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--dd-ink);
+  font: 800 14px var(--dd-body);
+  cursor: pointer;
+}
+.dd-chip span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.dd-chip[aria-pressed="true"] {
+  background: var(--dd-ink);
+  color: var(--dd-paper);
+  box-shadow: 2px 2px 0 var(--dd-sun);
+}
+.dd-chip:focus-visible,
+.dd-card:focus-visible,
+.dd-close:focus-visible,
+.dd-btn:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+}
+@media (max-width: 640px) {
+  .dd-chips {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .dd-chip {
+    gap: 5px;
+    padding: 0 11px;
+    font-size: 13px;
+  }
+  .dd-chip span {
+    font-size: 11px;
+  }
+}
+
+/* ---------- Game cards ---------- */
+
+.dd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dd-grid--page {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 26px 20px;
+}
+@media (max-width: 640px) {
+  .dd-grid {
+    gap: 16px 12px;
+  }
+  .dd-grid--page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.dd-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--dd-ink);
+  text-decoration: none;
+  border-radius: 16px;
+  transition: transform 0.18s ease;
+}
+.dd-card[hidden] {
+  display: none;
+}
+.dd-grid > :nth-child(6n + 1) .dd-card {
+  transform: rotate(-1.6deg);
+}
+.dd-grid > :nth-child(6n + 2) .dd-card {
+  transform: rotate(1.2deg);
+}
+.dd-grid > :nth-child(6n + 3) .dd-card {
+  transform: rotate(-0.6deg);
+}
+.dd-grid > :nth-child(6n + 4) .dd-card {
+  transform: rotate(1.8deg);
+}
+.dd-grid > :nth-child(6n + 5) .dd-card {
+  transform: rotate(-1.2deg);
+}
+.dd-grid > :nth-child(6n + 6) .dd-card {
+  transform: rotate(0.8deg);
+}
+.dd-grid > li > .dd-card:hover {
+  transform: translateY(-4px) rotate(0deg);
+}
+.dd-card-art {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #fff;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 14px;
+  box-shadow: 3px 4px 0 var(--dd-ink);
+  transition: box-shadow 0.18s ease;
+}
+.dd-card:hover .dd-card-art {
+  box-shadow: 5px 7px 0 var(--dd-ink);
+}
+.dd-card-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.dd-card:hover .dd-card-art img {
+  transform: scale(1.06);
+}
+.dd-card-2048 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 30px/1 var(--dd-display);
+}
+.dd-card-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 3px 8px;
+  background: var(--dd-pitch);
+  color: #fff;
+  border: 2px solid var(--dd-ink);
+  border-radius: 999px;
+  font: 800 11px/1 var(--dd-body);
+}
+.dd-card-title {
+  font: 600 15px/1.15 var(--dd-display);
+}
+.dd-card-tag {
+  font: 800 11px/1 var(--dd-body);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--dd-pencil);
+}
+@media (max-width: 640px) {
+  .dd-panel .dd-card-art {
+    border-radius: 12px;
+    box-shadow: 2px 3px 0 var(--dd-ink);
+  }
+  .dd-panel .dd-card-title {
+    font-size: 14px;
+  }
+  .dd-panel .dd-card-tag {
+    display: none;
+  }
+  .dd-panel .dd-card-2048 {
+    font-size: 24px;
+  }
+  .dd-panel .dd-card-badge {
+    top: 5px;
+    left: 5px;
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.dd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 22px;
+  background: var(--dd-sun);
+  color: var(--dd-ink) !important;
+  border: 3px solid var(--dd-ink);
+  border-radius: 999px;
+  box-shadow: 3px 4px 0 var(--dd-ink);
+  font: 700 18px/1 var(--dd-display);
+  text-decoration: none !important;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.dd-btn:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 6px 0 var(--dd-ink);
+}
+.dd-btn:active {
+  transform: translate(2px, 3px);
+  box-shadow: 1px 1px 0 var(--dd-ink);
+}
+.dd-btn--lg {
+  min-height: 56px;
+  padding: 0 34px;
+  font-size: 24px;
+}
+
+/* ---------- Text pages ---------- */
+
+.dd-page {
+  color: var(--dd-ink);
+}
+.dd-prose {
+  box-sizing: border-box;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 20px 160px;
+  font: 600 17px/1.65 var(--dd-body);
+  color: #2c3444;
+}
+.dd-prose > :first-child {
+  margin-top: 0;
+}
+.dd-prose h1,
+.dd-prose h2,
+.dd-prose h3 {
+  color: var(--dd-ink);
+  font-family: var(--dd-display);
+  line-height: 1.1;
+}
+.dd-prose h1 {
+  margin: 0 0 22px;
+  font-size: clamp(34px, 6vw, 48px);
+  font-weight: 700;
+}
+.dd-prose h1::after {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 14px;
+  margin-top: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 12'%3E%3Cpath d='M3 8c24-6 46-6 70-2s52 4 94-3' fill='none' stroke='%23ffd23f' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E")
+    no-repeat left center / contain;
+}
+.dd-prose h2 {
+  margin: 44px 0 12px;
+  font-size: 28px;
+  font-weight: 600;
+}
+.dd-prose h3 {
+  margin: 28px 0 8px;
+  font-size: 21px;
+  font-weight: 600;
+}
+.dd-prose p,
+.dd-prose ul,
+.dd-prose ol {
+  margin: 0 0 16px;
+}
+.dd-prose ul,
+.dd-prose ol {
+  padding-left: 22px;
+}
+.dd-prose li {
+  margin: 6px 0;
+}
+.dd-prose li::marker {
+  color: var(--dd-ink);
+}
+.dd-prose a:not(.dd-btn):not(.dd-card) {
+  color: var(--dd-ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--dd-sun);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 2px;
+}
+.dd-prose a:not(.dd-btn):not(.dd-card):hover {
+  background: rgba(255, 210, 63, 0.35);
+}
+.dd-prose img:not(.dd-card-art img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 16px;
+  box-shadow: 4px 5px 0 var(--dd-ink);
+}
+.dd-prose .dd-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.dd-prose kbd {
+  padding: 1px 7px;
+  background: #fff;
+  border: 2px solid var(--dd-ink);
+  border-radius: 6px;
+  box-shadow: 1px 2px 0 var(--dd-ink);
+  font: 800 0.85em var(--dd-body);
+}
+.dd-prose .dd-section {
+  margin: 0 0 26px;
+  padding: 20px 22px 22px;
+  background: #fff;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 22px;
+  box-shadow: 5px 6px 0 var(--dd-ink);
+}
+.dd-prose .dd-section:nth-child(odd) {
+  transform: rotate(-0.4deg);
+}
+.dd-prose .dd-section:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+.dd-prose .dd-section > h2:first-child {
+  margin-top: 0;
+}
+.dd-prose .dd-section-list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.dd-prose .dd-games {
+  margin: 28px 0 40px;
+}
+.dd-prose .dd-games .dd-chips {
+  margin-bottom: 20px;
+}
+.dd-prose .dd-games .dd-card-title {
+  font-size: 17px;
+}
+.dd-prose .dd-player {
+  max-width: 430px;
+  margin: 24px auto;
+}
+.dd-prose .dd-muted {
+  font-size: 13px;
+  color: var(--dd-pencil);
+}
+@media (max-width: 640px) {
+  .dd-prose {
+    padding: 96px 16px 150px;
+    font-size: 16px;
+  }
+  .dd-prose h2 {
+    font-size: 24px;
+  }
+  .dd-prose .dd-section {
+    padding: 16px 16px 18px;
+  }
+}
+
+/* ---------- Game start screens ---------- */
+
+.dd-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px 60px;
+  box-sizing: border-box;
+  color: var(--dd-ink);
+}
+.dd-splash-card {
+  width: 100%;
+  max-width: 440px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+.dd-splash-title {
+  margin: 0;
+  font: 700 clamp(32px, 8vw, 44px)/1.05 var(--dd-display);
+}
+.dd-splash-title::after {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 12'%3E%3Cpath d='M3 8c24-6 46-6 70-2s52 4 94-3' fill='none' stroke='%23ffd23f' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+}
+.dd-splash-logo {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  transform: rotate(-3deg);
+}
+.dd-splash-text {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 20px 6px;
+  text-align: left;
+  background: #fff;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 20px;
+  box-shadow: 4px 5px 0 var(--dd-ink);
+  font: 600 15px/1.55 var(--dd-body);
+  color: #2c3444;
+}
+.dd-splash-text h2 {
+  margin: 14px 0 6px;
+  font: 600 20px/1.15 var(--dd-display);
+  color: var(--dd-ink);
+}
+.dd-splash-text > :first-child {
+  margin-top: 0;
+}
+.dd-splash-text p,
+.dd-splash-text ul {
+  margin: 0 0 12px;
+}
+.dd-splash-text ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+.dd-splash-text li {
+  margin: 4px 0;
+}
+.dd-splash-text a {
+  color: var(--dd-ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--dd-sun);
+  text-decoration-thickness: 3px;
+}
+.dd-splash .dd-player {
+  width: 100%;
+  max-width: 430px;
+}
+
+/* ---------- Homepage: hide the launcher while reading the About text ---------- */
+
+body.reading-about .dd-launcher {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html.dd-open,
+html.dd-open body {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dd-launcher,
+  .dd-launcher-stickers img,
+  .dd-card,
+  .dd-card-art,
+  .dd-card-art img,
+  .dd-btn,
+  .dd-panel {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ---------- Homepage extras ---------- */
+
+.dd-prose--about {
+  padding-top: 48px;
+  padding-bottom: 170px;
+}
+/* Positioned here, not with utility classes: Quasar's .fixed sets top/left. */
+.dd-howto {
+  position: fixed;
+  z-index: 100;
+  right: 12px;
+  bottom: 112px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: var(--dd-paper);
+  color: var(--dd-ink);
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--dd-ink);
+  font: 800 13px/1 var(--dd-body);
+  text-decoration: none;
+}

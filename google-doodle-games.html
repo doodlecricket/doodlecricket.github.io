@@ -361,9 +361,13 @@
       async
     ></script>
     <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="preload" href="/doodle/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/doodle/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/doodle/doodle.css" />
+    <script src="/doodle/menu.js" defer></script>
   </head>
 
-  <body>
+  <body class="dd-page dd-dotted">
     <div
       id="doodlecricket_github_io_sidebar_left_desktop"
       class="sticky-sidebar left-sidebar"
@@ -415,7 +419,7 @@
       </script>
     </div>
     <div
-      class="prose prose-md mx-auto max-w-2xl py-16 px-4 mt-[50px] sm:mt-[90px]"
+      class="dd-prose"
     >
       <h1>Google Doodle Games</h1>
           <p>
@@ -426,6 +430,86 @@
             <a href="/doodle-snake">Google Snake</a>, then work through the
             list below.
           </p>
+<div class="dd-games" data-dd-games>
+<div class="dd-chips" role="group" aria-label="Filter games"><button type="button" class="dd-chip" data-dd-filter="all" aria-pressed="true">All <span>15</span></button><button type="button" class="dd-chip" data-dd-filter="sports" aria-pressed="false">Sports <span>6</span></button><button type="button" class="dd-chip" data-dd-filter="arcade" aria-pressed="false">Arcade <span>6</span></button><button type="button" class="dd-chip" data-dd-filter="puzzle" aria-pressed="false">Puzzle <span>3</span></button></div>
+<ul class="dd-grid dd-grid--page">
+<li data-dd-cat="sports"><a class="dd-card" href="/">
+  <span class="dd-card-art"><img src="/doodle/thumbs/cricket.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Cricket</span>
+  <span class="dd-card-tag">2017 doodle</span>
+</a></li>
+<li data-dd-cat="sports"><a class="dd-card" href="/doodle-baseball">
+  <span class="dd-card-art"><img src="/doodle/thumbs/baseball.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Baseball</span>
+  <span class="dd-card-tag">2019 doodle</span>
+</a></li>
+<li data-dd-cat="sports"><a class="dd-card" href="/doodle-football">
+  <span class="dd-card-art"><img src="/doodle/thumbs/football.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Football</span>
+  <span class="dd-card-tag">2012 doodle</span>
+</a></li>
+<li data-dd-cat="sports"><a class="dd-card" href="/doodle-basketball">
+  <span class="dd-card-art"><img src="/doodle/thumbs/basketball.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Basketball</span>
+  <span class="dd-card-tag">2012 doodle</span>
+</a></li>
+<li data-dd-cat="sports"><a class="dd-card" href="/champion-island">
+  <span class="dd-card-art"><img src="/doodle/thumbs/champion.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Champion Island</span>
+  <span class="dd-card-tag">2021 doodle</span>
+</a></li>
+<li data-dd-cat="sports"><a class="dd-card" href="/doodle-soccer">
+  <span class="dd-card-art"><img src="/doodle/thumbs/soccer.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Soccer</span>
+  <span class="dd-card-tag">2012 doodle</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/doodle-snake">
+  <span class="dd-card-art"><img src="/doodle/thumbs/snake.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Google Snake</span>
+  <span class="dd-card-tag">Classic</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/pacman-doodle">
+  <span class="dd-card-art"><img src="/doodle/thumbs/pacman.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Pac-Man</span>
+  <span class="dd-card-tag">2010 doodle</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/doodle-halloween">
+  <span class="dd-card-art"><img src="/doodle/thumbs/halloween.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Halloween</span>
+  <span class="dd-card-tag">2016 doodle</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/doodle-jump">
+  <span class="dd-card-art"><img src="/doodle/thumbs/jump.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Jump</span>
+  <span class="dd-card-tag">Classic</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/doodle-garden-gnomes">
+  <span class="dd-card-art"><img src="/doodle/thumbs/gnomes.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Garden Gnomes</span>
+  <span class="dd-card-tag">2018 doodle</span>
+</a></li>
+<li data-dd-cat="arcade"><a class="dd-card" href="/doodle-bubble-tea">
+  <span class="dd-card-art"><img src="/doodle/thumbs/bubble-tea.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Bubble Tea</span>
+  <span class="dd-card-tag">2023 doodle</span>
+</a></li>
+<li data-dd-cat="puzzle"><a class="dd-card" href="/doodle-solitaire">
+  <span class="dd-card-art"><img src="/doodle/thumbs/solitaire.jpg" alt="" width="320" height="240" loading="lazy" /></span>
+  <span class="dd-card-title">Doodle Solitaire</span>
+  <span class="dd-card-tag">Classic</span>
+</a></li>
+<li data-dd-cat="puzzle"><a class="dd-card" href="/2048-cricket">
+  <span class="dd-card-art" style="background: #ffd23f"><span class="dd-card-2048">2048</span></span>
+  <span class="dd-card-title">2048 Cricket</span>
+  <span class="dd-card-tag">Puzzle</span>
+</a></li>
+<li data-dd-cat="puzzle"><a class="dd-card" href="/2048-baseball">
+  <span class="dd-card-art" style="background: #9fd8f5"><span class="dd-card-2048">2048</span></span>
+  <span class="dd-card-title">2048 Baseball</span>
+  <span class="dd-card-tag">Puzzle</span>
+</a></li>
+</ul>
+</div>
       <p>
         Google has created many interactive games and puzzles as part of their
         Google Doodles over the years to celebrate various events,
@@ -433,15 +517,15 @@
         notable Google Doodle games:
       </p>
 
-      <div class="w-full mx-auto max-w-[430px] my-4">
+      <div class="dd-player">
         <script src="https://360playvid.info/slidepleer/s1992s.js"></script>
       </div>
 
-      <ul class="pl-0 flex flex-col gap-4">
-        <div class="border rounded-lg px-4 py-4 shadow">
+      <ul class="dd-section-list">
+        <div class="dd-section">
           <h2 class="mt-0">Doodle Jump Online</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-jump.jpeg"
             alt="Play Doodle Jump Online"
           />
@@ -454,17 +538,17 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-jump"
               >Play Doodle Jump Online here</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="pac-man-2010-">Google PAC-MAN (2010)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/pac-man.jpeg"
             alt="Doodle PAC-MAN"
           />
@@ -476,17 +560,17 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/pacman-doodle"
               >Play Goodle Pacman Game</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="pac-man-2010-">Google Football (2012)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-football.png"
             alt="Google Doodle Football"
           />
@@ -497,17 +581,17 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-football"
               >Play Google Football Game</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="pac-man-2010-">Google Soccer (2012)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-soccer.png"
             alt="Doodle Soccer"
           />
@@ -519,17 +603,17 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-soccer"
               >Play Google Soccer Game</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="pac-man-2010-">Google Basketball (2012)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-basketball.png"
             alt="Doodle Basketball"
           />
@@ -541,19 +625,19 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-basketball"
               >Play Google Basketball Game</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="halloween-game-2016-">
             Google Doodle Halloween Game (2016)
           </h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-halloween.png"
             alt="Google Doodle Halloween Game"
           />
@@ -564,13 +648,13 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-halloween"
               >Play Google Doodle Halloween</a
             >
           </div>
         </div>
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="coding-for-carrots-2017-">
             Coding for Carrots (2017)
           </h2>
@@ -580,10 +664,10 @@
             carrots using coding blocks.
           </p>
         </div>
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="cricket-game-2017-">Cricket Game (2017)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/banner.png"
             alt="Doodle Cricket - Google Cricket Game"
           />
@@ -599,16 +683,16 @@
             >
           </div>
         </div>
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <a class="" href="/cricket-games">All Cricket Games</a>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="google-doodle-solitaire">
             Google Doodle Solitaire
           </h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-solitaire/assets/solitaire.jpeg"
             alt="Google Doodle Solitaire"
           />
@@ -619,17 +703,17 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-solitaire"
               >Play Google Doodle Solitaire</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="google-doodle-solitaire">Google Doodle Snake</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-snake.png"
             alt="Google Doodle Snake"
           />
@@ -640,17 +724,17 @@
 
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-snake"
               >Play Google Doodle Snake</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="garden-gnomes-2018-">Garden Gnomes (2018)</h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-garden-gnomes/assets/splash.webp"
             alt="Doodle Garden Gnomes"
           />
@@ -661,18 +745,18 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-garden-gnomes"
               >Play Google Doodle Gnomes</a
             >
           </div>
         </div>
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="baseball-game-2019-">
             Google Doodle Baseball Game (2019)
           </h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-baseball.png"
             alt="Google Doodle Baseball"
           />
@@ -683,18 +767,18 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-baseball"
               >Play Google Doodle Baseball</a
             >
           </div>
         </div>
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="doodle-champion-island-games-2021-">
             Doodle Champion Island Games (2021)
           </h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-champion-island-games.jpeg"
             alt="Doodle Champion Island Games (2021)"
           />
@@ -706,19 +790,19 @@
 
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/champion-island"
               >Play Doodle Champion Island Games</a
             >
           </div>
         </div>
 
-        <div class="border rounded-lg px-4 py-4 shadow">
+        <div class="dd-section">
           <h2 class="mt-0" id="bubble-tea-game-2023-">
             Bubble Tea Game (2023)
           </h2>
           <img
-            class="rounded-lg w-full h-[200px] object-cover"
+            class="dd-img"
             src="/doodle-bubble-tea/assets/cta.png"
             alt="Bubble Tea Game (2023)"
           />
@@ -734,7 +818,7 @@
           </p>
           <div class="flex flex-col items-end">
             <a
-              class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+              class="dd-btn"
               href="/doodle-bubble-tea"
               >Play Bubble Tea Game</a
             >
@@ -766,12 +850,12 @@
         on a 4x4 grid, with tiles representing powers of 2.
       </p>
       <img
-        class="rounded-lg w-full h-[200px] object-cover"
+        class="dd-img"
         src="/2048/style/img/bg.png"
         alt="Play 2048 Game"
       />
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/2048"
         >Play 2048 Game</a
       >
@@ -784,12 +868,12 @@
         world.
       </p>
       <img
-        class="rounded-lg w-full h-[200px] object-cover"
+        class="dd-img"
         src="/2048-cricket/style/img/bg.jpeg"
         alt="2048 Cricket Players"
       />
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/2048-cricket"
         >Play 2048 Cricket</a
       >
@@ -802,12 +886,12 @@
         world.
       </p>
       <img
-        class="rounded-lg w-full h-[200px] object-cover"
+        class="dd-img"
         src="/2048-baseball/style/img/bg.jpg"
         alt="2048 Baseball Teams"
       />
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/2048-cricket"
         >Play 2048 Baseball</a
       >
@@ -820,16 +904,16 @@
         flavors.
       </p>
       <img
-        class="rounded-lg w-full h-[200px] object-cover"
+        class="dd-img"
         src="/2048-cupcakes/style/img/bg.jpg"
         alt="Play 2048 Cupcakes"
       />
       <a
-        class="bg-green-500 rounded-lg px-4 py-3 no-underline text-white border shadow hover:shadow-lg hover:bg-green-700"
+        class="dd-btn"
         href="/2048-cupcakes"
         >Play 2048 Cupcakes</a
       >
-      <div class="mt-2 text-center"><a href="/privacy" class="text-xs text-gray-500">Privacy Policy</a></div>
+      <p class="dd-muted"><a href="/privacy">Privacy Policy</a></p>
     </div>
 
     <div class="top-placeholder">
