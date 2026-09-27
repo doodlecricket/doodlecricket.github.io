@@ -56,20 +56,13 @@
       property="og:description"
       content="Join the all-time best cricket players in this unique twist of the classic 2048 game - Cricket Players Edition!"
     />
+    <link rel="canonical" href="https://doodlecricket.github.io/2048-cricket" />
     <meta property="og:site_name" content="Doodle Cricket Game" />
 
     <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"
       defer
     ></script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-      tailwind.config = {
-        corePlugins: {
-          container: false,
-        },
-      };
-    </script>
 
     <style>
       .show-legend {
@@ -328,20 +321,7 @@
       async
     ></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-105728110-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-105728110-1");
-    </script>
+    <link rel="stylesheet" href="/tailwind.css" />
   </head>
 
   <body>
@@ -1048,6 +1028,7 @@
             </a>
           </li>
         </ul>
+        <div class="mt-2 text-center"><a href="/privacy" class="text-xs text-gray-500">Privacy Policy</a></div>
         <div class="mt-4 text-center">
           Or see
           <a

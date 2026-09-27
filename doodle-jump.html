@@ -35,17 +35,9 @@
     <link rel="canonical" href="https://doodlecricket.github.io/doodle-jump" />
 
     <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"
       defer
     ></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        corePlugins: {
-          container: false,
-        },
-      };
-    </script>
 
     <meta
       name="description"
@@ -347,20 +339,7 @@
       async
     ></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-105728110-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-105728110-1");
-    </script>
+    <link rel="stylesheet" href="/tailwind.css" />
   </head>
 
   <body>
@@ -849,6 +828,7 @@
                 </a>
               </li>
             </ul>
+            <div class="mt-2 text-center"><a href="/privacy" class="text-xs text-gray-500">Privacy Policy</a></div>
             <div class="mt-4 text-center">
               Or see
               <a
