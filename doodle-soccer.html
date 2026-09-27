@@ -1,13 +1,13 @@
 <html lang="en">
   <head>
-    <title>Doodle Soccer</title>
+    <title>Doodle Soccer – Play the Google Soccer Goalkeeper Game</title>
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@doodlecricket" />
-    <meta name="twitter:title" content="Doodle Soccer" />
+    <meta name="twitter:title" content="Doodle Soccer – Play the Google Soccer Goalkeeper Game" />
     <meta
       name="twitter:description"
-      content="Step into the goalkeeping challenge with our simple and fun online doodle soccer game! In this game, you take on the role of the goalkeeper, defending against an AI player who relentlessly kicks the ball towards your goal. With easy-to-use controls, your task is to block as many shots as possible and prevent the AI from scoring. Perfect for quick play sessions, this doodle soccer game combines engaging gameplay with charming, hand-drawn graphics. Test your reflexes, improve your skills, and see how many goals you can save!"
+      content="Play Google's Doodle Soccer goalkeeper game from the London 2012 Olympics. Stop penalty shots, beat your record. Free, works on phones too."
     />
     <meta name="twitter:creator" content="@doodlecricket" />
     <meta
@@ -15,7 +15,7 @@
       content="https://doodlecricket.github.io/doodle-soccer.png"
     />
 
-    <meta property="og:title" content="Doodle Soccer" />
+    <meta property="og:title" content="Doodle Soccer – Play the Google Soccer Goalkeeper Game" />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
@@ -27,7 +27,7 @@
     />
     <meta
       property="og:description"
-      content="Step into the goalkeeping challenge with our simple and fun online doodle soccer game! In this game, you take on the role of the goalkeeper, defending against an AI player who relentlessly kicks the ball towards your goal. With easy-to-use controls, your task is to block as many shots as possible and prevent the AI from scoring. Perfect for quick play sessions, this doodle soccer game combines engaging gameplay with charming, hand-drawn graphics. Test your reflexes, improve your skills, and see how many goals you can save!"
+      content="Play Google's Doodle Soccer goalkeeper game from the London 2012 Olympics. Stop penalty shots, beat your record. Free, works on phones too."
     />
     <meta property="og:site_name" content="Doodle Cricket Game" />
 
@@ -35,6 +35,29 @@
       rel="canonical"
       href="https://doodlecricket.github.io/doodle-soccer"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Doodle Soccer",
+        "url": "https://doodlecricket.github.io/doodle-soccer",
+        "image": "https://doodlecricket.github.io/doodle-soccer.png",
+        "description": "Play Google's Doodle Soccer goalkeeper game from the London 2012 Olympics. Stop penalty shots, beat your record. Free, works on phones too.",
+        "genre": [
+          "Sports",
+          "Soccer"
+        ],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"
@@ -43,7 +66,7 @@
 
     <meta
       name="description"
-      content="Step into the goalkeeping challenge with our simple and fun online doodle soccer game! In this game, you take on the role of the goalkeeper, defending against an AI player who relentlessly kicks the ball towards your goal. With easy-to-use controls, your task is to block as many shots as possible and prevent the AI from scoring. Perfect for quick play sessions, this doodle soccer game combines engaging gameplay with charming, hand-drawn graphics. Test your reflexes, improve your skills, and see how many goals you can save!"
+      content="Play Google&#x27;s Doodle Soccer goalkeeper game from the London 2012 Olympics. Stop penalty shots, beat your record. Free, works on phones too."
     />
 
     <meta charset="utf-8" />
@@ -340,6 +363,43 @@
   </head>
 
   <body class="column">
+    <div
+      id="splash"
+      class="fixed h-screen inset-0 z-[9999] flex items-center justify-center bg-gray-900 overflow-y-auto"
+    >
+      <div class="text-center py-10 px-4">
+        <h1 class="text-white text-3xl font-bold">Doodle Soccer</h1>
+        <button
+          id="splash-play"
+          class="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none"
+        >
+          &#9654; Play
+        </button>
+        <div
+          class="mx-auto max-w-xs mt-8 text-left text-base text-white prose prose-headings:font-bold prose-headings:text-white prose-p:text-white prose-p:text-sm prose-li:text-white prose-li:text-sm prose-a:text-white"
+        >
+          <p>
+            Doodle Soccer is the goalkeeper game Google put on its homepage for
+            the London 2012 Olympics. Stand in goal, face penalty after penalty,
+            and see how many you can save.
+          </p>
+          <h2>How to play</h2>
+          <ul>
+            <li>Move the mouse, or drag your finger, to shift the keeper left and right.</li>
+            <li>Click or tap to dive for high and wide shots.</li>
+            <li>Keep saving: let too many past you and your run ends.</li>
+          </ul>
+          <p>
+            Outside the US it's called
+            <a href="/doodle-football">Doodle Football</a>. More sports:
+            <a href="/doodle-basketball">Doodle Basketball</a>,
+            <a href="/doodle-baseball">Doodle Baseball</a> and
+            <a href="/">Doodle Cricket</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="ad-top" style="height: var(--ad-top-height) !important">
       <div id="doodlecricket_github_io_top_responsive">
         <script>
@@ -950,6 +1010,11 @@
     <script>
       googletag.cmd.push(() => {
         googletag.display(anchorSlot);
+      });
+    </script>
+    <script>
+      document.getElementById("splash-play").addEventListener("click", () => {
+        document.getElementById("splash").remove();
       });
     </script>
   </body>

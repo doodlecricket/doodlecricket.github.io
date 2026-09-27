@@ -1,0 +1,1 @@
+import{_ as e,h as t}from"./index-wUuJR_bt.js";function n(){return t()?.appContext.config.globalProperties.$q??e(`_q_`)}function r(e,t){return e===void 0?t:e()||t}function i(e,t){return e===void 0?t:t.concat(e())}var a=(e,t)=>{let n=e.__vccOpts||e;for(let[e,r]of t)n[e]=r;return n};export{n as i,i as n,r,a as t};

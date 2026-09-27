@@ -1,13 +1,13 @@
 <html lang="en">
   <head>
-    <title>Snake Doodle Game</title>
+    <title>Google Snake Game – Play the Snake Doodle Online Free</title>
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@doodlecricket" />
-    <meta name="twitter:title" content="Snake Doodle Game" />
+    <meta name="twitter:title" content="Google Snake Game – Play the Snake Doodle Online Free" />
     <meta
       name="twitter:description"
-      content="Doodle Snake Game lets you unwind with the classic snake experience.  Guide your charming doodle snake to tasty treats, watching it grow longer with each bite.  Just be careful not to get tangled up in its own tail!"
+      content="Play the Google Snake game free in your browser. Steer with the arrow keys or swipe, eat apples to grow longer and don&#x27;t hit your own tail."
     />
     <meta name="twitter:creator" content="@doodlecricket" />
     <meta
@@ -15,7 +15,7 @@
       content="https://doodlecricket.github.io/doodle-snake.png"
     />
 
-    <meta property="og:title" content="Snake Doodle Game" />
+    <meta property="og:title" content="Google Snake Game – Play the Snake Doodle Online Free" />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
@@ -27,11 +27,34 @@
     />
     <meta
       property="og:description"
-      content="Doodle Snake Game lets you unwind with the classic snake experience.  Guide your charming doodle snake to tasty treats, watching it grow longer with each bite.  Just be careful not to get tangled up in its own tail!"
+      content="Play the Google Snake game free in your browser. Steer with the arrow keys or swipe, eat apples to grow longer and don&#x27;t hit your own tail."
     />
     <meta property="og:site_name" content="Snake Doodle Game" />
 
     <link rel="canonical" href="https://doodlecricket.github.io/doodle-snake" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Google Snake",
+        "url": "https://doodlecricket.github.io/doodle-snake",
+        "image": "https://doodlecricket.github.io/doodle-snake.png",
+        "description": "Play the Google Snake game free in your browser. Steer with the arrow keys or swipe, eat apples to grow longer and don't hit your own tail.",
+        "genre": [
+          "Arcade",
+          "Snake"
+        ],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"
@@ -40,7 +63,7 @@
 
     <meta
       name="description"
-      content="Doodle Snake Game lets you unwind with the classic snake experience.  Guide your charming doodle snake to tasty treats, watching it grow longer with each bite.  Just be careful not to get tangled up in its own tail!"
+      content="Play the Google Snake game free in your browser. Steer with the arrow keys or swipe, eat apples to grow longer and don&#x27;t hit your own tail."
     />
 
     <meta charset="utf-8" />
@@ -340,6 +363,41 @@
   </head>
 
   <body class="column">
+    <div
+      id="splash"
+      class="fixed h-screen inset-0 z-[9999] flex items-center justify-center bg-gray-900 overflow-y-auto"
+    >
+      <div class="text-center py-10 px-4">
+        <h1 class="text-white text-3xl font-bold">Google Snake Game</h1>
+        <button
+          id="splash-play"
+          class="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none"
+        >
+          &#9654; Play
+        </button>
+        <div
+          class="mx-auto max-w-xs mt-8 text-left text-base text-white prose prose-headings:font-bold prose-headings:text-white prose-p:text-white prose-p:text-sm prose-li:text-white prose-li:text-sm prose-a:text-white"
+        >
+          <p>
+            The classic snake game from Google Search: guide your snake around
+            the field, eat apples to grow longer, and don't run into the walls
+            or your own tail.
+          </p>
+          <h2>How to play</h2>
+          <ul>
+            <li>Steer with the arrow keys on a keyboard, or swipe on a phone.</li>
+            <li>Each apple makes the snake longer and adds to your score.</li>
+            <li>The longer you get, the less room you have, so plan your turns.</li>
+          </ul>
+          <p>
+            More classics: <a href="/pacman-doodle">PAC-MAN</a>,
+            <a href="/2048">2048</a> and all
+            <a href="/google-doodle-games">Google Doodle games</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="ad-top" style="height: var(--ad-top-height) !important">
       <div id="doodlecricket_github_io_top_responsive">
         <script>
@@ -1785,6 +1843,12 @@
     <script>
       googletag.cmd.push(() => {
         googletag.display(anchorSlot);
+      });
+    </script>
+    <script>
+      document.getElementById("splash-play").addEventListener("click", () => {
+        document.getElementById("splash").remove();
+        document.querySelector('[jsname="NSjDf"]')?.click();
       });
     </script>
   </body>
