@@ -802,6 +802,11 @@
   font: 600 20px/1.15 var(--dd-display);
   color: var(--dd-ink);
 }
+.dd-splash-text h3 {
+  margin: 12px 0 4px;
+  font: 600 16px/1.25 var(--dd-display);
+  color: var(--dd-ink);
+}
 .dd-splash-text > :first-child {
   margin-top: 0;
 }
