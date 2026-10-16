@@ -1,0 +1,1 @@
+import{h as e,v as t}from"./index-C0Lz49o-.js";function n(){return e()?.appContext.config.globalProperties.$q??t(`_q_`)}function r(e,t){return e===void 0?t:e()||t}var i=(e,t)=>{let n=e.__vccOpts||e;for(let[e,r]of t)n[e]=r;return n};export{r as n,n as r,i as t};
