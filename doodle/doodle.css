@@ -729,6 +729,45 @@
   font-size: 13px;
   color: var(--dd-pencil);
 }
+.dd-prose .dd-table-wrap {
+  margin: 24px 0 32px;
+  overflow-x: auto;
+  background: #fff;
+  border: 2.5px solid var(--dd-ink);
+  border-radius: 18px;
+  box-shadow: 4px 5px 0 var(--dd-ink);
+}
+.dd-prose .dd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.dd-prose .dd-table caption {
+  padding: 14px 16px 6px;
+  text-align: left;
+  color: var(--dd-ink);
+  font: 600 19px/1.2 var(--dd-display);
+}
+.dd-prose .dd-table th,
+.dd-prose .dd-table td {
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1.5px solid var(--dd-rule);
+}
+.dd-prose .dd-table th {
+  color: var(--dd-ink);
+  font-weight: 800;
+}
+.dd-prose .dd-table td:first-child {
+  color: var(--dd-ink);
+  font-weight: 800;
+}
+.dd-prose .dd-table td:nth-child(2),
+.dd-prose .dd-table td:last-child {
+  white-space: nowrap;
+}
 @media (max-width: 640px) {
   .dd-prose {
     padding: 96px 16px 150px;
@@ -739,6 +778,16 @@
   }
   .dd-prose .dd-section {
     padding: 16px 16px 18px;
+  }
+  .dd-prose .dd-table {
+    font-size: 13px;
+  }
+  .dd-prose .dd-table th,
+  .dd-prose .dd-table td {
+    padding: 8px 6px;
+  }
+  .dd-prose .dd-table td:nth-child(2) {
+    white-space: normal;
   }
 }
 
