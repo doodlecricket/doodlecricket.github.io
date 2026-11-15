@@ -877,6 +877,36 @@
   text-decoration-color: var(--dd-sun);
   text-decoration-thickness: 3px;
 }
+/* Game pages: the start screen sits in the page flow, the game stays visible. */
+.dd-splash--top,
+.dd-splash--text {
+  position: static;
+  z-index: auto;
+  overflow: visible;
+}
+.dd-splash--top {
+  padding: 6px 16px 6px 140px;
+  min-height: 56px;
+  box-sizing: border-box;
+}
+.dd-splash--top .dd-splash-card {
+  max-width: none;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  text-align: left;
+}
+.dd-splash--top .dd-splash-title {
+  font-size: clamp(22px, 6vw, 30px);
+}
+.dd-splash--top .dd-btn {
+  padding: 4px 18px;
+  font-size: 18px;
+}
+.dd-splash--top .dd-splash-title::after {
+  display: none;
+}
 .dd-splash .dd-player {
   width: 100%;
   max-width: 430px;
