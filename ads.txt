@@ -439,6 +439,8 @@ admanmedia.com, 2050, RESELLER
 
 #360Playvid
 360playvid.com, 22921845643, DIRECT
+datammatic.com, 22921845643, DIRECT
+google.com, pub-6106740322220497, RESELLER, f08c47fec0942fa0
 smartadline.com, 22921845643, DIRECT
 zippormedia.com, 22921845643, DIRECT
 added.tv, 22921845643, DIRECT
